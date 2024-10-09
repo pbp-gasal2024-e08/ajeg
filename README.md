@@ -42,7 +42,7 @@ Admin pada toko yang bersangkutan dapat menjawab setiap pertanyaan yang ada.
 - _Tanya_: Memberikan suatu pertanyaan.
 - _Jawab_: Menjawab suatu pertanyaan.
 
-# Checkout
+## Checkout
 
 > By: Muhammad Nadzim Tahara
 > NPM: 2306275430
@@ -167,3 +167,11 @@ Seluruh pengguna dapat melihat announcement yang dibuat oleh seorang penjual.
 - _Mengedit announcement_: mengedit announcement yang telah dibuat
 - _Menghapus announcement_: menghapus announcement yang telah dibuat
 - _Melihat announcement_: melihat announcement yang ada
+
+## Sumber Dataset
+
+Data diperoleh dengan cara web-scraping data yang ada pada situs `gofood.co.id`. Data diperoleh dengan mencari restoran `best-seller` dan `most-loved` pada daerah `Bali`.
+
+Kode kemudian dijadikan kedalam bentuk `JSON` agar dapat di-parse di semua ruang proyek.
+
+Nama file data: `data.json`
