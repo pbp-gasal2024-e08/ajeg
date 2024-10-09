@@ -42,7 +42,7 @@ Admin pada toko yang bersangkutan dapat menjawab setiap pertanyaan yang ada.
 - _Tanya_: Memberikan suatu pertanyaan.
 - _Jawab_: Menjawab suatu pertanyaan.
 
-# Checkout
+## Checkout
 
 > By: Muhammad Nadzim Tahara
 > NPM: 2306275430
@@ -191,3 +191,11 @@ Pelanggan yang sudah terautentikasi dapat menghapus produk yang sudah ada dari w
 - _Tambah ke wishlist_: pelanggan menambahkan produk ke wishlist
 - _Lihat wishlist_: pelanggan melihat isi dari wishlist pribadi mereka
 - _Hapus dari wishlist_: pelanggan menghapus produk tertentu dari wishlist mereka
+
+## Sumber Dataset
+
+Data diperoleh dengan cara web-scraping data yang ada pada situs `gofood.co.id`. Data diperoleh dengan mencari restoran `best-seller` dan `most-loved` pada daerah `Bali`.
+
+Kode kemudian dijadikan kedalam bentuk `JSON` agar dapat di-parse di semua ruang proyek.
+
+Nama file data: `data.json`
