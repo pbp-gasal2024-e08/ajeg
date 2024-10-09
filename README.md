@@ -49,7 +49,7 @@ Admin pada toko yang bersangkutan dapat menjawab setiap pertanyaan yang ada.
 
 Modul Checkout ini dirancang untuk menangani proses checkout makanan dan minuman, mulai dari pemilihan item hingga penyimpanan riwayat pembelian pengguna. Modul ini bertujuan untuk memfasilitasi pengalaman pengguna dalam memesan, membayar, dan melihat pesanan yang sudah dilakukan. Berikut adalah alur utama yang akan diimplementasikan dalam modul Checkout:
 
-### 1. Pemilihan Item
+###  1. Pemilihan Item
 
 Pengguna dapat memilih item makanan dan minuman yang tersedia di dalam sistem. Item akan ditambahkan ke dalam keranjang belanja (cart) yang bersifat sementara sebelum di-checkout.
 
