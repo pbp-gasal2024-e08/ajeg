@@ -138,3 +138,32 @@ Apabila seorang admin mendapati bahwa terdapat review yang melanggar syarat peng
 - _Beri review_: Pelanggan memberikan review pada suatu produk.
 - _Edit review_: Pelanggan mengubah review yang pernah ia berikan untuk suatu produk
 - _Hapus review_: Pelanggan dapat menghapus review yang pernah ia berikan untuk suatu produk.
+
+## Announcement
+
+> By: Andreas Timothy
+
+Modul announcement memungkinkan penjual untuk memberikan pesan pengumuman kepada pengguna yang melihat halaman tokonya. Berikut adalah alur utama yang akan diimplementasikan pada modul announcement:
+
+### 1. Membuat announcement
+
+Penjual dapat membuat announcement kepada pengguna.
+
+### 2. Mengedit announcement
+
+Penjual dapat mengedit announcement yang telah dibuat.
+
+### 3. Menghapus announcement
+
+Penjual dapat menghapus announcement yang telah dibuat.
+
+### 4. Melihat announcement
+
+Seluruh pengguna dapat melihat announcement yang dibuat oleh seorang penjual.
+
+## Fitur Utama
+
+- _Membuat announcement_: membuat announcement yang dapat dilihat pengguna
+- _Mengedit announcement_: mengedit announcement yang telah dibuat
+- _Menghapus announcement_: menghapus announcement yang telah dibuat
+- _Melihat announcement_: melihat announcement yang ada
