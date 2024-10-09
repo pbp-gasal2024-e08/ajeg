@@ -49,7 +49,7 @@ Admin pada toko yang bersangkutan dapat menjawab setiap pertanyaan yang ada.
 
 Modul Checkout ini dirancang untuk menangani proses checkout makanan dan minuman, mulai dari pemilihan item hingga penyimpanan riwayat pembelian pengguna. Modul ini bertujuan untuk memfasilitasi pengalaman pengguna dalam memesan, membayar, dan melihat pesanan yang sudah dilakukan. Berikut adalah alur utama yang akan diimplementasikan dalam modul Checkout:
 
-###  1. Pemilihan Item
+### 1. Pemilihan Item
 
 Pengguna dapat memilih item makanan dan minuman yang tersedia di dalam sistem. Item akan ditambahkan ke dalam keranjang belanja (cart) yang bersifat sementara sebelum di-checkout.
 
@@ -106,6 +106,38 @@ Saat checkout, pengguna dapat memilih voucher yang telah diklaim untuk mendapatk
 - _Penggunaan Voucher_: Menerapkan voucher saat checkout.
 
 Modul ini bertujuan untuk memberikan bonus kepada pengguna agar lebih sering berbelanja di AJEG.
+
+## Review
+
+> By: Thorbert Anson Shi NPM: 2306221900
+
+Modul Review merupakan sistem penilaian produk yang dapat dijadikan tolak ukur bagi pelanggan dan penjual untuk mengevaluasi kualitas produk yang disediakan. Sebuah review terdiri atas dua komponen, yakni sebuah rating dan review tertulis. Alur penggunaan modul rating adalah sebagai berikut:
+
+#### 1. Melihat review suatu produk
+
+Setiap pengguna aplikasi (pelanggan dan penjual) dapat melihat rating rata-rata dari suatu produk, beserta dengan semua review yang ditujukan pada produk yang bersangkutan.
+
+#### 2. Melihat rating suatu toko
+
+Setiap pengguna aplikasi (pelanggan dan penjual) dapat melihat rating dari suatu toko. Rating dari suatu toko adalah rata-rata dari rating semua produk yang dijual toko tersebut.
+
+#### 3. Membuat review untuk sebuah produk
+
+Seorang pelanggan yang terautentikasi dan telah membeli sebuah produk dapat membuat review berupa rating dan ulasan teks untuk produk tersebut.
+
+#### 4. Mengubah review yang diberikan
+
+Seorang pelanggan yang pernah membuat review suatu produk dapat mengubah rating yang ia berikan untuk produk tersebut.
+
+#### 5. Menghapus ulasan seorang pengguna
+
+Apabila seorang admin mendapati bahwa terdapat review yang melanggar syarat penggunaan aplikasi, mereka dapat menghapus review yang bersangkutan.
+
+### Fitur Utama:
+
+- _Beri review_: Pelanggan memberikan review pada suatu produk.
+- _Edit review_: Pelanggan mengubah review yang pernah ia berikan untuk suatu produk
+- _Hapus review_: Pelanggan dapat menghapus review yang pernah ia berikan untuk suatu produk.
 
 ## Announcement
 
