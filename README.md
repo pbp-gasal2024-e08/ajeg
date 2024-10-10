@@ -145,28 +145,52 @@ Apabila seorang admin mendapati bahwa terdapat review yang melanggar syarat peng
 
 Modul announcement memungkinkan penjual untuk memberikan pesan pengumuman kepada pengguna yang melihat halaman tokonya. Berikut adalah alur utama yang akan diimplementasikan pada modul announcement:
 
-### 1. Membuat announcement
+#### 1. Membuat announcement
 
 Penjual dapat membuat announcement kepada pengguna.
 
-### 2. Mengedit announcement
+#### 2. Mengedit announcement
 
 Penjual dapat mengedit announcement yang telah dibuat.
 
-### 3. Menghapus announcement
+#### 3. Menghapus announcement
 
 Penjual dapat menghapus announcement yang telah dibuat.
 
-### 4. Melihat announcement
+#### 4. Melihat announcement
 
 Seluruh pengguna dapat melihat announcement yang dibuat oleh seorang penjual.
 
-## Fitur Utama
+### Fitur Utama
 
 - _Membuat announcement_: membuat announcement yang dapat dilihat pengguna
 - _Mengedit announcement_: mengedit announcement yang telah dibuat
 - _Menghapus announcement_: menghapus announcement yang telah dibuat
 - _Melihat announcement_: melihat announcement yang ada
+
+## Wishlist
+
+> By Meinhard Christian
+
+Modul Wishlist merupakan daftar produk-produk yang ingin dibeli oleh seorang pelanggan. Berikut adalah alur utama yang akan diimplementasikan pada modul Wishlist:
+
+#### 1. Menambahkan produk ke wishlist
+
+Pelanggan yang sudah terautentikasi memilih suatu produk untuk dimasukkan ke dalam wishlist.
+
+#### 2. Melihat isi wishlist
+
+Pelanggan yang sudah terautentikasi dapat melihat isi dari wishlist mereka masing-masing.
+
+#### 3. Menghapus produk dari wishlist
+
+Pelanggan yang sudah terautentikasi dapat menghapus produk yang sudah ada dari wishlist.
+
+### Fitur Utama:
+
+- _Tambah ke wishlist_: pelanggan menambahkan produk ke wishlist
+- _Lihat wishlist_: pelanggan melihat isi dari wishlist pribadi mereka
+- _Hapus dari wishlist_: pelanggan menghapus produk tertentu dari wishlist mereka
 
 ## Sumber Dataset
 
