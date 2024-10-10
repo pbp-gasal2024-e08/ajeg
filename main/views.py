@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from auth.views import login_user
+from myauth.views import login_user
 
 # Create your views here.
 @login_required

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'checkout',
     'faq',
     'main',
-    'rating',
+    'review',
     'voucher',
     'wishlist',
 ]
