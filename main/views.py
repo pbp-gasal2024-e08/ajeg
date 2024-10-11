@@ -9,7 +9,7 @@ from django.urls import reverse
 from myauth.views import login_user
 
 # Create your views here.
-@login_required
+@login_required(login_url='myauth:login')
 def show_main(request):
 
     return render(request, 'landing.html')
