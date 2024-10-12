@@ -13,13 +13,12 @@
       <img src="{% static 'image/loginimage.png' %}" class="w-full h-full object-cover" alt="login-image" />
     </div>
 
-    <form class="max-w-xl w-full p-6 mx-auto">
+    <form class="max-w-xl w-full p-6 mx-auto" method="POST">
       {% csrf_token %}
       <div class="mb-12">
         <h3 class="text-gray-800 text-4xl font-extrabold">Sign in</h3>
-        <p class="text-gray-800 text-sm mt-6">Don't have an account <a href="{% url 'myauth:register' %}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+        <p class="text-gray-800 text-sm mt-6">Don't have an account <a href="{% url 'myauth:register_user' %}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
       </div>
-
       <div>
         <label class="text-gray-800 text-sm block mb-2">Email</label>
         <div class="relative flex items-center">
@@ -63,7 +62,7 @@
       </div>
 
       <div class="mt-12">
-        <button type="button" class="w-full py-2.5 px-4 text-sm tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+        <button type="submit" class="w-full py-2.5 px-4 text-sm tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
           Sign in
         </button>
       </div>
