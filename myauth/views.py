@@ -42,4 +42,8 @@ def login_user(request):
     else:
         return render(request, 'login.html')
 
-
+def logout_user(request):
+    logout(request)
+    response = redirect('main:landing')
+    response.delete_cookie('last_login')
+    return response
