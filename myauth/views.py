@@ -24,6 +24,7 @@ def register_user(request):
     context = {'form': form}
     return render(request, 'register_user.html', context)
 
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -41,7 +42,6 @@ def login_user(request):
         return redirect('main:show_main')
     else:
         return render(request, 'login.html')
-
 def logout_user(request):
     logout(request)
     response = redirect('main:landing')

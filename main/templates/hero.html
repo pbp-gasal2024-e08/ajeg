@@ -1,0 +1,41 @@
+{% load static %}
+
+<section
+  class="relative z-1 bg-[url(https://images.unsplash.com/photo-1580633457286-c8027dfe970b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center bg-no-repeat"
+>
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-40% from-white/85 to-transparent"
+  ></div>
+
+  <div
+    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:min-h-[calc(100vh-84px)] lg:items-center lg:px-8"
+  >
+    <div class="max-w-xl ">
+      <h1 class="text-3xl font-extrabold md:text-5xl sm:text-5xl">
+        Find Bali's Most
+
+        <strong class="block font-extrabold text-orange-600"> Delicious Dishes.</strong>
+      </h1>
+
+      <p class="mt-4  max-w-lg sm:text-xl/relaxed">
+        From hidden local gems to renowned restaurants, explore the rich and vibrant flavors of Bali’s culinary paradise.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href="{% url 'myauth:login' %}"
+          class="block w-full rounded bg-orange-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-orange-700 focus:outline-none focus:ring active:bg-orange-500 sm:w-auto"
+        >
+          Get started
+        </a>
+
+        <a
+          href="#"
+          class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-orange-600 shadow hover:text-orange-700 focus:outline-none focus:ring active:text-orange-500 sm:w-auto"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
