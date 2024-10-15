@@ -17,7 +17,7 @@
       {% csrf_token %}
       <div class="mb-12">
         <h3 class="text-gray-800 text-4xl font-extrabold">Sign in</h3>
-        <p class="text-gray-800 text-sm mt-6">Don't have an account <a href="{% url 'myauth:register_user' %}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+        <p class="text-gray-800 text-sm mt-6">Don't have an account <a href="{% url 'myauth:register' %}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
       </div>
       <div>
         <label class="text-gray-800 text-sm block mb-2">Username</label>
