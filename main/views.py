@@ -1,6 +1,9 @@
+from multiprocessing import context
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.context_processors import auth 
+
+from main.models import Product
 
 
 # Create your views here.
@@ -10,8 +13,11 @@ def show_main(request):
     user_data = {
         'user_type': request.user.ajeg_user.user_type
     }
-    print(user_data)
-    return render(request, 'main.html', user_data)
+    context= {
+        'user_data': user_data, 
+        'products': Product.objects.all()
+        }
+    return render(request, 'main.html', context)
 
 def landing(request):
 
