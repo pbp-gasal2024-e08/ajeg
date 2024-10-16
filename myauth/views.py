@@ -3,7 +3,7 @@ from django.contrib import messages
 import datetime
 from django.shortcuts import render, redirect
 
-from myauth.forms import CreateUserForm, CreateTokoForm
+from myauth.forms import CreateUserForm, CreateStoreForm
 
 # Create your views here.
 def register(request): 
