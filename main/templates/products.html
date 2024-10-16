@@ -1,0 +1,12 @@
+{% load static %}
+
+{% block content %}
+  <h2>Merchant Stores:</h2>
+  <ul>
+    {% for store in user.ajeg_user.merchant_store.all %}
+      <li>{{ store.name }}</li>
+    {% empty %}
+      <li>No stores available.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

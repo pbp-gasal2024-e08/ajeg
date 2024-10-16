@@ -1,153 +1,1710 @@
 [
     {
-        "model": "main.toko",
+        "model": "main.category",
+        "pk": 1,
+        "fields": {
+            "category": "Rice"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 2,
+        "fields": {
+            "category": "Chicken & duck"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 3,
+        "fields": {
+            "category": "Pizza & pasta"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 4,
+        "fields": {
+            "category": "Fast food"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 5,
+        "fields": {
+            "category": "Western"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 6,
+        "fields": {
+            "category": "Snacks"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 7,
+        "fields": {
+            "category": "Sweets"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 8,
+        "fields": {
+            "category": "Seafood"
+        }
+    },
+    {
+        "model": "main.category",
+        "pk": 9,
+        "fields": {
+            "category": "Beverages"
+        }
+    },
+    {
+        "model": "main.store",
         "pk": 1,
         "fields": {
             "name": "WR.RAFAEL, Ayam Lengkuas & Nasi Tempong, Kedewatan",
             "url": "https://gofood.co.id/en/bali/restaurant/wr-rafael-ayam-lengkuas-nasi-tempong-kedewatan-237158a5-050b-4830-b450-0b175925bbd7",
-            "range": "$$",
+            "price_range": "$$",
             "rating": 4.3,
-            "kategori": ["Rice", "Chicken & duck", "Pizza & pasta"]
+            "category": [1, 2, 3]
         }
     },
     {
         "model": "main.product",
         "pk": 1,
         "fields": {
-            "toko": 1,
-            "nama": "Nasi ayam goreng sambal tempong kemangi",
-            "harga": 33500,
-            "deskripsi": "Ayam, nasi, kremes lengkuas spesial, tahu, tempe, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan dan bagian ayam paha atau dada jika tidak maka kami kirim random."
+            "store": 1,
+            "name": "Nasi ayam goreng sambal tempong kemangi",
+            "price": 33500,
+            "description": "Ayam, nasi, kremes lengkuas spesial, tahu, tempe, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan dan bagian ayam paha atau dada jika tidak maka kami kirim random."
         }
     },
     {
         "model": "main.product",
         "pk": 2,
         "fields": {
-            "toko": 1,
-            "nama": "Nasi tempong spesial komplit",
-            "harga": 35000,
-            "deskripsi": "Nasi, ayam, tahu, tempe, sayuran rebus, ikan asin, sambal tempong. Untuk bagian ayam paha atau dada mohon tinggalkan notif."
+            "store": 1,
+            "name": "Nasi tempong spesial komplit",
+            "price": 35000,
+            "description": "Nasi, ayam, tahu, tempe, sayuran rebus, ikan asin, sambal tempong. Untuk bagian ayam paha atau dada mohon tinggalkan notif."
         }
     },
     {
         "model": "main.product",
         "pk": 3,
         "fields": {
-            "toko": 1,
-            "nama": "Nasi Ayam Lengkuas Dada",
-            "harga": 29500,
-            "deskripsi": "Nasi, ayam, kremes lengkuas, lalapan, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
+            "store": 1,
+            "name": "Nasi Ayam Lengkuas Dada",
+            "price": 29500,
+            "description": "Nasi, ayam, kremes lengkuas, lalapan, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
         }
     },
     {
         "model": "main.product",
         "pk": 4,
         "fields": {
-            "toko": 1,
-            "nama": "Nasi Ayam Goreng Lengkuas Paha",
-            "harga": 29500,
-            "deskripsi": "Nasi + ayam lengkuas spesial + sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
+            "store": 1,
+            "name": "Nasi Ayam Goreng Lengkuas Paha",
+            "price": 29500,
+            "description": "Nasi + ayam lengkuas spesial + sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
         }
     },
     {
         "model": "main.product",
         "pk": 5,
         "fields": {
-            "toko": 1,
-            "nama": "Nasi Bebek Goreng lengkuas spesial lengkap",
-            "harga": 45000,
-            "deskripsi": "Bebek, tahu, tempe, nasi, sambal, lalapan."
+            "store": 1,
+            "name": "Nasi Bebek Goreng lengkuas spesial lengkap",
+            "price": 45000,
+            "description": "Bebek, tahu, tempe, nasi, sambal, lalapan."
         }
     },
     {
         "model": "main.product",
         "pk": 6,
         "fields": {
-            "toko": 1,
-            "nama": "Lele Lengkuas Dan Nasi",
-            "harga": 27000,
-            "deskripsi": "Lele 1 pcs + nasi + sambal tempong + lalapan."
+            "store": 1,
+            "name": "Lele Lengkuas Dan Nasi",
+            "price": 27000,
+            "description": "Lele 1 pcs + nasi + sambal tempong + lalapan."
         }
     },
     {
         "model": "main.product",
         "pk": 7,
         "fields": {
-            "toko": 1,
-            "nama": "Tahu lengkuas + Nasi",
-            "harga": 22000,
-            "deskripsi": "Tahu + nasi + sambal + lalapan."
+            "store": 1,
+            "name": "Tahu lengkuas + Nasi",
+            "price": 22000,
+            "description": "Tahu + nasi + sambal + lalapan."
         }
     },
     {
         "model": "main.product",
         "pk": 8,
         "fields": {
-            "toko": 1,
-            "nama": "Terong goreng dan nasi",
-            "harga": 18000,
-            "deskripsi": "Lalapan terong goreng, nasi, sambal."
+            "store": 1,
+            "name": "Terong goreng dan nasi",
+            "price": 18000,
+            "description": "Lalapan terong goreng, nasi, sambal."
         }
     },
     {
         "model": "main.product",
         "pk": 9,
         "fields": {
-            "toko": 1,
-            "nama": "Ikan bakar mujair + nasi",
-            "harga": 43000,
-            "deskripsi": "Ikan bakar, nasi, sambal, lalapan."
+            "store": 1,
+            "name": "Ikan bakar mujair + nasi",
+            "price": 43000,
+            "description": "Ikan bakar, nasi, sambal, lalapan."
         }
     },
     {
         "model": "main.product",
         "pk": 10,
         "fields": {
-            "toko": 1,
-            "nama": "Es teh",
-            "harga": 7000,
-            "deskripsi": "Es teh manis atau tawar, silahkan tinggalkan pesan jika tidak kami kirim manis."
+            "store": 1,
+            "name": "Es teh",
+            "price": 7000,
+            "description": "Es teh manis atau tawar, silahkan tinggalkan pesan jika tidak kami kirim manis."
         }
     },
     {
         "model": "main.product",
         "pk": 11,
         "fields": {
-            "toko": 1,
-            "nama": "Teh hangat",
-            "harga": 7000,
-            "deskripsi": "Teh hangat manis atau tawar, mohon tinggalkan pesan untuk manis atau tawar jika tidak kami kirim manis."
+            "store": 1,
+            "name": "Teh hangat",
+            "price": 7000,
+            "description": "Teh hangat manis atau tawar, mohon tinggalkan pesan untuk manis atau tawar jika tidak kami kirim manis."
         }
     },
     {
         "model": "main.product",
         "pk": 12,
         "fields": {
-            "toko": 1,
-            "nama": "Es jeruk",
-            "harga": 8000,
-            "deskripsi": "Es jeruk manis."
+            "store": 1,
+            "name": "Es jeruk",
+            "price": 8000,
+            "description": "Es jeruk manis."
         }
     },
     {
         "model": "main.product",
         "pk": 13,
         "fields": {
-            "toko": 1,
-            "nama": "Jeruk hangat",
-            "harga": 8000,
-            "deskripsi": "Jeruk hangat manis."
+            "store": 1,
+            "name": "Jeruk hangat",
+            "price": 8000,
+            "description": "Jeruk hangat manis."
         }
     },
     {
         "model": "main.product",
         "pk": 14,
         "fields": {
-            "toko": 1,
-            "nama": "Air Mineral 600Ml",
-            "harga": 7000,
-            "deskripsi": "Air mineral 600ml."
+            "store": 1,
+            "name": "Air Mineral 600Ml",
+            "price": 7000,
+            "description": "Air mineral 600ml."
+        }
+    },
+    {
+        "model": "main.store",
+        "pk": 2,
+        "fields": {
+            "name": "Nena Cafe, Kebab & Shawarma, Ubud",
+            "url": "https://gofood.co.id/en/bali/restaurant/nena-cafe-kebab-shawarma-ubud",
+            "price_range": "$$$",
+            "rating": 4.5,
+            "category": [4, 5, 6]
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 15,
+        "fields": {
+            "store": 2,
+            "name": "Doner Kebab",
+            "price": 85000,
+            "description": "Large. Little spicy! 8 hours marinated chicken thigh fillet, grilled, mixed with French fries, homemade Lecho sauce, jalapeno, tomato, and lettuce, wrapped in crispy lavash flatbread. Comes with garlic white and Lecho sauce on the side."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 16,
+        "fields": {
+            "store": 2,
+            "name": "Royal Shawarma + Homemade Drink",
+            "price": 95000,
+            "description": "Extra large. Grilled chicken mixed with fresh veggies, pickles, mozzarella, onion, herbs, and spices, wrapped in freshly baked signature crispy flatbread. Comes with white and red sauces, plus a free homemade drink."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 17,
+        "fields": {
+            "store": 2,
+            "name": "Shawerma Number 1",
+            "price": 85000,
+            "description": "Large. Chicken fillet marinated in a blend of spices, grilled, and mixed with fresh vegetables, Korean-style spicy carrots, herbs, and spices, wrapped in freshly baked crispy lavash flatbread. Comes with special white and secret red sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 18,
+        "fields": {
+            "store": 2,
+            "name": "Beef Burrito Bombitto (Big)",
+            "price": 114000,
+            "description": "A flavor explosion with rich beef prep, melted cheddar cheese, and authentic lavash wrap. More than just a burrito, it’s a taste sensation that leaves a lasting impression."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 19,
+        "fields": {
+            "store": 2,
+            "name": "Mors Passion Fruit (Small)",
+            "price": 24000,
+            "description": "250ml Homemade sweet and sour tasty drink from fresh passion fruit."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 20,
+        "fields": {
+            "store": 2,
+            "name": "French Fries",
+            "price": 30000,
+            "description": "French fries served with tomato ketchup. Customize it with your favorite garlic white sauce or red Ajika sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 21,
+        "fields": {
+            "store": 2,
+            "name": "Cutlet Kebab",
+            "price": 75000,
+            "description": "Lavash wrap filled with juicy chicken cutlets, cheddar, tangy gherkins, enhanced with homemade red Ajika sauce and smooth white garlic sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 22,
+        "fields": {
+            "store": 2,
+            "name": "Falafel Rich",
+            "price": 72000,
+            "description": "Delicate falafels, spicy Korean carrots, crisp lettuce, and a zesty kinza sauce come together in a culinary masterpiece."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 23,
+        "fields": {
+            "store": 2,
+            "name": "Cheesy Shawarma",
+            "price": 95000,
+            "description": "Melted cheddar and mozzarella with tender shawarma-style chicken, crisp pickles, juicy tomatoes, all snug in a cheese-laden lavash."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 24,
+        "fields": {
+            "store": 2,
+            "name": "Cheesy Shawarma (Small)",
+            "price": 72000,
+            "description": "Smaller portion of the Cheesy Shawarma with the same delightful flavors."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 25,
+        "fields": {
+            "store": 2,
+            "name": "King Kebab (Shawarma)",
+            "price": 85000,
+            "description": "Large chicken marinated in a special blend of spices, mixed with tomatoes, cucumbers, vitamin salad, and marinated onion, wrapped in crispy lavash flatbread."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 26,
+        "fields": {
+            "store": 2,
+            "name": "Queen Kebab (Shawarma)",
+            "price": 70000,
+            "description": "Medium size, same ingredients as the King Kebab, just smaller."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 27,
+        "fields": {
+            "store": 2,
+            "name": "Mexico Kebab: Black Edition",
+            "price": 90000,
+            "description": "Large. Little spicy! Grilled chicken fillet mixed with fresh vegetables, red onion, black beans, jalapeno, and special spicy sauce, wrapped in black lavash flatbread."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 28,
+        "fields": {
+            "store": 2,
+            "name": "Vegetarian Falafel Kebab",
+            "price": 78000,
+            "description": "Large. 5 pcs of freshly cooked falafel with hummus, lettuce, tomatoes, spices, special white garlic sauce wrapped in homemade crispy lavash flatbread."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 29,
+        "fields": {
+            "store": 2,
+            "name": "Nena Shashlyk",
+            "price": 113000,
+            "description": "Premium cuts of marinated chicken thigh, grilled over charcoal. Served with fresh homemade lavash and fresh veggies. Comes with garlic white and red Ajika sauces."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 30,
+        "fields": {
+            "store": 2,
+            "name": "Profiteroles",
+            "price": 50000,
+            "description": "Three savory, sweet cakes filled with creamy milk cream."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 31,
+        "fields": {
+            "store": 2,
+            "name": "Mors Strawberry",
+            "price": 45000,
+            "description": "500ml Homemade sweet drink with fresh strawberries."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 32,
+        "fields": {
+            "store": 2,
+            "name": "Sprite",
+            "price": 24000,
+            "description": "Soft drink, 330ml."
+        }
+    },
+    {
+        "model": "main.store",
+        "pk": 3,
+        "fields": {
+            "name": "Pancake Paradise (Crepes, Juice), Ubud",
+            "url": "https://gofood.co.id/en/bali/restaurant/pancake-paradise-crepes-juice-ubud",
+            "price_range": "$$$",
+            "rating": 4.6,
+            "category": [4, 5, 7]
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 33,
+        "fields": {
+            "store": 3,
+            "name": "Coca-Cola",
+            "price": 25000,
+            "description": ""
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 34,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Banana and Nutella",
+            "price": 69000,
+            "description": "Nutella and banana crepes, a delightful sweet treat."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 35,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Egg and Bacon",
+            "price": 69000,
+            "description": "Savory crepe filled with egg and crispy bacon."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 36,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Ham and Cheese",
+            "price": 69000,
+            "description": "Classic crepe filled with ham and melted cheese."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 37,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Butter",
+            "price": 43000,
+            "description": "Simple and satisfying crepe with butter."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 38,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Cinnamon and Apples",
+            "price": 69000,
+            "description": "Sweet crepes with cinnamon and tender apples."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 39,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Chicken and Creamy Mushroom Mozzarella",
+            "price": 69000,
+            "description": "Savory crepe with chicken, creamy mushrooms, and mozzarella."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 40,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Strawberries and Nutella",
+            "price": 69000,
+            "description": "Crepe filled with fresh strawberries and Nutella."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 41,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Potatoes and Mushrooms",
+            "price": 69000,
+            "description": "A hearty crepe with potatoes and mushrooms."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 42,
+        "fields": {
+            "store": 3,
+            "name": "Crepes with Mango and Nutella",
+            "price": 69000,
+            "description": "Unique crepe with fresh mango and Nutella."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 43,
+        "fields": {
+            "store": 3,
+            "name": "Salmon with Cream Cheese",
+            "price": 103000,
+            "description": "Crepe filled with delicious salmon and tender cream cheese."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 44,
+        "fields": {
+            "store": 3,
+            "name": "Banana Milkshake",
+            "price": 59000,
+            "description": "Milkshake made with milk, ice cream, banana, whipped cream, and mint leaf."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 45,
+        "fields": {
+            "store": 3,
+            "name": "Ice Tea 450ml",
+            "price": 34000,
+            "description": "Classic black tea served with ice and sugar."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 46,
+        "fields": {
+            "store": 3,
+            "name": "Ice Milk Tea 350ml",
+            "price": 39000,
+            "description": "Refreshing milk tea with ice and sugar."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 47,
+        "fields": {
+            "store": 3,
+            "name": "Ice Mocaccino 350ml",
+            "price": 39000,
+            "description": "Mocaccino coffee served with sugar and ice."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 48,
+        "fields": {
+            "store": 3,
+            "name": "Vegetable Salad",
+            "price": 58000,
+            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil."
+        }
+    },
+
+    {
+        "model": "main.store",
+        "pk": 4,
+        "fields": {
+            "name": "Wanted Mangal (Grill, BBQ, Kebab), Ubud",
+            "url": "https://gofood.co.id/en/bali/restaurant/wanted-mangal-grill-bbq-kebab-ubud",
+            "price_range": "$$",
+            "rating": 4.8,
+            "category": [4, 5, 7]
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 49,
+        "fields": {
+            "store": 4,
+            "name": "Pork Shashlik (BBQ, Kebab, Grill) With Rice 100gr",
+            "price": 125000,
+            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 225gr (+-20gr) fresh meat."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 50,
+        "fields": {
+            "store": 4,
+            "name": "Vegetable Salad",
+            "price": 58000,
+            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 51,
+        "fields": {
+            "store": 4,
+            "name": "Chicken Thighs (Grill, BBQ, Kebab) With Rice 100gr",
+            "price": 115000,
+            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 250gr (+-20gr) fresh chicken."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 52,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Mahi Mahi Fish With Rice",
+            "price": 129000,
+            "description": "Mahi Mahi fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 53,
+        "fields": {
+            "store": 4,
+            "name": "Pork Shashlik (BBQ, Kebab, Grill) - 1 Kilo BIG PORTION With 250gr Of Rice",
+            "price": 429000,
+            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh meat."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 54,
+        "fields": {
+            "store": 4,
+            "name": "Chicken Thighs (Grill, BBQ, Kebab) - 1 Kilo BIG PORTION With 250gr Of Rice",
+            "price": 332000,
+            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh chicken."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 55,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Salmon Steak With Rice",
+            "price": 289000,
+            "description": "Salmon steak in a sauce with garlic, coriander, parsley and salt butter, served with rice."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 56,
+        "fields": {
+            "store": 4,
+            "name": "Pork Ribs",
+            "price": 119000,
+            "description": "Pork ribs with sauce and baked potatoes with garlic butter."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 57,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Dori Fish With Rice",
+            "price": 99000,
+            "description": "Dory fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 58,
+        "fields": {
+            "store": 4,
+            "name": "Nasi Goreng",
+            "price": 45000,
+            "description": "Traditional Indonesian fried rice with chicken, vegetables and spices."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 59,
+        "fields": {
+            "store": 4,
+            "name": "Mixed Grill Set",
+            "price": 289000,
+            "description": "Set of pork shashlik, grilled chicken thighs, mahi mahi fish and dory fish."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 60,
+        "fields": {
+            "store": 4,
+            "name": "Australian Lamb Chops",
+            "price": 549000,
+            "description": "Tender Australian lamb chops in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 61,
+        "fields": {
+            "store": 4,
+            "name": "1 Australian Lamb Chop",
+            "price": 249000,
+            "description": "1 tender Australian lamb chop in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 62,
+        "fields": {
+            "store": 4,
+            "name": "Chicken Shawarma Doner Kebab",
+            "price": 95000,
+            "description": "150g of marinated chicken served in lavash with sauce, pickles, tomato, cabbage, and marinated carrot."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 63,
+        "fields": {
+            "store": 4,
+            "name": "Chicken Strips",
+            "price": 67000,
+            "description": "Juicy pieces of breaded chicken served on pita bread with sauce and pickled onions."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 64,
+        "fields": {
+            "store": 4,
+            "name": "Prawns In Garlic Butter",
+            "price": 149000,
+            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs (150-180 g)."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 65,
+        "fields": {
+            "store": 4,
+            "name": "Prawns In Garlic Butter Big Portion 1 Kilo",
+            "price": 990000,
+            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 66,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Pork Shawarma Doner Kebab",
+            "price": 99000,
+            "description": "Lavash, Sauce, Marinated grilled pork, Pickles, Tomato, Cabbage, Marinated Carrot."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 67,
+        "fields": {
+            "store": 4,
+            "name": "Dori Fish Shawarma Doner Kebab",
+            "price": 95000,
+            "description": "Lavash, Sauce, Grilled Dori fish, Pickles, Tomato, Cabbage, Marinated Carrot."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 68,
+        "fields": {
+            "store": 4,
+            "name": "Beef Burger",
+            "price": 75000,
+            "description": "Tender beef cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 69,
+        "fields": {
+            "store": 4,
+            "name": "Chicken Burger",
+            "price": 75000,
+            "description": "Tender chicken cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 70,
+        "fields": {
+            "store": 4,
+            "name": "Oprice_range Fresh Juice Cold Pressed",
+            "price": 59000,
+            "description": "Oprice_range fresh cold-pressed juice (480ml)."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 71,
+        "fields": {
+            "store": 4,
+            "name": "Cola 200Ml",
+            "price": 24000,
+            "description": "Refreshing cola beverage."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 72,
+        "fields": {
+            "store": 4,
+            "name": "Sprite 200 Ml",
+            "price": 24000,
+            "description": "Refreshing lemon-lime soda."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 73,
+        "fields": {
+            "store": 4,
+            "name": "Water Aqua 600Ml",
+            "price": 19000,
+            "description": "Still water."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 74,
+        "fields": {
+            "store": 4,
+            "name": "Ice Tea 450ml",
+            "price": 29000,
+            "description": "Black tea served with ice and sugar."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 75,
+        "fields": {
+            "store": 4,
+            "name": "Ice Milk Tea 350ml",
+            "price": 35000,
+            "description": "Black tea with milk, ice, and sugar."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 76,
+        "fields": {
+            "store": 4,
+            "name": "Ice Mocaccino 350ml",
+            "price": 35000,
+            "description": "Mochaccino coffee served with sugar and ice."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 77,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Corn",
+            "price": 45000,
+            "description": "Grilled corn with butter, garlic, and herbs."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 78,
+        "fields": {
+            "store": 4,
+            "name": "Grilled Tomatoes",
+            "price": 45000,
+            "description": "Tender grilled tomatoes with salt and pepper."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 79,
+        "fields": {
+            "store": 4,
+            "name": "Steamed Rice",
+            "price": 21000,
+            "description": "Boiled Balinese rice (200gr +-10gr)."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 80,
+        "fields": {
+            "store": 4,
+            "name": "Mashed Potatoes",
+            "price": 45000,
+            "description": "Tender mashed potatoes with greens, prepared with milk."
+        }
+    },
+    {
+        "model": "main.store",
+        "pk": 5,
+        "fields": {
+            "name": "Ubud Shanti Warung",
+            "url": "https://gofood.co.id/en/bali/restaurant/ubud-shanti-warung",
+            "price_range": "$$",
+            "rating": 4.3,
+            "category": [9, 1, 2] 
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 81,
+        "fields": {
+            "store": 5,
+            "name": "Ayam Bakar",
+            "price": 40000,
+            "description": "Grilled chicken leg served with sambal matah and tomato sambal."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 82,
+        "fields": {
+            "store": 5,
+            "name": "Nasi Campur Ayam",
+            "price": 45000,
+            "description": "Rice with mix vegetables, fried chicken, fried corn, eggplant balado, sweet tempe, tofu and boiled egg, sambal matah, tomato sambal, pickles, and chicken satay."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 83,
+        "fields": {
+            "store": 5,
+            "name": "Nasi Goreng Ayam",
+            "price": 38000,
+            "description": "Fried rice with mixed vegetables, chicken satay, peanut sauce, chips, pickles, and fried egg."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 84,
+        "fields": {
+            "store": 5,
+            "name": "Mie Goreng Ayam",
+            "price": 38000,
+            "description": "Fried noodles with mixed vegetables, chicken satay, peanut sauce, pickles, chips, and fried egg."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 85,
+        "fields": {
+            "store": 5,
+            "name": "Mie Goreng Vegetarian",
+            "price": 35000,
+            "description": "Fried noodles with mixed vegetables, tempe, and peanut sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 86,
+        "fields": {
+            "store": 5,
+            "name": "Gado-Gado",
+            "price": 35000,
+            "description": "Mix vegetables, tempe, tofu, and boiled egg served with peanut sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 87,
+        "fields": {
+            "store": 5,
+            "name": "Vegetarian Curry",
+            "price": 35000,
+            "description": "Potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 88,
+        "fields": {
+            "store": 5,
+            "name": "Chicken Curry",
+            "price": 38000,
+            "description": "Chicken, potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 89,
+        "fields": {
+            "store": 5,
+            "name": "Sate Ayam",
+            "price": 40000,
+            "description": "Rice with chicken satay served with tomato sambal."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 90,
+        "fields": {
+            "store": 5,
+            "name": "Bihun Goreng",
+            "price": 38000,
+            "description": "Glass noodle with mixed vegetables, chicken satay, fried egg, tomato sambal, pickles, and onion chips."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 91,
+        "fields": {
+            "store": 5,
+            "name": "Nasi Campur Vegetarian",
+            "price": 45000,
+            "description": "Brown rice with mixed vegetables, tempe satay, sweet tempe, fried corn, eggplant balado, tofu, and boiled egg."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 92,
+        "fields": {
+            "store": 5,
+            "name": "Nasi Goreng Vegetarian",
+            "price": 35000,
+            "description": "Fried rice with mixed vegetables, tempe satay, and peanut sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 93,
+        "fields": {
+            "store": 5,
+            "name": "Sweet Corn Soup Egg Drop",
+            "price": 35000,
+            "description": "Sweet corn soup with mixed vegetables and egg on top."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 94,
+        "fields": {
+            "store": 5,
+            "name": "Cap Cay",
+            "price": 40000,
+            "description": "Mix vegetables, cauliflower, broccoli, and mushroom with thick and fresh gravy."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 95,
+        "fields": {
+            "store": 5,
+            "name": "Capcay Ayam",
+            "price": 45000,
+            "description": "Chicken with egg and mixed vegetable sauté soup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 96,
+        "fields": {
+            "store": 5,
+            "name": "Chicken Sweet Sour",
+            "price": 45000,
+            "description": "Crispy chicken with mixed vegetables and sweet sour sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 97,
+        "fields": {
+            "store": 5,
+            "name": "Spring Roll",
+            "price": 25000,
+            "description": "Mix vegetable wrapped (2 pcs)."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 98,
+        "fields": {
+            "store": 5,
+            "name": "Kentang Goreng",
+            "price": 25000,
+            "description": "French fries with tomato or spicy sauce."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 99,
+        "fields": {
+            "store": 5,
+            "name": "Dadar Gulung",
+            "price": 25000,
+            "description": "Green organic pancake with coconut brown sugar filling."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 100,
+        "fields": {
+            "store": 5,
+            "name": "Bakwan Jagung",
+            "price": 25000,
+            "description": "Deep fried sweet corn."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 101,
+        "fields": {
+            "store": 5,
+            "name": "[21+] Large Beer",
+            "price": 55000,
+            "description": "[Alcoholic beverage, only for customers 21+]"
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 102,
+        "fields": {
+            "store": 5,
+            "name": "[21+] Small Beer",
+            "price": 40000,
+            "description": "[Alcoholic beverage, only for customers 21+]"
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 103,
+        "fields": {
+            "store": 5,
+            "name": "Sprite Can 250ml",
+            "price": 15000,
+            "description": "Refreshing lemon-lime soda."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 104,
+        "fields": {
+            "store": 5,
+            "name": "Coca Cola Can 250ml",
+            "price": 15000,
+            "description": "Refreshing cola beverage."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 105,
+        "fields": {
+            "store": 5,
+            "name": "Coca Cola Zero Sugar 250ml",
+            "price": 15000,
+            "description": "Sugar-free cola beverage."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 106,
+        "fields": {
+            "store": 5,
+            "name": "Schweppes Tonic Water 250ml",
+            "price": 15000,
+            "description": "Refreshing tonic water."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 107,
+        "fields": {
+            "store": 5,
+            "name": "Teh Pucuk",
+            "price": 10000,
+            "description": "Refreshing Indonesian tea."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 108,
+        "fields": {
+            "store": 5,
+            "name": "Jus Buah Naga",
+            "price": 25000,
+            "description": "Dragonfruit blended with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 109,
+        "fields": {
+            "store": 5,
+            "name": "Jus Nanas",
+            "price": 25000,
+            "description": "Pineapple blended with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 110,
+        "fields": {
+            "store": 5,
+            "name": "Jus Mangga",
+            "price": 30000,
+            "description": "Mango blended with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 111,
+        "fields": {
+            "store": 5,
+            "name": "Jus Semangka",
+            "price": 25000,
+            "description": "Watermelon blended with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 112,
+        "fields": {
+            "store": 5,
+            "name": "Jus Jeruk",
+            "price": 25000,
+            "description": "Oprice_range juice with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 113,
+        "fields": {
+            "store": 5,
+            "name": "Mix Juice",
+            "price": 25000,
+            "description": "Pineapple, watermelon, papaya, dragonfruit blended with simple syrup."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 114,
+        "fields": {
+            "store": 5,
+            "name": "Polaris Soda Water",
+            "price": 15000,
+            "description": "Refreshing soda water."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 115,
+        "fields": {
+            "store": 5,
+            "name": "[21+] Bintang Radler Lemon",
+            "price": 40000,
+            "description": "[Alcoholic beverage, only for customers 21+]"
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 116,
+        "fields": {
+            "store": 5,
+            "name": "Oprice_range Water UC1000",
+            "price": 15000,
+            "description": "Refreshing oprice_range-flavored water."
+        }
+    },
+
+    {
+        "model": "main.store", 
+        "pk": 6,
+        "fields": {
+            "name": "Bella Tacos, Ubud",
+            "url": "https://gofood.co.id/en/bali/restaurant/bella-tacos-ubud",
+            "price_range": "$$",
+            "rating": 4.8,
+            "category": [5] 
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 117,
+        "fields": {
+            "store": 6,
+            "name": "Chips And Dips",
+            "price": 39450,
+            "description": "Corn Tortillas Chips with Guacamole, Salsa Roja, Pico De Gallo Salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 118,
+        "fields": {
+            "store": 6,
+            "name": "Coke",
+            "price": 22500,
+            "description": "Refreshing cola beverage."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 119,
+        "fields": {
+            "store": 6,
+            "name": "Quesadillas Chicken",
+            "price": 76500,
+            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 120,
+        "fields": {
+            "store": 6,
+            "name": "Soft Tacos Chicken",
+            "price": 76500,
+            "description": "Soft flour tortillas with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 121,
+        "fields": {
+            "store": 6,
+            "name": "Zero Coke",
+            "price": 22500,
+            "description": "Sugar-free cola beverage."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 122,
+        "fields": {
+            "store": 6,
+            "name": "Soft Tacos Jackfruit",
+            "price": 81250,
+            "description": "Soft flour tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 123,
+        "fields": {
+            "store": 6,
+            "name": "Soft Tacos Beef",
+            "price": 93750,
+            "description": "Soft flour tortillas with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 124,
+        "fields": {
+            "store": 6,
+            "name": "Crispy Tacos Beef",
+            "price": 93750,
+            "description": "Crispy corn tacos with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 125,
+        "fields": {
+            "store": 6,
+            "name": "Crispy Tacos Chicken",
+            "price": 85000,
+            "description": "Crispy corn tacos with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 126,
+        "fields": {
+            "store": 6,
+            "name": "Crispy Tacos Jackfruit",
+            "price": 81250,
+            "description": "Crispy corn tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 127,
+        "fields": {
+            "store": 6,
+            "name": "Quesadillas",
+            "price": 76500,
+            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 128,
+        "fields": {
+            "store": 6,
+            "name": "Quesadillas Jackfruit",
+            "price": 81250,
+            "description": "Soft flour tortillas with melted cheese, shredded jackfruit, guacamole, pico de gallo salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 129,
+        "fields": {
+            "store": 6,
+            "name": "Quesadillas Cheese",
+            "price": 75000,
+            "description": "Soft flour tortillas with melted cheese, guacamole, pico de gallo salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 130,
+        "fields": {
+            "store": 6,
+            "name": "Quesadillas Beef",
+            "price": 93750,
+            "description": "Soft flour tortillas with melted cheese, grilled marinated beef, guacamole, pico de gallo salsa."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 131,
+        "fields": {
+            "store": 6,
+            "name": "Burrito Beef",
+            "price": 98750,
+            "description": "Soft flour tortillas with marinated grilled beef, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 132,
+        "fields": {
+            "store": 6,
+            "name": "Burrito Chicken",
+            "price": 90000,
+            "description": "Soft flour tortillas with marinated grilled chicken, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 133,
+        "fields": {
+            "store": 6,
+            "name": "Burrito Jackfruit",
+            "price": 86250,
+            "description": "Soft flour tortillas with marinated grilled jackfruit, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 134,
+        "fields": {
+            "store": 6,
+            "name": "Wet Burrito Beef",
+            "price": 111250,
+            "description": "The beef burrito with enchiladas sauce and melted cheese."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 135,
+        "fields": {
+            "store": 6,
+            "name": "Wet Burrito Chicken",
+            "price": 102500,
+            "description": "The chicken burrito with enchiladas sauce and melted cheese."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 136,
+        "fields": {
+            "store": 6,
+            "name": "Wet Burrito Jackfruit",
+            "price": 98750,
+            "description": "The jackfruit burrito with enchiladas sauce and melted cheese."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 137,
+        "fields": {
+            "store": 6,
+            "name": "Nachos Chicken",
+            "price": 85000,
+            "description": "Melted cheese on corn tortillas chips with grilled marinated chicken, guacamole, pico de gallo salsa, and jalapenos."
+        } 
+    },
+    {
+        "model": "main.product",
+        "pk": 138,
+        "fields": {
+            "store": 6,
+            "name": "Nachos Jackfruit",
+            "price": 81250,
+            "description": "Melted cheese on corn tortillas chips with shredded jackfruit, guacamole, pico de gallo salsa, and jalapenos."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 139,
+        "fields": {
+            "store": 6,
+            "name": "Nachos Beef",
+            "price": 93750,
+            "description": "Melted cheese on corn tortillas chips with grilled marinated beef, guacamole, pico de gallo salsa, and jalapenos."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 140,
+        "fields": {
+            "store": 6,
+            "name": "Mineral Water",
+            "price": 12500,
+            "description": "Refreshing mineral water."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 141,
+        "fields": {
+            "store": 6,
+            "name": "Sprite",
+            "price": 25000,
+            "description": "Refreshing lemon-lime soda."
+        }
+    },
+    {
+        "model": "main.product",
+        "pk": 142,
+        "fields": {
+            "store": 6,
+            "name": "Beef Birria Tacos",
+            "price": 111250,
+            "description": "Flour tortillas, shredded beef birria, melted cheese, onion, cilantro, birria consome, and guacamole."
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "pemilik1",
+            "password": "hashed_password1",  
+            "email": "pemilik1@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "pemilik2",
+            "password": "hashed_password2",
+            "email": "pemilik2@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "pemilik3",
+            "password": "hashed_password3",
+            "email": "pemilik3@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "pemilik4",
+            "password": "hashed_password4",
+            "email": "pemilik4@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "pemilik5",
+            "password": "hashed_password5",
+            "email": "pemilik5@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "username": "pemilik6",
+            "password": "hashed_password6",
+            "email": "pemilik6@example.com"
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 1,
+        "fields": {
+            "ajeg_user": 1,  
+            "user_type": "merchant",
+            "store": [1]
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 2,
+        "fields": {
+            "ajeg_user": 2,  
+            "user_type": "merchant",
+            "store": [2]
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 3,
+        "fields": {
+            "ajeg_user": 3,  
+            "user_type": "merchant",
+            "store": [3]
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 4,
+        "fields": {
+            "ajeg_user": 4, 
+            "user_type": "merchant",
+            "store": [4]
+
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 5,
+        "fields": {
+            "ajeg_user": 5,  
+            "user_type": "merchant",
+            "store": [5]
+        }
+    },
+    {
+        "model": "myauth.ajeguser",
+        "pk": 6,
+        "fields": {
+            "ajeg_user": 6,  
+            "user_type": "merchant",
+            "store": [6]
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 1,
+        "fields": {
+            "user": 1,  
+            "store": 1 
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 2,
+        "fields": {
+            "user": 2,  
+            "store": 2 
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 3,
+        "fields": {
+            "user": 3,  
+            "store": 3  
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 4,
+        "fields": {
+            "user": 4,  
+            "store": 4  
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 5,
+        "fields": {
+            "user": 5,  
+            "store": 5 
+        }
+    },
+    {
+        "model": "myauth.storeuserrelation",
+        "pk": 6,
+        "fields": {
+            "user": 6,  
+            "store": 6 
         }
     }
 ]
