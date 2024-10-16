@@ -1,25 +1,22 @@
 from django.db import models
 
 # Create your models here.
-class Category(models.Model):
-    category = models.CharField(max_length=30)
 
-class Store(models.Model):
-    name = models.CharField(max_length=255)
+class Toko(models.Model):
+    nama_toko = models.CharField(max_length=255)
     url = models.URLField()
-    price_range = models.CharField(max_length=10)
+    range_harga = models.CharField(max_length=10)
     rating = models.FloatField()
-    category = models.ManyToManyField(Category)
+    kategori = models.JSONField()
 
     def __str__(self):
-        return self.name
+        return self.nama_toko
 
 class Product(models.Model):
-    store = models.ForeignKey(Store, related_name='products', on_delete=models.CASCADE, default='')
-    name = models.CharField(max_length=255, default='produk')
-    price = models.DecimalField(max_digits=10, decimal_places=2, default='0.00')
-    description = models.TextField(default='Deskripsi Kosong')
+    toko = models.ForeignKey(Toko, related_name='products', on_delete=models.CASCADE)
+    nama = models.CharField(max_length=255)
+    harga = models.DecimalField(max_digits=10, decimal_places=2)
+    deskripsi = models.TextField()
 
     def __str__(self):
-        return self.name
-
+        return self.nama

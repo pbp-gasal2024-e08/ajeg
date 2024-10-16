@@ -1,6 +1,5 @@
 from django.contrib import admin
-from myauth.models import AjegUser, StoreUserRelation
+from myauth.models import AjegUser
 
 # Register your models here.
 admin.site.register(AjegUser)
-admin.site.register(StoreUserRelation)

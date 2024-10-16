@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from main.models import Store
+from main.models import Toko
 from myauth.models import User, AjegUser
 
 class CreateUserForm(UserCreationForm):
@@ -25,14 +25,14 @@ class CreateUserForm(UserCreationForm):
             )
         return user
     
-class CreateStoreForm(forms.ModelForm):
+class CreateTokoForm(forms.ModelForm):
     class Meta:
-        model = Store
-        fields = ['name', 'url', 'price_range', 'rating', 'category']
+        model = Toko
+        fields = ['nama_toko', 'url', 'range_harga', 'rating', 'kategori']
     def save(self, commit=True):
-        store = super(CreateStoreForm, self).save(commit=False)
+        toko = super(CreateTokoForm, self).save(commit=False)
         if commit:
-            store.save()
+            toko.save()
         ajeg_user = self.instance.ajeg_user
-        ajeg_user.store.add(store)
-        return store
+        ajeg_user.toko.add(toko)
+        return toko
