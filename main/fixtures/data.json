@@ -1697,7 +1697,7 @@
         "fields": {
             "user": 5,  
             "store": 5 
-        }
+        } 
     },
     {
         "model": "myauth.storeuserrelation",
