@@ -1641,7 +1641,7 @@
 
         }
     },
-    {
+    { 
         "model": "myauth.ajeguser",
         "pk": 5,
         "fields": {
@@ -1649,7 +1649,7 @@
             "user_type": "merchant",
             "store": [5]
         }
-    },
+    }, 
     {
         "model": "myauth.ajeguser",
         "pk": 6,

@@ -5,15 +5,13 @@
   
         <div class="flex items-center space-x-8">
           <div class="shrink-0">
-            <a href="#" title="" class="">
+            <a href="{% url 'main:landing' %}" title="" class="">
               <img class="block w-auto h-8 dark:hidden" src="{% static 'image/ajeglogo.png' %}" alt="" class="h-12">
-              <img class="hidden w-auto h-8 dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg" alt="">
             </a>
           </div>
-  
           <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
             <li>
-              <a href="/" title="" class="group flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500 transition-all duration-300 ease-in-out">
+              <a href="{% url 'main:show_main' %}" title="" class="group flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500 transition-all duration-300 ease-in-out">
                 <span class="bg-left-bottom bg-gradient-to-r from-orange-500 to-orange-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                   Home
                 </span>
