@@ -14,5 +14,6 @@ urlpatterns = [
     path(
         "by_store/<int:store_id>", fetch_reviews_by_store, name="fetch_reviews_by_store"
     ),
+    path("add_review/<int:product_id>", add_review, name="add_review"),
     path("add_comment/<uuid:id>", add_comment, name="add_comment"),
 ]

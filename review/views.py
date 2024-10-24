@@ -1,11 +1,16 @@
+import uuid
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
-from review.models import *
-from main.models import Product
+from myauth.models import AjegUser
+from review.models import UserReview, Comment
+from main.models import Product, Store
 from django.core.serializers import serialize
+
+# TODO: MAKE SURE TO UPDATE THIS FILE IF ID TYPE BECOMES CHANGED TO UUID
 
 
 def render_reviews_panel(request, product_id: int):
@@ -38,6 +43,7 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
     return HttpResponse(serialize("json", reviews), status=200)
 
 
+# Check this implementation in the future
 def fetch_reviews_by_store(request: HttpRequest, store_id: int):
     store = Store.objects.get(pk=store_id)
     products = Product.objects.filter(store=store)
@@ -51,22 +57,51 @@ def fetch_all_reviews(request) -> HttpResponse:
 
 
 @require_POST
-def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
+def add_review(request: HttpRequest, product_id: int):
     """
-    Adds a comment to the `UserReview` with the specified ID
+    Adds a review to the `Product` with the specified ID
 
     Args
-        `id` - The UUID of the specified `UserReview`
+        `id` = The ID of the specified `Product`
+
+    The function expects two arguments in the request body:
+        `star_rating` - An integer between 1 and 5 representing the star rating given to the product
+        `comment` - An optional comment left along with the star rating
+    """
+    try:
+        product = Product.objects.get(pk=product_id)
+    except Product.DoesNotExist:
+        return HttpResponse("This product wasn't found!", status=404)
+
+    creator: AjegUser = request.user.ajeg_user
+
+    print(request.POST.get("star_rating"))
+
+    review = UserReview.objects.create_review(
+        creator=creator,
+        product=product,
+        star_rating=request.POST.get("star_rating"),
+        base_comment=request.POST.get("base_comment"),
+    )
+
+    return HttpResponse(serialize("json", [review]), status=201)
+
+
+@require_POST
+def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
+    """
+    Adds a comment to the `Comment` with the specified ID
+
+    Args
+        `id` - The ID of the specified target `Comment`
 
     The function expects one argument in the request body:
         `content` - A string containing the contents of the comment
-
-    The function returns
     """
     response = HttpResponse()
 
     try:
-        review = UserReview.objects.get(pk=id)
+        target_comment = Comment.objects.get(pk=id)
     except UserReview.DoesNotExist:
         response.content = "The specified review does not exist"
         response.status_code = 404
