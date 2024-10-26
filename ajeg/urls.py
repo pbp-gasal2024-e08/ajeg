@@ -25,4 +25,5 @@ urlpatterns = [
     path("review/", include("review.urls")),
     path("", include('favorites.urls')),
     path("", include('wishlist.urls')),
+    path('announcement/', include('announcement.urls')),
 ]
