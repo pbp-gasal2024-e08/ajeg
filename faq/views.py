@@ -16,8 +16,19 @@ def view_faq(request):
     return render(request, "view_faq.html", context)
 
 def show_json(request):
-    print("masuk bro")
-    data = Question.objects.filter(user=request.user)
+    data = Question.objects.all()
+    # questions = Question.objects.all()
+    # data = []
+    # for question in questions:
+    #     cur_data = {
+    #         "id": question.pk,
+    #         "title": question.title,
+    #         "question": question.question,
+    #         "answered": question.answered,
+    #     }
+    #     if cur_data["answered"]:
+    #         cur_data["answer"] = "negga"
+    #     data.append(cur_data)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 @csrf_exempt
@@ -26,28 +37,12 @@ def add_question_ajax(request):
     user = request.user
     title = strip_tags(request.POST.get("title"))
     question = strip_tags(request.POST.get("question"))
-    product_asked = Product.objects.get(pk=request.POST.get("id"))
-    print(f"tite={title}")
-    print(f"question={question}")
+    # product_asked = Product.objects.get(pk=request.POST.get("id"))
     new_question = Question(
         user=user,
-        product_asked=product_asked,
+        # product_asked=product_asked,
         title=title,
         question=question,
     )
     new_question.save()
     return HttpResponse(b"CREATED", status=201)
-
-def get_questions(request):
-    questions = Question.objects.all()
-    data = []
-    for question in questions:
-        cur_data = {
-            "id": question.pk,
-            "title": question.title,
-            "question": question.question,
-            "answered": question.answered,
-        }
-        data.append(cur_data)
-    
-    return HttpResponse(json.dumps(data), content_type="application/json")

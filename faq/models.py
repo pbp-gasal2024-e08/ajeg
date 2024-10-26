@@ -4,7 +4,7 @@ from main.models import Product
 
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product_asked = models.ForeignKey(Product, on_delete=models.CASCADE)
+    # product_asked = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=169)
     question = models.TextField()
     answered = models.BooleanField(default=False)
