@@ -2,17 +2,63 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% block meta %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajeg</title>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
     {% endblock %}
-</head>
-    <body>
-        {% block content %}
-        {% include 'navbar.html' %}
-        {% include 'products.html' %}
-        {% endblock content %}
-    </body>
+  </head>
+  <body>
+    {% block content %} {% include 'navbar.html' %}
+    <!-- Tes announcement -->
+    <div class="container mx-auto" id="announcement-container">
+    </div>
+    {% include 'products.html' %}
+    <p>in main</p>
+
+
+    <script>
+        async function getAnnouncements() {
+            // Tes fetch announcement dari store dengan id 1
+            return fetch("{% url 'announcement:get_announcements_by_store' 1 %}").then((res) => res.json())
+        }
+
+        async function refreshAnnouncements() {
+            const announcementContainer = document.querySelector('#announcement-container');
+            const announcements = await getAnnouncements();
+            announcementContainer.innerHTML = '';
+            announcements.forEach(announcement => {
+                const title = DOMPurify.sanitize(announcement.fields.title);
+                const description = DOMPurify.sanitize(announcement.fields.description);
+                announcementContainer.innerHTML += `
+                    <div
+                    class="flex items-center p-4 mb-4 text-orange-800 rounded-lg bg-orange-50"
+                    role="alert"
+                    >
+                        <svg
+                            class="flex-shrink-0 inline w-4 h-4 me-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                            />
+                        </svg>
+                        <span class="sr-only">Info</span>
+                        <div>
+                            <h4 class="text-lg font-semibold">${title}</h4>
+                            <p class="text-sm">${description}</p>
+                        </div>
+                    </div>`
+            })
+        }
+
+        refreshAnnouncements();
+    </script>
+    {% endblock content %}
+  </body>
 </html>
