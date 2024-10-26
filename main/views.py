@@ -16,7 +16,6 @@ def show_main(request):
     context= {
         'user_data': user_data, 
         'products': Product.objects.all(),
-        'announcements': Announcement.objects.all()
         }
     return render(request, 'main.html', context)
 

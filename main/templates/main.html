@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajeg</title>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
     {% endblock %}
   </head>
   <body>
@@ -20,6 +21,7 @@
 
     <script>
         async function getAnnouncements() {
+            // Tes fetch announcement dari store dengan id 1
             return fetch("{% url 'announcement:get_announcements_by_store' 1 %}").then((res) => res.json())
         }
 
@@ -28,8 +30,8 @@
             const announcements = await getAnnouncements();
             announcementContainer.innerHTML = '';
             announcements.forEach(announcement => {
-                console.log(announcement);
-                
+                const title = DOMPurify.sanitize(announcement.fields.title);
+                const description = DOMPurify.sanitize(announcement.fields.description);
                 announcementContainer.innerHTML += `
                     <div
                     class="flex items-center p-4 mb-4 text-orange-800 rounded-lg bg-orange-50"
@@ -48,8 +50,8 @@
                         </svg>
                         <span class="sr-only">Info</span>
                         <div>
-                            <h4 class="text-lg font-semibold">${announcement.fields.title}</h4>
-                            <p class="text-sm">${announcement.fields.description}</p>
+                            <h4 class="text-lg font-semibold">${title}</h4>
+                            <p class="text-sm">${description}</p>
                         </div>
                     </div>`
             })
