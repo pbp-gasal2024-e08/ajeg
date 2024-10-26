@@ -16,4 +16,6 @@ urlpatterns = [
     ),
     path("add_review/<int:product_id>", add_review, name="add_review"),
     path("add_comment/<uuid:id>", add_comment, name="add_comment"),
+    # URL to check if user is authenticated
+    path("check", check, name="check"),
 ]

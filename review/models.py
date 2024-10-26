@@ -38,6 +38,9 @@ class Comment(models.Model):
     creator = models.ForeignKey(AjegUser, null=True, on_delete=models.SET_NULL)
     target = models.ForeignKey("self", null=True, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.content
+
 
 class UserReview(models.Model):
     """
@@ -61,3 +64,23 @@ class UserReview(models.Model):
     base_comment = models.OneToOneField(Comment, on_delete=models.CASCADE, null=False)
 
     # TODO: Add image upload field
+
+    def get_base_comment(self):
+        base_comment = Comment.objects.get(pk=self.base_comment)
+        return base_comment.content
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "product": self.product.id,
+            "creator": self.creator.ajeg_user.username,
+            "star_rating": self.star_rating,
+            "created_at": self.created_at,
+            "last_updated": self.last_updated,
+            "base_comment": {
+                "id": self.base_comment.id,
+                "content": self.base_comment.content,
+                # "created_at": self.base_comment.created_at,
+                # "updated_at": self.base_comment.updated_at,
+            },
+        }

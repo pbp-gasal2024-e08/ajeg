@@ -1,7 +1,7 @@
 import uuid
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
@@ -15,7 +15,12 @@ from django.core.serializers import serialize
 
 def render_reviews_panel(request, product_id: int):
     product = Product.objects.get(pk=product_id)
-    return render(request, "reviews_panel.html", {"product": product})
+
+    user = None
+    if request.user.is_authenticated:
+        user = AjegUser.objects.get(ajeg_user=request.user)
+
+    return render(request, "reviews_panel.html", {"product": product, "user": user})
 
 
 def fetch_review_by_id(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
@@ -40,7 +45,11 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
     except Product.DoesNotExist or UserReview.DoesNotExist:
         return HttpResponse("Product not found", status=404)
 
-    return HttpResponse(serialize("json", reviews), status=200)
+    reviews_json = []
+    for review in reviews:
+        reviews_json.append(review.serialize())
+
+    return JsonResponse(reviews_json, safe=False, status=200)
 
 
 # Check this implementation in the future
@@ -56,6 +65,7 @@ def fetch_all_reviews(request) -> HttpResponse:
     return HttpResponse(serialize("json", reviews), status=200)
 
 
+@login_required(login_url="/login")
 @require_POST
 def add_review(request: HttpRequest, product_id: int):
     """
@@ -107,9 +117,16 @@ def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
         response.status_code = 404
         return response
 
+    # TODO: Fix the logic here, it's broken ATM
     new_comment = Comment(content=request.POST.get("content"), target=review)
     new_comment.save()
 
     response.content = "The comment was successfully created"
     response.status_code = 200
     return response
+
+
+# Helper view function to check if user is logged_in asynchronously
+@login_required(login_url="/login")
+def check(request):
+    return HttpResponse(request.user, status=200)
