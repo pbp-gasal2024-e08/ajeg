@@ -1,0 +1,28 @@
+<h1>Reviews for {{product.name}}</h1>
+<div id="reviews-container" class="flex flex-row"></div>
+
+<script>
+  let container = document.querySelector("#reviews-container");
+
+  async function fetchReviewsByProduct(productId) {
+    let endpoint = `/review/by_product/${productId}`;
+    let data = await fetch(endpoint);
+    let dataJson = await data.json();
+
+    return dataJson;
+  }
+
+  window.onload = () => {
+    let productId = window.location.href.split("/").pop();
+    let reviews = fetchReviewsByProduct(productId).then((reviews) => {
+      reviews.forEach((review) => {
+        container.innerHTML += `
+                    <div id=${review.id} class="flex flex-col justify-center items-start">
+                        <p>${review.star_rating}</p>
+                        <p>${review.base_comment.content}</p>
+                    </div>
+                    `;
+      });
+    });
+  };
+</script>
