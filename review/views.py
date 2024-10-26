@@ -85,7 +85,7 @@ def add_review(request: HttpRequest, product_id: int):
 
     creator: AjegUser = request.user.ajeg_user
 
-    print(request.POST.get("star_rating"))
+    # TODO: Check if user has bought this product
 
     review = UserReview.objects.create_review(
         creator=creator,
@@ -118,7 +118,10 @@ def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
         return response
 
     # TODO: Fix the logic here, it's broken ATM
-    new_comment = Comment(content=request.POST.get("content"), target=review)
+    creator: AjegUser = request.user.ajeg_user
+    new_comment = Comment(
+        creator=creator, content=request.POST.get("content"), target=target_comment
+    )
     new_comment.save()
 
     response.content = "The comment was successfully created"
@@ -126,7 +129,9 @@ def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
     return response
 
 
-# Helper view function to check if user is logged_in asynchronously
 @login_required(login_url="/login")
 def check(request):
+    """
+    Helper view function to check if user is logged_in asynchronously
+    """
     return HttpResponse(request.user, status=200)
