@@ -18,7 +18,7 @@
             >
               <li class="inline-flex items-center">
                 <a
-                  href="#"
+                  href="{% url 'main:show_main' %}"
                   class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-orange-600"
                 >
                   <svg
@@ -260,7 +260,7 @@
               </div>
 
               <a
-                href="#"
+                href="{% url 'checkout:show_product_page' product.id|slugify %}"
                 class="text-lg font-semibold leading-tight text-gray-900 hover:underline"
                 >{{ product.name }}</a
               >

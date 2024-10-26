@@ -1,31 +1,15 @@
-from math import prod
-from typing import Any
 from django import forms
-
-from myauth.models import AjegUser
-
 from .models import Cart
-from main.models import Product
 
-class AddToCartForm(forms.ModelForm):
-    # user = forms.ModelChoiceField(queryset=AjegUser.objects.all(), empty_label=None)
-    # product = forms.ModelChoiceField(queryset=Product.objects.all())
+class AddToCartForm(forms.ModelForm):  # Use ModelForm instead of Forms
     quantity = forms.IntegerField(min_value=1, max_value=100)
-    # total_price = forms.IntegerField()
-
-
 
     class Meta:
         model = Cart
-        fields = ['quantity']
+        fields = ['quantity']  # Specify fields explicitly instead of '__all__' to avoid issues
 
-    def save(self, commit = True):
-        cart = super(AddToCartForm, self).save()
-        # if commit:
-        #     Cart.objects.create(
-        #         user = self.user,
-        #         product = self.product,
-        #         quantity = self.cleaned_data['quantity'],
-        #         total_price = self.product.price * self.cleaned_data['quantity']
-        #     )
-        return cart
+    def save(self, commit=True):
+        return super(AddToCartForm, self).save(commit=commit)
+
+    def clean_password(self):
+        return
