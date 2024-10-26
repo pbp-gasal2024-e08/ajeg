@@ -9,7 +9,9 @@ from main.models import Product, Store
 from favorites.models import FavoriteProductList, FavoriteStoreList, FavoriteProduct, FavoriteStore
 from wishlist.models import Wishlist, WishlistItem
 
-# Close any active database connections
+# To use        : py manage.py reset
+# Used for      : insta-creating users with pre-hashed passwords, clean up migration history (Warning, will delete data from current database)
+# Reccomended   : have fixtures and load them or extend this command to quickly reset/reload data
 
 class Command(BaseCommand):
     help = 'Flush DB, delete sqlite file, apply migrations, load initial data, and create superuser/users.'
