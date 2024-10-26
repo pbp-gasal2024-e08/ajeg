@@ -12,12 +12,18 @@ from myauth.models import AjegUser
 
 class UserReviewManager(models.Manager):
     def create_review(
-        self, creator: AjegUser, product: Product, star_rating: int, base_comment: str
+        self,
+        creator: AjegUser,
+        product: Product,
+        synopsis: str,
+        star_rating: int,
+        base_comment: str,
     ):
         base_comment = Comment.objects.create(content=base_comment, target=None)
         review = self.create(
             creator=creator,
             product=product,
+            synopsis=synopsis,
             star_rating=star_rating,
             base_comment=base_comment,
         )
@@ -58,6 +64,7 @@ class UserReview(models.Model):
 
     # Make sure a star rating is given for each review
     star_rating = models.PositiveSmallIntegerField(null=False, blank=False)
+    synopsis = models.CharField(max_length=50, null=True, blank=True)
     base_comment = models.OneToOneField(Comment, on_delete=models.CASCADE, null=False)
 
     # TODO: Add image upload field
@@ -67,6 +74,7 @@ class UserReview(models.Model):
             "product": self.product.id,
             "creator": self.creator.ajeg_user.username,
             "star_rating": self.star_rating,
+            "synopsis": self.synopsis,
             "created_at": self.created_at,
             "last_updated": self.last_updated,
             "base_comment": {

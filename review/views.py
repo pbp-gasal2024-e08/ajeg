@@ -90,6 +90,7 @@ def add_review(request: HttpRequest, product_id: int):
     review = UserReview.objects.create_review(
         creator=creator,
         product=product,
+        synopsis=request.POST.get("synopsis"),
         star_rating=request.POST.get("star_rating"),
         base_comment=request.POST.get("base_comment"),
     )

@@ -1,8 +1,5 @@
 {% load static %}
-<dialog
-  class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-black h-1/2 w-1/2"
-  closed
->
+<dialog class="fixed bg-white border-2 border-black h-fit w-1/2" closed>
   <form
     id="review-creation-form"
     class="flex flex-col items-start space-y-10 p-5 md:p-10 w-full"
@@ -71,6 +68,15 @@
           />
         </svg>
       </label>
+    </div>
+    <div class="w-full flex flex-col space-y-5 text-xl">
+      <label for="synopsis">Synopsis</label>
+      <input
+        id="synopsis"
+        name="synopsis"
+        placeholder="How was the product?"
+        type="text"
+      />
     </div>
     <div class="w-full flex flex-col space-y-5 text-xl">
       <label for="base_comment">Comment</label>
@@ -147,13 +153,12 @@
     });
   });
 
-  let reviewCreationForm = document.querySelector("review-creation-form");
-
+  let reviewCreationForm = document.querySelector("#review-creation-form");
   reviewCreationForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let productId = window.location.href.split("/").pop();
     let response = addReview(productId).then((response) => {
-      form.reset();
+      reviewCreationForm.reset();
       addReviewModal.close();
       refreshProducts();
     });
@@ -176,7 +181,7 @@
   closeModalButton.addEventListener("click", (e) => {
     e.preventDefault();
     starRating = 0;
-    form.reset();
+    reviewCreationForm.reset();
     addReviewModal.close();
   });
 
@@ -184,11 +189,13 @@
     const endpoint = `/review/add_review/${productId}`;
     let data = await fetch(endpoint, {
       method: "POST",
-      body: new FormData(form),
+      body: new FormData(reviewCreationForm),
     });
 
     let dataJson = await data.json();
 
     return dataJson;
   }
+
+  document.querySelector("[for='star-1']").click();
 </script>
