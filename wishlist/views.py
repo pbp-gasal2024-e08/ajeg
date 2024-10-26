@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from wishlist.models import Wishlist, WishlistItem
+from favorites.models import FavoriteProduct, FavoriteProductList
 from django.http import JsonResponse
 from django.contrib import messages
 # Create your views here.
@@ -37,9 +38,12 @@ def edit_wishlist(request):
         wishlist, created = Wishlist.objects.get_or_create(user=request.user)
         wishlist_item = WishlistItem.objects.filter(wishlist=wishlist, product_id=product_id).first()
         if new_amount > 0:
+            total = int(float(request.POST.get("total"))) + wishlist_item.product.price * (new_amount - wishlist_item.amount)
+            total_formated =  f"{int(total):,}".replace(",", ".") 
             wishlist_item.amount = new_amount
             wishlist_item.save()
-            return JsonResponse({"deleted": False, "amount": wishlist_item.amount})
+            new_total = f"{int(wishlist_item.amount * wishlist_item.product.price):,}".replace(",", ".")
+            return JsonResponse({"deleted": False, "amount": wishlist_item.amount, "item_total":new_total, "total":total, "total_formated":total_formated})
         else:
             wishlist_item.delete()
             return JsonResponse({"deleted": True})
@@ -49,45 +53,11 @@ def edit_wishlist(request):
 def view_wishlist(request):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     wishlist = wishlist.items.all()
+    favoriteproductlist, created = FavoriteProductList.objects.get_or_create(user=request.user)
+    favorite_ids = favoriteproductlist.items.values_list('product', flat=True).distinct()
+    total_price = int(sum(item.product.price * item.amount for item in wishlist))
     return render(request, 'wishlist.html', context={
         'wishlist': wishlist, 
+        'total'   : total_price,
+        'favorited_ids' : favorite_ids,
     })
-
-AJAX = """
-function adjustWishlistQuantity(productId, action) {
-    const quantityElement = $(`#wishlist-item-quantity-${productId}`);
-    let currentQuantity = parseInt(quantityElement.text());
-
-    let newQuantity = action === 'increment' ? currentQuantity + 1 : currentQuantity - 1;
-    if (newQuantity < 1) {
-        newQuantity = 1;  // Set a minimum quantity of 1
-    }
-
-    $.ajax({
-        url: `/wishlist/edit/${productId}/`,
-        type: 'POST',
-        data: {
-            'quantity': newQuantity,
-            'csrfmiddlewaretoken': '{{ csrf_token }}',  // Ensure CSRF token for security
-        },
-        success: function(response) {
-            if (response.deleted === false) {
-                quantityElement.text(response.quantity);  // Update quantity on the page
-            } else if (response.sdeleted === true) {
-                $(`#wishlist-item-${productId}`).remove();  // Remove item if quantity set to 0
-            }
-        },
-        error: function() {
-            alert("There was an error updating the wishlist.");
-        }
-    });
-}
-"""
-
-button = """
-<div id="wishlist-item-{{ product.id }}">
-    <button onclick="adjustWishlistQuantity({{ product.id }}, 'decrement')">-</button>
-    <span id="wishlist-item-quantity-{{ product.id }}">{{ wishlist_item.quantity }}</span>
-    <button onclick="adjustWishlistQuantity({{ product.id }}, 'increment')">+</button>
-</div>
-"""
