@@ -1658,53 +1658,5 @@
             "user_type": "merchant",
             "store": [6]
         }
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 1,
-        "fields": {
-            "user": 1,  
-            "store": 1 
-        }
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 2,
-        "fields": {
-            "user": 2,  
-            "store": 2 
-        }
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 3,
-        "fields": {
-            "user": 3,  
-            "store": 3  
-        }
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 4,
-        "fields": {
-            "user": 4,  
-            "store": 4  
-        }
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 5,
-        "fields": {
-            "user": 5,  
-            "store": 5  
-        } 
-    },
-    {
-        "model": "myauth.storeuserrelation",
-        "pk": 6,
-        "fields": {
-            "user": 6,  
-            "store": 6 
-        }
     }
 ]

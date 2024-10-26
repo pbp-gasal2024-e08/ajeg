@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from main.models import Store
+from main.models import Product, Store
 
 # Create your models here.
 class AjegUser(models.Model):
