@@ -8,6 +8,9 @@ from main.models import Product
 
 # Create your views here.
 
+def landing(request):
+    return render(request, 'landing.html')
+
 @login_required(login_url='myauth:login')
 def show_main(request):
     user_data = {
@@ -19,6 +22,15 @@ def show_main(request):
         }
     return render(request, 'main.html', context)
 
-def landing(request):
+@login_required(login_url='myauth:login')
+def myprofile_page(request):
+    user = request.user.ajeg_user
 
-    return render(request, 'landing.html')
+    context = {
+        'user': user
+    }
+    return render(request, 'myprofile_page.html', context)
+
+@login_required(login_url='myauth:login')
+def store_page(request):
+    return render(request, 'store_page.html')

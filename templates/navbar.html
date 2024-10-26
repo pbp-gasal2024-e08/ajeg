@@ -111,7 +111,7 @@
 
         <button
           id="myCartDropdownButton1"
-          data-dropdown-toggle="myCartDropdown1"
+          
           type="button"
           class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 text-sm font-medium leading-none text-gray-900"
         >
@@ -257,12 +257,12 @@
           </div>
         </div>
 
-        <button
+        <!-- <button
           id="merchantDropdownButton1"
           data-dropdown-toggle="merchantDropdown1"
           type="button"
           class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 text-sm font-medium leading-none text-gray-900"
-        >
+        > -->
           <svg
             class="w-5 h-5 me-1"
             aria-hidden="true"
@@ -482,25 +482,25 @@
 <script>
   // Function to handle dropdown toggle
   function toggleDropdown(dropdownButtonId, dropdownId) {
-    const button = document.getElementById(dropdownButtonId);
-    const dropdown = document.getElementById(dropdownId);
+    // const button = document.getElementById(dropdownButtonId);
+    // const dropdown = document.getElementById(dropdownId);
 
-    button.addEventListener("click", function (event) {
-      dropdown.classList.toggle("hidden");
-    });
+    // button.addEventListener("click", function (event) {
+    //   dropdown.classList.toggle("hidden");
+    // });
 
-    document.addEventListener("click", function (event) {
-      const isClickInside =
-        button.contains(event.target) || dropdown.contains(event.target);
-      if (!isClickInside) {
-        dropdown.classList.add("hidden");
-      }
-    });
+    // document.addEventListener("click", function (event) {
+    //   const isClickInside =
+    //     button.contains(event.target) || dropdown.contains(event.target);
+    //   if (!isClickInside) {
+    //     dropdown.classList.add("hidden");
+    //   }
+    // });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    toggleDropdown("myCartDropdownButton1", "myCartDropdown1");
-    toggleDropdown("userDropdownButton1", "userDropdown1");
-    toggleDropdown("e-commerce-menu", "ecommerce-navbar-menu-1");
+    // toggleDropdown("myCartDropdownButton1", "myCartDropdown1");
+    // toggleDropdown("userDropdownButton1", "userDropdown1");
+    // toggleDropdown("e-commerce-menu", "ecommerce-navbar-menu-1");
   });
 </script>

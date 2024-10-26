@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import show_cart, show_checkout, show_order_summary, show_product_page, show_order_confirmation
 from .views import get_cart_json, update_cart_quantity, get_product_json
+from .views import store_page
 
 app_name = 'checkout'
 
@@ -14,4 +15,6 @@ urlpatterns = [
     path('get-cart/', get_cart_json, name='get_cart_json'),
     path('get-product/', get_product_json, name='get_product_json'),
     path('update-cart-quantity/', update_cart_quantity, name='update_cart_quantity'),
+    path('store/<int:pk>/', store_page, name='store_page'),
+
 ]

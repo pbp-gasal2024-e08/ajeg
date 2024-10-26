@@ -194,103 +194,101 @@
 </html>
 <script>
 
-  async function incrementCartQuantity() {
-    document.querySelector("#increment-button").addEventListener("click", function() {
-      var input = document.querySelector("#counter-input");
-      var currentValue = parseInt(input.value);
-      input.value = currentValue + 1;
-      newValue = currentValue + 1;
+  async function updateCartQuantity() {
+    // document.querySelector("#increment-button").addEventListener("click", function() {
+    //   var input = document.querySelector("#counter-input");
+    //   var currentValue = parseInt(input.value);
+    //   input.value = currentValue + 1;
+    //   newValue = currentValue + 1;
 
-      // AJAX
-      var totalPrice = document.querySelector("#total_price");
-      console.log(totalPrice)
-      var productPrice = document.querySelector("#product_price");
-      var productPriceValue = parseFloat(productPrice.textContent);
-      console.log(productPriceValue)
-      var totalPriceValue = parseFloat(totalPrice.textContent);
-      console.log(totalPriceValue)
-      var newTotalPrice = totalPriceValue + productPriceValue;
-      console.log(newTotalPrice)
-      document.querySelector("#total_price").textContent = newTotalPrice;
+    //   // AJAX
+    //   var totalPrice = document.querySelector("#total_price");
+    //   console.log(totalPrice)
+    //   var productPrice = document.querySelector("#product_price");
+    //   var productPriceValue = parseFloat(productPrice.textContent);
+    //   console.log(productPriceValue)
+    //   var totalPriceValue = parseFloat(totalPrice.textContent);
+    //   console.log(totalPriceValue)
+    //   var newTotalPrice = totalPriceValue + productPriceValue;
+    //   console.log(newTotalPrice)
+    //   document.querySelector("#total_price").textContent = newTotalPrice;
 
 
 
-      var productId =  parseInt(document.querySelector("#product_id").textContent);
-      console.log(productId);
-      var quantity = newValue;
-      console.log(quantity)
-      var url = "{% url 'checkout:update_cart_quantity' %}";
-      var data = {
-        'product_id': productId,
-        'quantity': quantity, 
-      };
+    //   var productId =  parseInt(document.querySelector("#product_id").textContent);
+    //   console.log(productId);
+    //   var quantity = newValue;
+    //   console.log(quantity)
+    //   var url = "{% url 'checkout:update_cart_quantity' %}";
+    //   var data = {
+    //     'product_id': productId,
+    //     'quantity': quantity, 
+    //   };
 
-      console.log(data)
+    //   console.log(data)
   
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }).then(response => {
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}: ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .catch(error => {
-        console.error('Error updating cart quantity:', error);
-        // Display an error message to the user
-      });
-    });
-  }
+    //   fetch(url, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(data)
+    //   }).then(response => {
+    //     if (!response.ok) {
+    //       throw new Error(`Error ${response.status}: ${response.statusText}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .catch(error => {
+    //     console.error('Error updating cart quantity:', error);
+    //     // Display an error message to the user
+    //   });
+    // });
 
-  async function decrementCartQuantity() {
-    document.querySelector("#decrement-button").addEventListener("click", function() {
-      var input = document.querySelector("#counter-input");
-      var currentValue = parseInt(input.value);
-      input.value = currentValue - 1;
+    // document.querySelector("#decrement-button").addEventListener("click", function() {
+    //   var input = document.querySelector("#counter-input");
+    //   var currentValue = parseInt(input.value);
+    //   input.value = currentValue - 1;
   
-      // AJAX
-      var totalPrice = document.querySelector("#total_price");
-      console.log(totalPrice)
-      var productPrice = document.querySelector("#product_price");
-      var productPriceValue = parseFloat(productPrice.textContent);
-      console.log(productPriceValue)
-      var totalPriceValue = parseFloat(totalPrice.textContent);
-      console.log(totalPriceValue)
-      var newTotalPrice = totalPriceValue - productPriceValue;
-      console.log(newTotalPrice)
-      document.querySelector("#total_price").textContent = newTotalPrice;
+    //   // AJAX
+    //   var totalPrice = document.querySelector("#total_price");
+    //   console.log(totalPrice)
+    //   var productPrice = document.querySelector("#product_price");
+    //   var productPriceValue = parseFloat(productPrice.textContent);
+    //   console.log(productPriceValue)
+    //   var totalPriceValue = parseFloat(totalPrice.textContent);
+    //   console.log(totalPriceValue)
+    //   var newTotalPrice = totalPriceValue - productPriceValue;
+    //   console.log(newTotalPrice)
+    //   document.querySelector("#total_price").textContent = newTotalPrice;
 
-      var productId =  parseInt(document.querySelector("#product_id").textContent);
-      console.log(productId);
-      var quantity = currentValue - 1;
-      console.log(quantity)
-      var url = "{% url 'checkout:update_cart_quantity' %}";
-      var data = {
-        'product_id': productId,
-        'quantity': quantity
-      };
+    //   var productId =  parseInt(document.querySelector("#product_id").textContent);
+    //   console.log(productId);
+    //   var quantity = currentValue - 1;
+    //   console.log(quantity)
+    //   var url = "{% url 'checkout:update_cart_quantity' %}";
+    //   var data = {
+    //     'product_id': productId,
+    //     'quantity': quantity
+    //   };
   
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }).then(response => {
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}: ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .catch(error => {
-        console.error('Error updating cart quantity:', error);
-        // Display an error message to the user
-      });
-    });
+    //   fetch(url, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(data)
+    //   }).then(response => {
+    //     if (!response.ok) {
+    //       throw new Error(`Error ${response.status}: ${response.statusText}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .catch(error => {
+    //     console.error('Error updating cart quantity:', error);
+    //     // Display an error message to the user
+    //   });
+    // });
   }
 
   function removeCart(){
@@ -316,21 +314,24 @@
   async function refreshCart(){
     document.getElementById("cart-content").innerHTML = "";
 
-  const carts = await getCart();
+    let carts = await getCart();
 
   let htmlString = ``;
   
   if(carts.length == 0){
     htmlString = `<div class="min-w-[528.44px] ml-[50%] mt-[100px] text-2xl font-bold text-gray-400">Empty cart</div>`;
   } else {
-      const productPromises = carts.map(async (cart) => {
-        const productId = cart.fields.product
-        const prod = await getProduct(productId)
+    let productPromises = carts.map(async (cart) => {
+        let productId = cart.fields.product
+        let prod = await getProduct(productId)
         return { cart, prod }
       });
 
-      const cartProductData = await Promise.all(productPromises);
+      let cartProductData = await Promise.all(productPromises);
+      let firstNumber = 0;
+
       cartProductData.forEach(({cart, prod}) => {
+        firstNumber = firstNumber + 1;
         product = prod[0];
           htmlString += `
             <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
@@ -343,12 +344,14 @@
                 <div class="flex items-center justify-between md:order-3 md:justify-end">
                   <div class="flex items-center">
                     <button type="button" id="decrement-button" data-input-counter-decrement="counter-input"  class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+
                       <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                       </svg>
                     </button>
                     <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="${ cart.fields.quantity }" required />
-                    <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+
+                    <button type="button" id="increment-button" " data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                       <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                       </svg>
@@ -392,31 +395,28 @@
 
       const incrementButtons = document.querySelectorAll("#increment-button");
       const decrementButtons = document.querySelectorAll("#decrement-button");
-
-      incrementButtons.forEach(button => {
-        button.removeEventListener("click", incrementCartQuantity); // Ensure no double listeners
-      });
-
-      decrementButtons.forEach(button => {
-        button.removeEventListener("click", decrementCartQuantity); // Ensure no double listeners
-      })
-      
-      incrementButtons.forEach(button => {
-        button.addEventListener("click", incrementCartQuantity).then(
-          removeEventListener("click", incrementCartQuantity)
-        )
-      });
-      
-      decrementButtons.forEach(button => {
-        button.addEventListener("click", decrementCartQuantity);
-        removeEventListener("click", decrementCartQuantity);
-      });
-
-      
-      
+      console.log(incrementButtons, decrementButtons);  
+      incrementButtons.forEach(increaseItems);
+      decrementButtons.forEach(decreaseItems);
     }
   }
 
+
+  function increaseItems(button) {
+    button.addEventListener("click", function (event) {
+      console.log("previousElementSibling", event.target.previousElementSibling, "button = ", button);
+      button.previousElementSibling.value++;
+    })
+  }
+
+  function decreaseItems(button) {
+    button.addEventListener("click", function (event) {
+      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
+      if (button.nextElementSibling.value > 1) {
+        button.nextElementSibling.value--;
+      }
+    })
+  }
   refreshCart()
 
 </script>

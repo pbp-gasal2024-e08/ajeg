@@ -1,4 +1,5 @@
 from itertools import product
+from multiprocessing import context
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
@@ -92,3 +93,17 @@ def update_cart_quantity(request):
     cart.save()
 
     return JsonResponse({'message': 'Cart quantity updated succesfully'})
+
+
+@csrf_exempt
+def store_page(request, pk):
+    store = Store.objects.get(pk=pk)
+    print(store)
+    products = Product.objects.filter(store=store)
+    print(products)
+
+    context= {
+        'store': store,
+        'products': products
+        }
+    return render(request, 'store_page.html', context)
