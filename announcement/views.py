@@ -17,6 +17,11 @@ def create_announcement_ajax(request):
   description = strip_tags(request.POST.get("description"))
   store_id = request.POST.get("store_id")
 
+  user = request.user.ajeg_user
+  store = Store.objects.get(pk=store_id)
+  if store not in user.merchant_store:
+    return HttpResponse(b"UNAUTHORIZED", status=403)
+
   announcement = Announcement(title=title, description=description, store_id=store_id)
   announcement.save() 
 
@@ -45,5 +50,10 @@ def edit_announcement(request, id):
 
 def delete_announcement(request, id):
   announcement = Announcement.objects.get(pk=id)
+
+  user = request.user.ajeg_user
+  if announcement.store not in user.merchant_store:
+    return HttpResponse(b"UNAUTHORIZED", status=403)
+
   announcement.delete()
   return HttpResponseRedirect(reverse('main:show_main'))
