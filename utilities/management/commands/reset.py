@@ -12,7 +12,7 @@ from wishlist.models import Wishlist, WishlistItem
 # Close any active database connections
 
 class Command(BaseCommand):
-    help = 'Flush DB, delete sqlite file, apply migrations, load initial data, and create a superuser.'
+    help = 'Flush DB, delete sqlite file, apply migrations, load initial data, and create superuser/users.'
     connection.close()
     close_old_connections()
 

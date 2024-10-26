@@ -373,7 +373,16 @@
             </li>
             <li>
               <a
-                href="#"
+                href="{% url 'favorites:favorites' %}"
+                title=""
+                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
+              >
+                My Favorites
+              </a>
+            </li>
+            <li>
+              <a
+                href="{% url 'wishlist:wishlist' %}"
                 title=""
                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
               >
@@ -382,16 +391,7 @@
             </li>
             <li>
               <a
-                href="#"
-                title=""
-                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
-              >
-                Wishlists
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+                href=""
                 title=""
                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100"
               >

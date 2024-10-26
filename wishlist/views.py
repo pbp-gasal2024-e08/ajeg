@@ -30,11 +30,12 @@ def delete_from_wishlist(request, product_id):
     else:
         return JsonResponse({"deleted": False})
 
-def edit_wishlist(request, product_id):
+def edit_wishlist(request):
     if request.method == "POST":
+        product_id = request.POST.get("product_id")
         new_amount = int(request.POST.get("amount", 1))
         wishlist, created = Wishlist.objects.get_or_create(user=request.user)
-        wishlist_item = WishlistItem.objects.filter(wishlist=wishlist, product_id=product_id)
+        wishlist_item = WishlistItem.objects.filter(wishlist=wishlist, product_id=product_id).first()
         if new_amount > 0:
             wishlist_item.amount = new_amount
             wishlist_item.save()

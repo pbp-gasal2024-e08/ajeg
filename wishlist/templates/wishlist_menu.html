@@ -1,4 +1,6 @@
 {% load static %}
+{% load wishlist_filters %}
+
 <div class="flex gap-12 justify-center">
     <section class="w-full bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -23,11 +25,45 @@
             {% if wishlist %}
                 <ul class="list-disc pl-5">
                     {% for wishlist_item in wishlist %}
-                        <div id="wishlist-item-{{ product.id }}">
-                            <button class="decrement-btn" data-product-id="{{ product.id }}">-</button>
-                            <span id="wishlist-item-quantity-{{ product.id }}">{{ wishlist_item.quantity }}</span>
-                            <button class="increment-btn" data-product-id="{{ product.id }}">+</button>
+                    <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                        <div class="pt-6">
+                        <div class="mb-4 flex items-center justify-between gap-4">
+                            <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white" data-product-id="{{wishlist_item.product.id}}"> {{wishlist_item.product.name}} ({{wishlist_item.amount}})</a>
+            
+                            <div class="flex items-center justify-end gap-1">
+                            <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <span class="sr-only"> Quick look </span>
+                                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                                <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                            </button>
+                            <div id="tooltip-quick-look" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                                Quick look
+                                <div class="tooltip-arrow" data-popper-arrow=""></div>
+                            </div>
+            
+                            <button data-product-id="{{ favorite_item.product.id }}" type="button" data-tooltip-target="tooltip-add-to-favorites" class="toggle-favorite-button rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <span class="sr-only"> Add to Favorites </span>
+                                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24">
+                                    <path stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                                </svg>
+                            </button>
+                            <div id="tooltip-add-to-favorites" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                                Add to favorites
+                                <div class="tooltip-arrow" data-popper-arrow=""></div>
+                            </div>
+                            </div>
+                        </div>   
+                        <div class="mt-4 flex items-center justify-between gap-4">
+                            <p class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">Rp{% multiply wishlist_item.amount wishlist_item.product.price %}</p>
+                            <div>
+                                <button class="decrement-btn rounded text-2xl font-bold leading-tight text-gray-900 dark:text-white bg-gray-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4  focus:ring-orange-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-product-id="{{ wishlist_item.product.id }}">−</button>
+                                <button class="increment-btn rounded text-2xl font-bold leading-tight text-gray-900 dark:text-white bg-gray-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4  focus:ring-orange-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-product-id="{{ wishlist_item.product.id }}">+</button>
+                            </div>
                         </div>
+                        </div>
+                    </div>
                     {% endfor %}
                 </ul>
             {% else %}
@@ -35,46 +71,38 @@
             {% endif %}
             </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        document.querySelectorAll('.decrement-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const productId = button.getAttribute('data-product-id');
-                adjustWishlistQuantity(productId, 'decrement');
-            });
+        $('.increment-btn').on('click', function(e) {
+            e.preventDefault();
+            const productId = $(this).data('product-id');
+            updateWishlist(productId, 1);
         });
 
-        document.querySelectorAll('.increment-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const productId = button.getAttribute('data-product-id');
-                adjustWishlistQuantity(productId, 'increment');
-            });
+        $('.decrement-btn').on('click', function(e) {
+            e.preventDefault();
+            const productId = $(this).data('product-id');
+            updateWishlist(productId, -1);
         });
 
-        function adjustWishlistQuantity(productId, action) {
-            const quantityElement = $(`#wishlist-item-quantity-${productId}`);
-            let currentQuantity = parseInt(quantityElement.text());
-
-            let newQuantity = action === 'increment' ? currentQuantity + 1 : currentQuantity - 1;
-            if (newQuantity < 1) {
-                newQuantity = 1; 
-            }
-
+        function updateWishlist(productId,change) {
+            const amountElement = $(`a[data-product-id='${productId}']`);
+            let currentAmount = parseInt(amountElement.text().match(/\((\d+)\)/)[1]);;
+            
+            const newAmount = currentAmount + change;
             $.ajax({
-                url: `/wishlist/edit/${productId}/`,
                 type: 'POST',
+                url: '{% url "wishlist:edit_wishlist_item" %}', // Ensure the URL is correctly formed
                 data: {
-                    'quantity': newQuantity,
-                    'csrfmiddlewaretoken': '{{ csrf_token }}', 
-                },
-                success: function(response) {
-                    if (response.deleted === false) {
-                        quantityElement.text(response.quantity); 
-                    } else if (response.sdeleted === true) {
-                        $(`#wishlist-item-${productId}`).remove(); 
-                    }
-                },
-                error: function() {
-                    alert("There was an error updating the wishlist.");
+                    'product_id': productId,
+                    'amount': newAmount,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                } // Include CSRF token
+            }).done(function(response) {
+                if (response.deleted) {
+                    amountElement.parent().parent().parent().remove(); // Remove the item if it was deleted
+                } else {
+                    amountElement.text(amountElement.text().replace(/\(\d+\)/, `(${response.amount})`)); // Update displayed amount
                 }
             });
         }
