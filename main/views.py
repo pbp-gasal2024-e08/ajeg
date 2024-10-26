@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.context_processors import auth 
 
 from main.models import Product
-
+from announcement.models import Announcement
 
 # Create your views here.
 
@@ -15,7 +15,8 @@ def show_main(request):
     }
     context= {
         'user_data': user_data, 
-        'products': Product.objects.all()
+        'products': Product.objects.all(),
+        'announcements': Announcement.objects.all()
         }
     return render(request, 'main.html', context)
 
