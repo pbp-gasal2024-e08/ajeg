@@ -345,6 +345,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                       </svg>
                     </button>
+                    <input type="hidden" id="prodprice" value="${product.fields.price}"/>
                   </div>
                   <div class="text-end md:order-4 md:w-32">
                     <p class="text-base font-bold text-gray-900 dark:text-white">Rp<span id='total_price' >${cart.fields.total_price}</span></p>
@@ -388,6 +389,12 @@
       incrementButtons.forEach(increaseItems);
       decrementButtons.forEach(decreaseItems);
       
+      updatePrice();
+    }
+  }
+
+    function updatePrice(){
+      
       // Order Summary
       let orderSum = document.getElementById("original-price").textContent = orderSummary();
       document.getElementById("original-price").textContent = "Rp" + orderSummary();
@@ -397,18 +404,35 @@
       // total price
       // document.getElementById("total-summary").textContent = totalPrice();
       document.getElementById("total-summary").textContent = "Rp" + orderSum;
-    }
-  }
 
+      let url = "{% url 'checkout:total_summary' %}"
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'totalSummary': orderSum
+        })
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        return response.json().then(data => {
+          console.log("updatePrice::", orderSum, data);
+        });
+      });
+    }
 
   function increaseItems(button) {
     button.addEventListener("click", function (event) {
-      console.log("previousElementSibling", event.target.previousElementSibling, "button = ", button);
+      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
       button.previousElementSibling.value++;
-
+      let product_price = button.nextElementSibling.value;
       
       var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
-      console.log("productId", productId);
+      console.log("productId", productId, "product_price", product_price);
       var quantity = parseInt(button.previousElementSibling.value);
       console.log(quantity)
       var url = "{% url 'checkout:update_cart_quantity' %}";
@@ -430,7 +454,7 @@
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         return response.json().then(data => {
-          console.log(data);
+          console.log("response",data);
           button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
         });
       })
@@ -440,7 +464,7 @@
       });
       
       
-
+      updatePrice()
     });
   }
 
@@ -492,6 +516,7 @@
         console.error('Error updating cart quantity:', error);
         // Display an error message to the user
       });
+      updatePrice();
     })
   }
 

@@ -13,3 +13,9 @@ class AddToCartForm(forms.ModelForm):  # Use ModelForm instead of Forms
 
     def clean_password(self):
         return
+
+
+class CheckoutForm(forms.Form):
+    fullname = forms.CharField()
+    address = forms.CharField()
+    phone = forms.IntegerField()
