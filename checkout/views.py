@@ -92,7 +92,8 @@ def update_cart_quantity(request):
     print(cart.total_price)
     cart.save()
 
-    return JsonResponse({'message': 'Cart quantity updated succesfully'})
+    return JsonResponse({'message': 'Cart quantity updated succesfully',
+                        'total_price': cart.total_price}, safe=False)
 
 
 @csrf_exempt
