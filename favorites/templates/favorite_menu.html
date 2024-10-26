@@ -19,13 +19,13 @@
                     </nav>
                 </div>
                 <div class="flex gap-4 justify-center mb-6">
-                    <button id="restosBtn" class="bg-blue-500 text-white py-2 px-4 rounded" onclick="showRestos()">Stores</button>
-                    <button id="menusBtn" class="bg-green-500 text-white py-2 px-4 rounded" onclick="showMenus()">Products</button>
+                    <button id="showStores" class="bg-blue-500 text-white py-2 px-4 rounded">Stores</button>
+                    <button id="showProducts" class="bg-green-500 text-white py-2 px-4 rounded">Products</button>
                 </div>
             </div>
             
             <!-- Section for Restos (Initially Visible) -->
-            <div id="storesSection" style="display: block;">
+            <div id="storesSection" style="display: none;">
                 {% include 'favorite_stores.html' with favorite_stores=favorite_stores %}
             </div>
             
@@ -36,14 +36,26 @@
         </div>
     </section>
     <script>
-        function showRestos() {
-            document.getElementById('storesSection').style.display = 'block';
-            document.getElementById('productsSection').style.display = 'none';
-        }
-    
-        function showMenus() {
-            document.getElementById('storesSection').style.display = 'none';
-            document.getElementById('productsSection').style.display = 'block';
-        }
+        $(document).ready(function () {
+            const lastSelected = localStorage.getItem('selectedSection');
+
+            if (lastSelected === 'products') {
+                $('#productsSection').show();
+            } else {
+                $('#storesSection').show();
+            }
+
+            $('#showStores').on('click', function () {
+                $('#storesSection').show();
+                $('#productsSection').hide();
+                localStorage.setItem('selectedSection', 'stores'); 
+            });
+
+            $('#showProducts').on('click', function () {
+                $('#productsSection').show();
+                $('#storesSection').hide();
+                localStorage.setItem('selectedSection', 'products'); 
+            });
+        });
     </script>
 </div>

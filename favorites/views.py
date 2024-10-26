@@ -14,7 +14,6 @@ def favorite_store(request):
         messages.info(request, "Store unfavorited.")
         is_favorited = False
     else:
-        # Step 3: Add the product to the favorites
         FavoriteStore.objects.create(favorite_list=favorite_list, store_id=store_id)
         messages.success(request, "Store favorited.")
         is_favorited = True
