@@ -16,20 +16,19 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='AjegUser',
+            name='Wishlist',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user_type', models.CharField(choices=[('traveller', 'Traveller'), ('merchant', 'Merchant')], max_length=10)),
-                ('ajeg_user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ajeg_user', to=settings.AUTH_USER_MODEL)),
-                ('store', models.ManyToManyField(blank=True, to='main.store')),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist', to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
-            name='StoreUserRelation',
+            name='WishlistItem',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('store', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='userstore', to='main.store')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='userstore', to='myauth.ajeguser')),
+                ('amount', models.IntegerField(default=1)),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.product')),
+                ('wishlist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='wishlist.wishlist')),
             ],
         ),
     ]
