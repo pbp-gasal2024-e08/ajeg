@@ -40,7 +40,7 @@
                       <svg class="h-5 w-5 text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                       </svg>
-                      <a href="#" class="ms-1 text-sm font-medium text-gray-700 hover:text-orange-600   md:ms-2">{{store.name}}</a>
+                      <a href="{% url 'checkout:store_page' store.pk|slugify %}" class="ms-1 text-sm font-medium text-gray-700 hover:text-orange-600 md:ms-2">{{store.name}}</a>
                     </div>
                   </li>
                 <!-- <li aria-current="page">
@@ -174,7 +174,7 @@
         >
           <div class="h-56 w-full">
             <a href="#">
-              <img class="mx-auto h-full" src="" alt="" />
+              <img class="mx-auto h-full w-full object-cover" src="{{product.imgurl}}" alt="" />
               <img class="mx-auto hidden h-full" src="" alt="" />
             </a>
           </div>

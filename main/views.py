@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.context_processors import auth 
 
-from main.models import Product
+from main.models import Product, Store
 from announcement.models import Announcement
 
 # Create your views here.
