@@ -1,9 +1,9 @@
 import uuid
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_http_methods
 
 from myauth.models import AjegUser
 from review.models import UserReview, Comment
@@ -14,7 +14,7 @@ from django.core.serializers import serialize
 
 
 def render_reviews_panel(request, product_id: int):
-    product = Product.objects.get(pk=product_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     user = None
     if request.user.is_authenticated:
@@ -24,26 +24,15 @@ def render_reviews_panel(request, product_id: int):
 
 
 def fetch_review_by_id(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
-    response = HttpResponse()
+    review = get_object_or_404(UserReview, id=id)
 
-    try:
-        review = UserReview.objects.get(pk=id)
-    except UserReview.DoesNotExist:
-        response.content = "The specified review does not exist"
-        response.status_code = 404
-        return response
-
-    response.content = serialize("json", [review])
-    response.status_code = 200
-    return response
+    return JsonResponse(review.serialize(), status=200)
 
 
 def fetch_reviews_by_product(request: HttpRequest, product_id: int):
-    try:
-        product = Product.objects.get(pk=product_id)
-        reviews = UserReview.objects.filter(product=product)
-    except Product.DoesNotExist or UserReview.DoesNotExist:
-        return HttpResponse("Product not found", status=404)
+
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = get_list_or_404(UserReview, product=product)
 
     reviews_json = []
     for review in reviews:
@@ -59,9 +48,9 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
 
 # Check this implementation in the future
 def fetch_reviews_by_store(request: HttpRequest, store_id: int):
-    store = Store.objects.get(pk=store_id)
-    products = Product.objects.filter(store=store)
-    reviews = UserReview.objects.filter(product=products)
+    store = get_object_or_404(Store, pk=store_id)
+    products = get_list_or_404(Product, store=store)
+    reviews = get_list_or_404(UserReview, product=products)
     return HttpResponse(serialize("json", reviews), status=200)
 
 
@@ -83,10 +72,7 @@ def add_review(request: HttpRequest, product_id: int):
         `star_rating` - An integer between 1 and 5 representing the star rating given to the product
         `comment` - An optional comment left along with the star rating
     """
-    try:
-        product = Product.objects.get(pk=product_id)
-    except Product.DoesNotExist:
-        return HttpResponse("This product wasn't found!", status=404)
+    product = get_object_or_404(Product, pk=product_id)
 
     creator: AjegUser = request.user.ajeg_user
 
@@ -104,6 +90,20 @@ def add_review(request: HttpRequest, product_id: int):
 
 
 @login_required(login_url="/login")
+def edit_review_by_id(request: HttpRequest, id: uuid.UUID):
+    review = get_object_or_404(UserReview, id=id)
+
+    review.star_rating = request.POST.get("star_rating")
+    review.synopsis = request.POST.get("synopsis")
+    review.base_comment.content = request.POST.get("base_comment")
+
+    review.save()
+    review.base_comment.save()  # make sure to also save the referenced object :')
+
+    return HttpResponse("Review successfully edited!", status=200)
+
+
+@login_required(login_url="/login")
 @require_POST
 def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
     """
@@ -115,25 +115,15 @@ def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
     The function expects one argument in the request body:
         `content` - A string containing the contents of the comment
     """
-    response = HttpResponse()
-
-    try:
-        target_comment = Comment.objects.get(pk=id)
-    except UserReview.DoesNotExist:
-        response.content = "The specified review does not exist"
-        response.status_code = 404
-        return response
+    target_comment = get_object_or_404(Comment, pk=id)
 
     # TODO: Fix the logic here, it's broken ATM
     creator: AjegUser = request.user.ajeg_user
-    new_comment = Comment(
+    new_comment = Comment.objects.create(
         creator=creator, content=request.POST.get("content"), target=target_comment
     )
-    new_comment.save()
 
-    response.content = "The comment was successfully created"
-    response.status_code = 200
-    return response
+    return HttpResponse("The comment was successfully created", status=200)
 
 
 @login_required(login_url="/login")
