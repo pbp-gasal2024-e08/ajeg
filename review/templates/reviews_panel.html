@@ -2,12 +2,14 @@
 <div class="flex flex-col p-10">
   <div class="flex flex-row justify-between">
     <h1 class="text-2xl">Reviews for {{product.name}}</h1>
-    {% include 'review_button.html' %}
+    <button id="add-review">Add Review</button>
+    {% include 'review_modal.html' %}
   </div>
   <div
     id="reviews-container"
     class="flex flex-col w-full h-full overflow-y-scroll"
   ></div>
+  {% include 'review_delete_modal.html' %}
 </div>
 
 <script>
@@ -17,7 +19,7 @@
   // Functions to view reviews
 
   async function fetchReviewsByProduct(productId) {
-    const endpoint = `/review/by_product/${productId}`;
+    const endpoint = `/review/by-product/${productId}`;
     let data = await fetch(endpoint);
     let dataJson = await data.json();
 
@@ -48,16 +50,21 @@
             starRating--;
           }
           container.innerHTML += `
-            <article class="border-b border-black p-10">
+            <article data-review-id="${
+              review.id
+            }" class="border-b border-black p-10">
               <div class="flex items-center justify-between mb-4">
                 <div class="font-medium">
                   <p class="font-bold">${review.creator}</p>
                   </div>
+                  <div class="flex flex-row w-fit gap-x-5">
                   ${
                     review.editable == true
-                      ? `<p class='editable-review cursor-pointer' id='edit-${review.id}'>Edit</p>`
+                      ? `<p class='editable-review cursor-pointer' id='edit-${review.id}'>Edit</p>
+                         <p class='delete-button cursor-pointer' id='delete-${review.id}'>Delete</p>`
                       : ""
                   }
+                  </div>
                 </div>
                 <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
                     ${starsHTML}
@@ -112,7 +119,6 @@
                 // Resend the form to the edit_product endpoint
                 reviewCreationForm.addEventListener("submit", (e) => {
                   e.preventDefault();
-                  console.log(reviewId);
 
                   let response = editReview(reviewId).then((response) => {
                     addReviewModal.close();
@@ -129,7 +135,7 @@
 
   // Scripts to handle review editing
   async function editReview(reviewId) {
-    const endpoint = `/review/edit/${reviewId}`;
+    const endpoint = `/review/edit-review/${reviewId}`;
     let data = await fetch(endpoint, {
       method: "POST",
       body: new FormData(reviewCreationForm),

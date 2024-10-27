@@ -1,5 +1,4 @@
 {% load static %}
-<button id="add-review">Add review</button>
 <dialog
   id="review-creation-modal"
   class="fixed bg-white border-2 border-black h-fit w-1/2"
@@ -93,7 +92,7 @@
     </div>
     <div class="flex flex-row justify-end gap-5 w-full">
       <button id="close-modal">Cancel</button>
-      <button type="submit">Confirm</button>
+      <button type="button" onclick="handleSubmit()">Confirm</button>
     </div>
   </form>
 </dialog>
@@ -116,20 +115,21 @@
         // Perform check to see if user is logged in to leave review
         if (res.redirected) {
           window.location.replace(res.url);
-        } else {
-          // If user is logged in and presses the add review button, set the confirm button to call the addReview method
-          reviewCreationForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            let productId = window.location.href.split("/").pop();
-            let response = addReview(productId).then((response) => {
-              addReviewModal.close();
-              refreshReviews();
-            });
-          });
         }
       })
       .then(() => addReviewModal.showModal());
   });
+
+  function handleSubmit() {
+    let productId = window.location.href.split("/").pop();
+    let response = addReview(productId).then((response) => {
+      addReviewModal.close();
+      refreshReviews();
+      setTimeout(() => {
+        attachEventListeners();
+      }, 300);
+    });
+  }
 
   closeModalButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -138,7 +138,7 @@
   });
 
   async function addReview(productId) {
-    const endpoint = `/review/add_review/${productId}`;
+    const endpoint = `/review/add-review/${productId}`;
     let data = await fetch(endpoint, {
       method: "POST",
       body: new FormData(reviewCreationForm),

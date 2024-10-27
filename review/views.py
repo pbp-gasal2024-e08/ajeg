@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST, require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 
 from myauth.models import AjegUser
 from review.models import UserReview, Comment
@@ -32,7 +33,7 @@ def fetch_review_by_id(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
 def fetch_reviews_by_product(request: HttpRequest, product_id: int):
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = get_list_or_404(UserReview, product=product)
+    reviews = UserReview.objects.filter(product=product)
 
     reviews_json = []
     for review in reviews:
@@ -49,9 +50,17 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
 # Check this implementation in the future
 def fetch_reviews_by_store(request: HttpRequest, store_id: int):
     store = get_object_or_404(Store, pk=store_id)
-    products = get_list_or_404(Product, store=store)
-    reviews = get_list_or_404(UserReview, product=products)
-    return HttpResponse(serialize("json", reviews), status=200)
+    products = Product.objects.filter(store=store)
+
+    # "Initialize" an empty queryset with a plain UserReview manager
+    all_reviews = UserReview.objects.none()
+    # Merge the separate querysets into one large queryset
+    for product in products:
+        all_reviews = all_reviews | UserReview.objects.filter(product=product)
+    return HttpResponse(
+        serialize("json", all_reviews),
+        status=200,
+    )
 
 
 def fetch_all_reviews(request) -> HttpResponse:
@@ -101,6 +110,23 @@ def edit_review_by_id(request: HttpRequest, id: uuid.UUID):
     review.base_comment.save()  # make sure to also save the referenced object :')
 
     return HttpResponse("Review successfully edited!", status=200)
+
+
+@login_required(login_url="/login")
+@require_POST
+@csrf_exempt
+def delete_review_by_id(request: HttpRequest):
+    try:
+        review = UserReview.objects.get(id=request.body.decode(encoding="utf-8"))
+    except UserReview.DoesNotExist:
+        return HttpResponse("Review does not exist!", status=204)
+
+    if review.creator != request.user.ajeg_user:
+        return HttpResponse("You are not the creator of this review!", status=403)
+
+    review.delete()
+
+    return HttpResponse("Review successfully deleted!", status=200)
 
 
 @login_required(login_url="/login")
