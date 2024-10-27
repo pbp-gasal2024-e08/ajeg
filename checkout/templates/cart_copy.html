@@ -385,7 +385,6 @@
 
       const incrementButtons = document.querySelectorAll("#increment-button");
       const decrementButtons = document.querySelectorAll("#decrement-button");
-      console.log(incrementButtons, decrementButtons);  
       incrementButtons.forEach(increaseItems);
       decrementButtons.forEach(decreaseItems);
       
@@ -408,21 +407,17 @@
 
   function increaseItems(button) {
     button.addEventListener("click", function (event) {
-      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
       button.previousElementSibling.value++;
       let product_price = button.nextElementSibling.value;
       
       var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
-      console.log("productId", productId, "product_price", product_price);
       var quantity = parseInt(button.previousElementSibling.value);
-      console.log(quantity)
       var url = "{% url 'checkout:update_cart_quantity' %}";
       var data = {
         'product_id': productId,
         'quantity': quantity, 
       };
 
-      console.log(data)
 
         fetch(url, {
         method: 'POST',
@@ -435,17 +430,16 @@
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         return response.json().then(data => {
-          console.log("response",data);
           button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+          updatePrice()
         });
       })
       .catch(error => {
-        console.error('Error updating cart quantity:', error);
         // Display an error message to the user
       });
       
       
-      updatePrice()
+      
     });
   }
 
@@ -462,21 +456,17 @@
 
   function decreaseItems(button) {
     button.addEventListener("click", function (event) {
-      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
       if (button.nextElementSibling.value > 1) {
         button.nextElementSibling.value--;
       }
       var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
-      console.log(productId);
       var quantity = parseInt(button.nextElementSibling.value);
-      console.log(quantity)
       var url = "{% url 'checkout:update_cart_quantity' %}";
       var data = {
         'product_id': productId,
         'quantity': quantity, 
       };
 
-      console.log(data)
 
         fetch(url, {
         method: 'POST',
@@ -489,15 +479,15 @@
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         return response.json().then(data => {
-          console.log(data);
           button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+          updatePrice();
         });
       })
       .catch(error => {
         console.error('Error updating cart quantity:', error);
         // Display an error message to the user
       });
-      updatePrice();
+      
     })
   }
 
