@@ -16,8 +16,7 @@
     {% block content %}
     {% include 'navbar.html' %}
 
-    {% if user.user_type == 'merchant' and store in user.merchant_store %}
-    {# {% if user.user_type == 'merchant' %} #}
+    {% if user.is_authenticated and user.ajeg_user.user_type == 'merchant' and store in user.ajeg_user.merchant_store %}
         <button class="btn bg-orange-700 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out mb-4" onclick="showModal();">Add Announcement</button>
 
         <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
@@ -39,11 +38,11 @@
                     <form id="announcementForm">
                         <div class="mb-4">
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                        <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-orange-700" placeholder="Enter title" required>
+                        <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-orange-700 outline-none focus:border-orange-700" placeholder="Enter title" required>
                         </div>
                         <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                        <textarea id="description" name="description" rows="3" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-orange-700" placeholder="Enter description" required></textarea>
+                        <textarea id="description" name="description" rows="3" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-orange-700 outline-none focus:border-orange-700" placeholder="Enter description" required></textarea>
                         </div>
                     </form>
                 </div>
@@ -99,7 +98,7 @@
                             <p class="text-sm">${description}</p>
                         </div>
 
-                        {% if user.user_type == 'merchant' and store in user.merchant_store %}
+                        {% if user.is_authenticated and user.ajeg_user.user_type == 'merchant' and store in user.ajeg_user.merchant_store %}
                             <div class="absolute top-0 -right-4 flex space-x-1">
                                 <a href="/announcement/edit/${announcement.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
