@@ -75,8 +75,8 @@ class UserReview(models.Model):
             "creator": self.creator.ajeg_user.username,
             "star_rating": self.star_rating,
             "synopsis": self.synopsis,
-            "created_at": self.created_at,
-            "last_updated": self.last_updated,
+            "created_at": self.created_at.strftime("%d/%m/%Y %H:%M"),
+            "last_updated": self.last_updated.strftime("%d/%m/%Y %H:%M"),
             "base_comment": {
                 "id": self.base_comment.id,
                 "content": self.base_comment.content,

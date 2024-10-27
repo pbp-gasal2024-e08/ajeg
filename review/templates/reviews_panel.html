@@ -1,118 +1,18 @@
 {% extends 'base.html' %}{% load static %}{% block content %}
-<div class="flex flex-col p-10 *:border-2 *:border-black">
+<div class="flex flex-col p-10">
   <div class="flex flex-row justify-between">
     <h1 class="text-2xl">Reviews for {{product.name}}</h1>
-    <button id="add-review">Add review</button>
+    {% include 'review_button.html' %}
   </div>
   <div
     id="reviews-container"
-    class="flex flex-col w-full h-96 overflow-y-scroll"
+    class="flex flex-col w-full h-full overflow-y-scroll"
   ></div>
 </div>
-
-<dialog class="fixed bg-white border-2 border-black h-fit w-1/2" closed>
-  <form
-    id="review-creation-form"
-    class="flex flex-col items-start space-y-10 p-5 md:p-10 w-full"
-  >
-    {% csrf_token %}
-    <h1>Tell us what you think!</h1>
-    <h2>Commenting as {{user.ajeg_user.username}}</h2>
-    <div id="stars" class="flex flex-row w-1/2 gap-2">
-      <input type="radio" name="star_rating" value="1" id="star-1" hidden />
-      <label for="star-1" data-value="1" class="star-input grow">
-        <svg
-          class="fill-neutral-100 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-          />
-        </svg>
-      </label>
-      <input type="radio" name="star_rating" value="2" id="star-2" hidden />
-      <label for="star-2" data-value="2" class="star-input grow">
-        <svg
-          class="fill-neutral-100 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-          />
-        </svg>
-      </label>
-      <input type="radio" name="star_rating" value="3" id="star-3" hidden />
-      <label for="star-3" data-value="3" class="star-input grow">
-        <svg
-          class="fill-neutral-100 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-          />
-        </svg>
-      </label>
-      <input type="radio" name="star_rating" value="4" id="star-4" hidden />
-      <label for="star-4" data-value="4" class="star-input grow">
-        <svg
-          class="fill-neutral-100 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-          />
-        </svg>
-      </label>
-      <input type="radio" name="star_rating" value="5" id="star-5" hidden />
-      <label for="star-5" data-value="5" class="star-input grow">
-        <svg
-          class="fill-neutral-100 cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 576 512"
-        >
-          <path
-            d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-          />
-        </svg>
-      </label>
-    </div>
-    <div class="w-full flex flex-col space-y-5 text-xl">
-      <label for="synopsis">Synopsis</label>
-      <input
-        id="synopsis"
-        name="synopsis"
-        placeholder="How was the product?"
-        type="text"
-      />
-    </div>
-    <div class="w-full flex flex-col space-y-5 text-xl">
-      <label for="base_comment">Comment</label>
-      <textarea
-        id="base_comment"
-        name="base_comment"
-        placeholder="Leave a comment..."
-      ></textarea>
-    </div>
-    <div class="flex flex-row justify-end gap-5 w-full">
-      <button id="close-modal">Cancel</button>
-      <button type="submit">Confirm</button>
-    </div>
-  </form>
-</dialog>
 
 <script>
   // Page initialization
   const container = document.getElementById("reviews-container");
-  const addReviewButton = document.getElementById("add-review");
-  const closeModalButton = document.getElementById("close-modal");
-  const addReviewModal = document.querySelector("dialog");
-  let reviewCreationForm = document.getElementById("review-creation-form");
-
-  document.querySelector("[for='star-1']").click();
 
   // Functions to view reviews
 
@@ -135,42 +35,44 @@
 
           for (i = 0; i < 5; i++) {
             if (starRating > 0) {
-              starsHTML += `<svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>`;
+              starsHTML += `
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>`;
             } else {
-              starsHTML += `<svg class="w-4 h-4 text-gray-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>`;
+              starsHTML += `
+                <svg class="w-4 h-4 text-gray-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>`;
             }
             starRating--;
           }
           container.innerHTML += `
-          <article class="border-b border-black p-10">
-            <div class="flex items-center justify-between mb-4">
-              <div class="font-medium">
-                <p>${review.creator}</p>
+            <article class="border-b border-black p-10">
+              <div class="flex items-center justify-between mb-4">
+                <div class="font-medium">
+                  <p class="font-bold">${review.creator}</p>
+                  </div>
+                  ${
+                    review.editable == true
+                      ? `<p class='editable-review cursor-pointer' id='edit-${review.id}'>Edit</p>`
+                      : ""
+                  }
                 </div>
-                ${
-                  review.editable == true
-                    ? `<p class='editable-review cursor-pointer' id='edit-${review.id}'>Edit</p>`
-                    : ""
-                }
-              </div>
-              <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                  ${starsHTML}
-                  <h3 class="ms-2 text-sm font-semibold text-gray-900 ">${
-                    review.synopsis
-                  }</h3>
-              </div>
-              <footer class="mb-5 text-sm text-gray-500 "><p>Reviewed on <time datetime="${
-                review.created_at
-              }">${review.created_at}</time></p></footer>
-                <p class="mb-2 text-gray-500 ">${
-                  review.base_comment.content
-                }</p>
-          </article>
-                `;
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    ${starsHTML}
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 ">${
+                      review.synopsis
+                    }</h3>
+                </div>
+                <footer class="mb-5 text-sm text-gray-500 "><p>Reviewed on <time datetime="${
+                  review.created_at
+                }">${review.created_at}</time></p></footer>
+                  <p class="mb-2 text-gray-500 ">${
+                    review.base_comment.content
+                  }</p>
+            </article>
+                  `;
         });
       })
       .then(() => {
@@ -225,111 +127,6 @@
       });
   };
 
-  // Scripts to handle review form input
-
-  function initializeStarRating(initialRating) {
-    // Star rating of item
-    let starRating = initialRating;
-    // Star rating inputs (in the form of labels to inputs)
-    let starInputs = document.querySelectorAll(".star-input");
-
-    starInputs.forEach((starInput) => {
-      // Logic to handle star rating assignment
-      starInput.addEventListener("click", () => {
-        var starValue = starInput.getAttribute("data-value");
-        starValue = Number.parseInt(starValue);
-
-        starRating = starValue;
-
-        for (let i = 0; i < starRating; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-yellow-500");
-        }
-
-        for (let i = starValue; i < 5; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-neutral-100");
-        }
-      });
-      // Logic to handle input appearance on hover
-      starInput.addEventListener("mouseover", () => {
-        var starValue = starInput.getAttribute("data-value");
-        starValue = Number.parseInt(starValue);
-
-        for (let i = starRating; i < starValue; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-neutral-400");
-        }
-
-        for (let i = starValue; i < 5; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-neutral-100");
-        }
-      });
-      // Logic to handle input appearance when mouse leaves the input area
-      starInput.addEventListener("mouseout", () => {
-        for (let i = 0; i < starRating; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-yellow-500");
-        }
-
-        for (let i = starRating; i < 5; i++) {
-          starInputs[i]
-            .querySelector("svg")
-            .setAttribute("class", "cursor-pointer fill-neutral-100");
-        }
-      });
-    });
-  }
-
-  addReviewButton.addEventListener("click", (e) => {
-    reviewCreationForm.reset();
-    // Set default star rating to 1
-    document.querySelector("[for='star-1']").click();
-
-    fetch("/review/check")
-      .then((res) => {
-        // Perform check to see if user is logged in to leave review
-        if (res.redirected) {
-          window.location.replace(res.url);
-        } else {
-          // If user is logged in and presses the add review button, set the confirm button to call the addReview method
-          reviewCreationForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            let productId = window.location.href.split("/").pop();
-            let response = addReview(productId).then((response) => {
-              addReviewModal.close();
-              refreshReviews();
-            });
-          });
-        }
-      })
-      .then(() => addReviewModal.showModal());
-  });
-
-  closeModalButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    reviewCreationForm.reset();
-    addReviewModal.close();
-  });
-
-  async function addReview(productId) {
-    const endpoint = `/review/add_review/${productId}`;
-    let data = await fetch(endpoint, {
-      method: "POST",
-      body: new FormData(reviewCreationForm),
-    });
-
-    let dataJson = await data.json();
-
-    return dataJson;
-  }
-
   // Scripts to handle review editing
   async function editReview(reviewId) {
     const endpoint = `/review/edit/${reviewId}`;
@@ -340,6 +137,5 @@
   }
 
   refreshReviews();
-  initializeStarRating(1);
 </script>
 {% endblock content %}
