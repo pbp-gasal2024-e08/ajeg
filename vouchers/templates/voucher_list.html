@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>Voucher</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="font-[sans-serif] bg-white md:h-screen">
+      <div class="flex flex-col items-center p-6 h-full w-full">
+          <div class="mb-12">
+            <h3 class="text-black md:text-4xl text-3xl font-extrabold max-md:text-center">My Discounts</h3>
+          </div>
+          <div id="vouchersContainer" class="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 space-y-4 max-w-lg lg:max-w-4xl mx-auto">
+          </div>
+        </div>        
+</div>
+
+<!-- jQuery Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // Fungsi untuk menambahkan voucher ke keranjang
+    function addVoucherToCart(code) {
+        $.ajax({
+            url: `/vouchers/add-to-cart/${code}/`,
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            success: function(response) {
+                console.log("Voucher added to cart:", response.message);
+            },
+            error: function(xhr) {
+                console.log("Error adding voucher to cart:", xhr.responseText);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        // Fetch vouchers and display them on page loa
+        function fetchVouchers() {
+            $.ajax({
+                url: "{% url 'vouchers:voucher_list_json' %}",  // Endpoint untuk mengambil voucher
+                method: "GET",
+                success: async function(response) {  
+                    const vouchersContainer = $("#vouchersContainer");
+                    vouchersContainer.empty(); // Kosongkan container sebelum mengisinya
+                    console.log(response);
+                    // Loop melalui voucher yang diterima dari response JSON
+                    response.forEach((voucherData) => {
+                        const voucher = voucherData.fields;
+                        const code = voucher.code;
+                        const discount = voucher.discount;
+                        const expiryDate = voucher.expiry_date;
+
+                        // Tambahkan kartu voucher ke halaman
+                        const voucherHtml = `
+                            <div class="bg-white border rounded-lg p-6 shadow-md flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
+                                <div class="text-orange-600 font-bold text-4xl lg:text-5xl">${discount}%<br>OFF</div>
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-semibold text-gray-900">${discount}% OFF VOUCHER</h3>
+                                    <p class="text-sm text-gray-600 mt-2">• Expiry Date: ${expiryDate}</p>
+                                    <span class="text-orange-600 font-semibold block mt-2">Code: ${code}</span>
+                                </div>
+                                <button class="claim-btn bg-orange-600 text-white px-4 py-2 rounded-md font-semibold w-full lg:w-auto" data-code="${code}">Claim Voucher</button>
+                            </div>
+                        `;
+                        vouchersContainer.append(voucherHtml);
+                    });
+                },
+                error: function() {
+                    console.log("Failed to fetch vouchers.");
+                }
+            });
+        }
+        fetchVouchers();
+        
+        // Event listener untuk tombol Claim Voucher
+        $("#vouchersContainer").on("click", ".claim-btn", function() {
+            // const code = $(this).data("code");
+            const button = $(this); // Simpan referensi tombol
+            const code = button.data("code");
+            
+            $.ajax({
+                url: `/vouchers/claim-voucher/${code}/`,
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                data: {
+                    'code': code, // Send the code in the request body
+                    // 'discount': voucher.discount, // You don't need to send discount
+                    // 'expiry_date': voucher.expiry_date // You don't need to send expiry_date
+                },
+                success: function(response) {
+                    console.log(response); // Tambahkan ini
+                    if (response.status === "success") {
+                        alert(response.message);
+                        // $(this).text("Claimed").removeClass("bg-orange-600").addClass("bg-gray-200 text-gray-400 cursor-not-allowed").prop("disabled", true);
+                        button.text("Claimed").removeClass("bg-orange-600").addClass("bg-gray-200 text-gray-400 cursor-not-allowed").prop("disabled", true);
+                        // Tambahan untuk add voucher ke cart
+                        addVoucherToCart(code); // Fungsi untuk menambahkan voucher ke cart
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error response:", xhr.responseText); // Tambahkan ini
+                    alert("An error occurred. Please try again.");
+                }
+            });
+        });
+    });
+</script>             
+{% endblock content %}

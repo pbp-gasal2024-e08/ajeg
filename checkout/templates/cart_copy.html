@@ -307,7 +307,7 @@
 
   let htmlString = ``;
   
-  if(carts.length == 0){
+  if(carts.length == 0 || carts.length == null){
     htmlString = `<div class="min-w-[528.44px] ml-[50%] mt-[100px] text-2xl font-bold text-gray-400">Empty cart</div>`;
   } else {
     let productPromises = carts.map(async (cart) => {
@@ -345,6 +345,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                       </svg>
                     </button>
+                    <input type="hidden" id="prodprice" value="${product.fields.price}"/>
                   </div>
                   <div class="text-end md:order-4 md:w-32">
                     <p class="text-base font-bold text-gray-900 dark:text-white">Rp<span id='total_price' >${cart.fields.total_price}</span></p>
@@ -384,9 +385,14 @@
 
       const incrementButtons = document.querySelectorAll("#increment-button");
       const decrementButtons = document.querySelectorAll("#decrement-button");
-      console.log(incrementButtons, decrementButtons);  
       incrementButtons.forEach(increaseItems);
       decrementButtons.forEach(decreaseItems);
+      
+      updatePrice();
+    }
+  }
+
+    function updatePrice(){
       
       // Order Summary
       let orderSum = document.getElementById("original-price").textContent = orderSummary();
@@ -398,26 +404,20 @@
       // document.getElementById("total-summary").textContent = totalPrice();
       document.getElementById("total-summary").textContent = "Rp" + orderSum;
     }
-  }
-
 
   function increaseItems(button) {
     button.addEventListener("click", function (event) {
-      console.log("previousElementSibling", event.target.previousElementSibling, "button = ", button);
       button.previousElementSibling.value++;
-
+      let product_price = button.nextElementSibling.value;
       
       var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
-      console.log("productId", productId);
       var quantity = parseInt(button.previousElementSibling.value);
-      console.log(quantity)
       var url = "{% url 'checkout:update_cart_quantity' %}";
       var data = {
         'product_id': productId,
         'quantity': quantity, 
       };
 
-      console.log(data)
 
         fetch(url, {
         method: 'POST',
@@ -430,17 +430,16 @@
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         return response.json().then(data => {
-          console.log(data);
           button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+          updatePrice()
         });
       })
       .catch(error => {
-        console.error('Error updating cart quantity:', error);
         // Display an error message to the user
       });
       
       
-
+      
     });
   }
 
@@ -457,21 +456,17 @@
 
   function decreaseItems(button) {
     button.addEventListener("click", function (event) {
-      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
       if (button.nextElementSibling.value > 1) {
         button.nextElementSibling.value--;
       }
-      var productId =  parseInt(document.querySelector("#product_id").textContent);
-      console.log(productId);
+      var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
       var quantity = parseInt(button.nextElementSibling.value);
-      console.log(quantity)
       var url = "{% url 'checkout:update_cart_quantity' %}";
       var data = {
         'product_id': productId,
         'quantity': quantity, 
       };
 
-      console.log(data)
 
         fetch(url, {
         method: 'POST',
@@ -484,14 +479,15 @@
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         return response.json().then(data => {
-          console.log(data);
           button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+          updatePrice();
         });
       })
       .catch(error => {
         console.error('Error updating cart quantity:', error);
         // Display an error message to the user
       });
+      
     })
   }
 

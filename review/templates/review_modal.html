@@ -1,5 +1,9 @@
 {% load static %}
-<dialog class="fixed bg-white border-2 border-black h-fit w-1/2" closed>
+<dialog
+  id="review-creation-modal"
+  class="fixed bg-white border-2 border-black h-fit w-1/2"
+  closed
+>
   <form
     id="review-creation-form"
     class="flex flex-col items-start space-y-10 p-5 md:p-10 w-full"
@@ -88,105 +92,53 @@
     </div>
     <div class="flex flex-row justify-end gap-5 w-full">
       <button id="close-modal">Cancel</button>
-      <button type="submit">Confirm</button>
+      <button type="button" onclick="handleSubmit()">Confirm</button>
     </div>
   </form>
 </dialog>
 
-<!-- Scripts for review form handling -->
 <script>
-  // Star rating of item
-  let starRating = 0;
-  // Star rating inputs (in the form of labels to inputs)
-  let starInputs = document.querySelectorAll(".star-input");
+  const addReviewButton = document.getElementById("add-review");
+  const closeModalButton = document.getElementById("close-modal");
+  const addReviewModal = document.getElementById("review-creation-modal");
+  let reviewCreationForm = document.getElementById("review-creation-form");
 
-  starInputs.forEach((starInput) => {
-    // Logic to handle star rating assignment
-    starInput.addEventListener("click", () => {
-      var starValue = starInput.getAttribute("data-value");
-      starValue = Number.parseInt(starValue);
-
-      starRating = starValue;
-
-      for (let i = 0; i < starRating; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-yellow-500");
-      }
-
-      for (let i = starValue; i < 5; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-neutral-100");
-      }
-    });
-    // Logic to handle input appearance on hover
-    starInput.addEventListener("mouseover", () => {
-      var starValue = starInput.getAttribute("data-value");
-      starValue = Number.parseInt(starValue);
-
-      for (let i = starRating; i < starValue; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-neutral-400");
-      }
-
-      for (let i = starValue; i < 5; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-neutral-100");
-      }
-    });
-    // Logic to handle input appearance when mouse leaves the input area
-    starInput.addEventListener("mouseout", () => {
-      for (let i = 0; i < starRating; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-yellow-500");
-      }
-
-      for (let i = starRating; i < 5; i++) {
-        starInputs[i]
-          .querySelector("svg")
-          .setAttribute("class", "cursor-pointer fill-neutral-100");
-      }
-    });
-  });
-
-  let reviewCreationForm = document.querySelector("#review-creation-form");
-  reviewCreationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let productId = window.location.href.split("/").pop();
-    let response = addReview(productId).then((response) => {
-      reviewCreationForm.reset();
-      addReviewModal.close();
-      refreshProducts();
-    });
-  });
-
-  addReviewButton = document.querySelector("#add-review");
-  closeModalButton = document.querySelector("#close-modal");
-  addReviewModal = document.querySelector("dialog");
+  document.querySelector("[for='star-1']").click();
 
   addReviewButton.addEventListener("click", (e) => {
-    // Perform check to see if user is logged in to leave review
-    let response = fetch("/review/check").then((res) => {
-      if (res.redirected) {
-        window.location.replace(res.url);
-      }
-    });
-    addReviewModal.showModal();
+    reviewCreationForm.reset();
+    // Set default star rating to 1
+    document.querySelector("[for='star-1']").click();
+
+    fetch("/review/check")
+      .then((res) => {
+        // Perform check to see if user is logged in to leave review
+        if (res.redirected) {
+          window.location.replace(res.url);
+        }
+      })
+      .then(() => addReviewModal.showModal());
   });
+
+  function handleSubmit() {
+    let productId = window.location.href.split("/").pop();
+    let response = addReview(productId).then((response) => {
+      addReviewModal.close();
+      refreshReviews();
+      setTimeout(() => {
+        attachEventListeners();
+      }, 300);
+    });
+  }
 
   closeModalButton.addEventListener("click", (e) => {
     e.preventDefault();
-    starRating = 0;
     reviewCreationForm.reset();
     addReviewModal.close();
   });
 
   async function addReview(productId) {
-    const endpoint = `/review/add_review/${productId}`;
+    const endpoint = `/review/add-review/${productId}`;
     let data = await fetch(endpoint, {
       method: "POST",
       body: new FormData(reviewCreationForm),
@@ -197,5 +149,65 @@
     return dataJson;
   }
 
-  document.querySelector("[for='star-1']").click();
+  function initializeStarRating(initialRating) {
+    // Star rating of item
+    let starRating = initialRating;
+    // Star rating inputs (in the form of labels to inputs)
+    let starInputs = document.querySelectorAll(".star-input");
+
+    starInputs.forEach((starInput) => {
+      // Logic to handle star rating assignment
+      starInput.addEventListener("click", () => {
+        var starValue = starInput.getAttribute("data-value");
+        starValue = Number.parseInt(starValue);
+
+        starRating = starValue;
+
+        for (let i = 0; i < starRating; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-yellow-500");
+        }
+
+        for (let i = starValue; i < 5; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-neutral-100");
+        }
+      });
+      // Logic to handle input appearance on hover
+      starInput.addEventListener("mouseover", () => {
+        var starValue = starInput.getAttribute("data-value");
+        starValue = Number.parseInt(starValue);
+
+        for (let i = starRating; i < starValue; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-neutral-400");
+        }
+
+        for (let i = starValue; i < 5; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-neutral-100");
+        }
+      });
+      // Logic to handle input appearance when mouse leaves the input area
+      starInput.addEventListener("mouseout", () => {
+        for (let i = 0; i < starRating; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-yellow-500");
+        }
+
+        for (let i = starRating; i < 5; i++) {
+          starInputs[i]
+            .querySelector("svg")
+            .setAttribute("class", "cursor-pointer fill-neutral-100");
+        }
+      });
+    });
+  }
+
+  initializeStarRating(1);
 </script>
