@@ -13,6 +13,7 @@ from myauth.models import AjegUser
 
 import json
 
+
 # Create your views here.
 def show_product_page(request, pk):
     product = Product.objects.get(pk=pk)
@@ -22,25 +23,28 @@ def show_product_page(request, pk):
     form = AddToCartForm(request.POST)
     print(form.is_valid())
     if form.is_valid():
-        if Cart.objects.filter(user = user, product = product).exists():
-            cart = Cart.objects.get(user = user, product = product)
-            cart.quantity += form.cleaned_data['quantity']
-            cart.total_price += product.price * form.cleaned_data['quantity']
+        if Cart.objects.filter(user=user, product=product).exists():
+            cart = Cart.objects.get(user=user, product=product)
+            cart.quantity += form.cleaned_data["quantity"]
+            cart.total_price += product.price * form.cleaned_data["quantity"]
             cart.save()
         else:
             cart = Cart.objects.create(
-                user = user,
-                product = product,
-                quantity = form.cleaned_data['quantity'],
-                total_price = product.price * form.cleaned_data['quantity']
+                user=user,
+                product=product,
+                quantity=form.cleaned_data["quantity"],
+                total_price=product.price * form.cleaned_data["quantity"],
             )
 
     context = {
-        'product': product,
-        'store': store,
-        'form': form,
+        "product": product,
+        "average_rating": product.average_rating,
+        "no_reviews": product.review_count,
+        "store": store,
+        "form": form,
     }
-    return render(request, 'product_page.html', context)
+    return render(request, "product_page.html", context)
+
 
 @csrf_exempt
 @login_required
@@ -62,7 +66,7 @@ def show_history(request):
 
 @login_required
 def show_checkout(request):
-    carts = Cart.objects.filter(user = request.user.ajeg_user)
+    carts = Cart.objects.filter(user=request.user.ajeg_user)
 
     total_summary = 0
     for cart in carts:
@@ -72,32 +76,34 @@ def show_checkout(request):
     grand_total = total_summary + tax + 15000
 
     context = {
-        'carts': carts,
-        'total_summary': total_summary,
-        'tax': tax,
-        'grand_total': grand_total,
-        'user': request.user
+        "carts": carts,
+        "total_summary": total_summary,
+        "tax": tax,
+        "grand_total": grand_total,
+        "user": request.user,
     }
-    return render(request, 'checkout.html', context)
+    return render(request, "checkout.html", context)
+
 
 @login_required
 def show_order_summary(request):
-    carts = Cart.objects.filter(user = request.user.ajeg_user)
+    carts = Cart.objects.filter(user=request.user.ajeg_user)
 
     total_summary = 0
 
     for cart in carts:
         total_summary += cart.total_price
-    
+
     tax = int(floor(total_summary * 0.1))
     grand_total = total_summary + tax
     context = {
-        'carts': carts,
-        'total_summary': total_summary,
-        'tax': tax,
-        'grand_total': grand_total
+        "carts": carts,
+        "total_summary": total_summary,
+        "tax": tax,
+        "grand_total": grand_total,
     }
-    return render(request, 'order_summary.html', context)
+    return render(request, "order_summary.html", context)
+
 
 @login_required
 def show_order_confirmation(request):
@@ -115,25 +121,29 @@ def show_order_confirmation(request):
         "date": datetime.datetime.now(),
         "user": request.user
 
-    }
-    return render(request, 'order_confirmation.html', context)
 
 @csrf_exempt
 def get_cart_json(request):
-    cart = Cart.objects.filter(user = request.user.ajeg_user)
-    return HttpResponse(serializers.serialize('json', cart), content_type='application/json')
+    cart = Cart.objects.filter(user=request.user.ajeg_user)
+    return HttpResponse(
+        serializers.serialize("json", cart), content_type="application/json"
+    )
+
 
 @csrf_exempt
 def get_product_json(request):
-    product_id = request.GET.get('product_id')
+    product_id = request.GET.get("product_id")
     product = Product.objects.get(pk=product_id)
-    return HttpResponse(serializers.serialize('json', [product]), content_type='application/json')
-    
+    return HttpResponse(
+        serializers.serialize("json", [product]), content_type="application/json"
+    )
+
+
 @csrf_exempt
 def update_cart_quantity(request):
     data = json.loads(request.body)
-    product_id = data['product_id']
-    quantity = data['quantity']
+    product_id = data["product_id"]
+    quantity = data["quantity"]
     product = Product.objects.get(pk=product_id)
 
     cart = Cart.objects.get(product=product_id, user=request.user.ajeg_user)
@@ -142,8 +152,14 @@ def update_cart_quantity(request):
     print("total price", cart.total_price)
     cart.save()
 
-    return JsonResponse({'message': 'Cart quantity updated succesfully',
-                        'total_price': cart.total_price}, safe=False)
+    return JsonResponse(
+        {
+            "message": "Cart quantity updated succesfully",
+            "total_price": cart.total_price,
+        },
+        safe=False,
+    )
+
 
 @csrf_exempt
 def store_page(request, pk):
