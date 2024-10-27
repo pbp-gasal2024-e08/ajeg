@@ -8,9 +8,6 @@ class AjegUser(models.Model):
     ajeg_user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='ajeg_user')
     user_type = models.CharField(choices=[('traveller', 'Traveller'), ('merchant', 'Merchant')], max_length=10)
     store = models.ManyToManyField(Store, blank=True)
-    fullname = models.CharField(max_length=255, null=True, blank=True)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    phone_number = models.IntegerField(null=True, blank=True)
 
     @property
     def merchant_store(self):

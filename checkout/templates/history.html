@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    {% include 'navbar.html' %}
+    <div id="order-history">
+
+    </div>
+
+    <script>
+
+        async function getCart() {
+    return fetch("{% url 'checkout:get_cart_json' %}").then((res) => res.json())
+  }
+
+  async function getProduct(productId){
+    const url = `{% url 'checkout:get_product_json' %}?product_id=${productId}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const product = {...data}
+    return product;
+  }
+
+  async function refreshCart(){
+    document.getElementById("order-history").innerHTML = "";
+
+    let carts = await getCart();
+
+  let htmlString = ``;
+  
+  if(carts.length == 0 || carts.length == null){
+    htmlString = `<div class="min-w-[528.44px] ml-[50%] mt-[100px] text-2xl font-bold text-gray-400">Empty cart</div>`;
+  } else {
+    let productPromises = carts.map(async (cart) => {
+        let productId = cart.fields.product
+        let prod = await getProduct(productId)
+        return { cart, prod }
+      });
+
+      let cartProductData = await Promise.all(productPromises);
+      let firstNumber = 0;
+
+      cartProductData.forEach(({cart, prod}) => {
+        firstNumber = firstNumber + 1;
+        product = prod[0];
+          htmlString += `
+            <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+              <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                <a href="#" class="shrink-0 md:order-1">
+                  <img class="h-20 w-20" src="" alt="food image" />
+                </a>
+  
+                <label for="counter-input" class="sr-only">Choose quantity:</label>
+                <div class="flex items-center justify-between md:order-3 md:justify-end">
+                  <div class="flex items-center">
+                    <p class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white">${ cart.fields.quantity }</p>
+                    <input type="hidden" id="prodprice" value="${product.fields.price}"/>
+                  </div>
+                  <div class="text-end md:order-4 md:w-32">
+                    <p class="text-base font-bold text-gray-900 dark:text-white">Rp<span id='total_price' >${cart.fields.total_price}</span></p>
+                  </div>
+                </div>
+  
+                <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                  <a href="" class="text-base font-medium text-gray-900 hover:underline dark:text-white">${product.fields.name}</a>
+  
+                  <div class="flex items-center gap-4">
+                    <button type="button" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline dark:text-gray-400 dark:hover:text-white">
+                      <svg class="me-1.5 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                      </svg>
+                      Add to Favorites
+                    </button>
+  
+                    <button type="button" class="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
+                      <svg class="me-1.5 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                      </svg>
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hidden" id="product_id">
+              <p>${cart.fields.product}</p>
+            </div>
+            <div class="hidden" id="product_price">
+              <p>${product.fields.price}</p>
+            </div>
+            `;          
+        });
+      document.getElementById('order-history').innerHTML = htmlString;
+
+      const incrementButtons = document.querySelectorAll("#increment-button");
+      const decrementButtons = document.querySelectorAll("#decrement-button");
+      console.log(incrementButtons, decrementButtons);  
+      incrementButtons.forEach(increaseItems);
+      decrementButtons.forEach(decreaseItems);
+      
+      updatePrice();
+    }
+  }
+
+    function updatePrice(){
+      
+      // Order Summary
+      let orderSum = document.getElementById("original-price").textContent = orderSummary();
+      document.getElementById("original-price").textContent = "Rp" + orderSummary();
+      
+      // voucherDiscount();
+
+      // total price
+      // document.getElementById("total-summary").textContent = totalPrice();
+      document.getElementById("total-summary").textContent = "Rp" + orderSum;
+    }
+
+  function increaseItems(button) {
+    button.addEventListener("click", function (event) {
+      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
+      button.previousElementSibling.value++;
+      let product_price = button.nextElementSibling.value;
+      
+      var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
+      console.log("productId", productId, "product_price", product_price);
+      var quantity = parseInt(button.previousElementSibling.value);
+      console.log(quantity)
+      var url = "{% url 'checkout:update_cart_quantity' %}";
+      var data = {
+        'product_id': productId,
+        'quantity': quantity, 
+      };
+
+      console.log(data)
+
+        fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        return response.json().then(data => {
+          console.log("response",data);
+          button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+        });
+      })
+      .catch(error => {
+        console.error('Error updating cart quantity:', error);
+        // Display an error message to the user
+      });
+      
+      
+      updatePrice()
+    });
+  }
+
+  function orderSummary() {
+    let cartTotalPrice = 0;
+    const getItemPrices = document.querySelectorAll("#total_price");
+    getItemPrices.forEach(item => {
+      cartTotalPrice += parseInt(item.textContent);
+    })
+    return cartTotalPrice;
+  }
+
+  
+
+  function decreaseItems(button) {
+    button.addEventListener("click", function (event) {
+      console.log("nextElementSibling", event.target.nextElementSibling, "button = ", button);
+      if (button.nextElementSibling.value > 1) {
+        button.nextElementSibling.value--;
+      }
+      var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
+      console.log(productId);
+      var quantity = parseInt(button.nextElementSibling.value);
+      console.log(quantity)
+      var url = "{% url 'checkout:update_cart_quantity' %}";
+      var data = {
+        'product_id': productId,
+        'quantity': quantity, 
+      };
+
+      console.log(data)
+
+        fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        return response.json().then(data => {
+          console.log(data);
+          button.parentElement.nextElementSibling.children[0].children[0].textContent = parseInt(`${data.total_price}`);
+        });
+      })
+      .catch(error => {
+        console.error('Error updating cart quantity:', error);
+        // Display an error message to the user
+      });
+      updatePrice();
+    })
+  }
+
+  refreshCart();
+    </script>
+    {% endblock content %}
+</body>
+</html>

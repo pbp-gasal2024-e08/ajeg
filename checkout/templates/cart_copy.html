@@ -307,7 +307,7 @@
 
   let htmlString = ``;
   
-  if(carts.length == 0){
+  if(carts.length == 0 || carts.length == null){
     htmlString = `<div class="min-w-[528.44px] ml-[50%] mt-[100px] text-2xl font-bold text-gray-400">Empty cart</div>`;
   } else {
     let productPromises = carts.map(async (cart) => {
@@ -404,25 +404,6 @@
       // total price
       // document.getElementById("total-summary").textContent = totalPrice();
       document.getElementById("total-summary").textContent = "Rp" + orderSum;
-
-      let url = "{% url 'checkout:total_summary' %}"
-
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          'totalSummary': orderSum
-        })
-      }).then(response => {
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}: ${response.statusText}`);
-        }
-        return response.json().then(data => {
-          console.log("updatePrice::", orderSum, data);
-        });
-      });
     }
 
   function increaseItems(button) {
@@ -485,7 +466,7 @@
       if (button.nextElementSibling.value > 1) {
         button.nextElementSibling.value--;
       }
-      var productId =  parseInt(document.querySelector("#product_id").textContent);
+      var productId =  parseInt((((button.parentElement).parentElement).parentElement.parentElement).nextElementSibling.textContent);
       console.log(productId);
       var quantity = parseInt(button.nextElementSibling.value);
       console.log(quantity)

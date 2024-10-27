@@ -1,3 +1,5 @@
+import datetime
+from math import floor
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse
@@ -7,6 +9,7 @@ from checkout.forms import AddToCartForm
 from checkout.models import Cart
 from main.models import Product, Store
 from myauth.models import AjegUser
+
 import json
 
 # Create your views here.
@@ -41,34 +44,76 @@ def show_product_page(request, pk):
 @csrf_exempt
 @login_required
 def show_cart(request):
-    cart = Cart.objects.filter(user = request.user.ajeg_user)
-
+    carts = Cart.objects.filter(user = request.user.ajeg_user)
     context = {
-        'carts': cart
+        'carts': carts
     }
     return render(request, 'cart_copy.html', context)
 
 @login_required
+def show_history(request):
+    carts = Cart.objects.filter(user = request.user.ajeg_user)
+    context = {
+        'carts': carts
+    }
+    return render(request, 'history.html', context)
+
+
+@login_required
 def show_checkout(request):
-    cart = Cart.objects.filter(user = request.user.ajeg_user)
-    total_summary = request.session.get('totalSummary')
-    print (total_summary)
+    carts = Cart.objects.filter(user = request.user.ajeg_user)
 
+    total_summary = 0
+    for cart in carts:
+        total_summary += cart.total_price
 
+    tax = int(floor(total_summary * 0.1))
+    grand_total = total_summary + tax + 15000
 
     context = {
-        'carts': cart,
-        'total_summary': total_summary
+        'carts': carts,
+        'total_summary': total_summary,
+        'tax': tax,
+        'grand_total': grand_total,
+        'user': request.user
     }
     return render(request, 'checkout.html', context)
 
 @login_required
 def show_order_summary(request):
-    return render(request, 'order_summary.html')
+    carts = Cart.objects.filter(user = request.user.ajeg_user)
+
+    total_summary = 0
+
+    for cart in carts:
+        total_summary += cart.total_price
+    
+    tax = int(floor(total_summary * 0.1))
+    grand_total = total_summary + tax
+    context = {
+        'carts': carts,
+        'total_summary': total_summary,
+        'tax': tax,
+        'grand_total': grand_total
+    }
+    return render(request, 'order_summary.html', context)
 
 @login_required
 def show_order_confirmation(request):
-    return render(request, 'order_confirmation.html')
+    carts = Cart.objects.filter(user = request.user.ajeg_user)
+
+    for cart in carts:
+        cart.payment = True
+        cart.date = datetime.datetime.now()
+        cart.save()
+
+    context = {
+        "carts": carts,
+        "date": datetime.datetime.now(),
+        "user": request.user
+
+    }
+    return render(request, 'order_confirmation.html', context)
 
 @csrf_exempt
 def get_cart_json(request):
@@ -91,21 +136,11 @@ def update_cart_quantity(request):
     cart = Cart.objects.get(product=product_id, user=request.user.ajeg_user)
     cart.quantity = quantity
     cart.total_price = product.price * quantity
+    print("total price", cart.total_price)
     cart.save()
 
     return JsonResponse({'message': 'Cart quantity updated succesfully',
                         'total_price': cart.total_price}, safe=False)
-
-@csrf_exempt
-def total_summary(request):
-    print('in total summary')
-    total_summary = request.POST.get('totalSummary')
-    print('total_summary', total_summary)
-    if total_summary is not None:
-        request.session['totalSummary'] = total_summary
-        return HttpResponse(total_summary)
-    return JsonResponse({'message': 'total price has been saved succesfully'})
-
 
 @csrf_exempt
 def store_page(request, pk):

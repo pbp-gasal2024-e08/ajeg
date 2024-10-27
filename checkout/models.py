@@ -1,3 +1,4 @@
+from itertools import product
 from django.db import models
 
 from myauth.models import AjegUser
@@ -10,6 +11,7 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1, blank=True)
     total_price = models.PositiveIntegerField(default=1, blank=True, null=True)
     payment = models.BooleanField(default=False, blank=True, null=True)
+    date = models.DateTimeField(blank=True, null=True)
 
     def serialize(self):
         return {
