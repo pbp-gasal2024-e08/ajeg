@@ -25,3 +25,9 @@ class Cart(models.Model):
 
     def __str__(self):
         return str(self.product)
+
+class Order(models.Model):
+    user = models.ForeignKey(AjegUser, on_delete=models.CASCADE)
+    cart = models.ManyToManyField(Cart)
+    date = models.DateTimeField()
+    

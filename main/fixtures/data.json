@@ -70,7 +70,11 @@
             "url": "https://gofood.co.id/en/bali/restaurant/wr-rafael-ayam-lengkuas-nasi-tempong-kedewatan-237158a5-050b-4830-b450-0b175925bbd7",
             "price_range": "$$",
             "rating": 4.3,
-            "category": [1, 2, 3]
+            "category": [
+                1,
+                2,
+                3
+            ]
         }
     },
     {
@@ -81,7 +85,9 @@
             "name": "Nasi ayam goreng sambal tempong kemangi",
             "price": 33500,
             "imgurl": "https://img-global.cpcdn.com/recipes/1b5068c79aca5ce3/1200x630cq70/photo.jpg",
-            "description": "Ayam, nasi, kremes lengkuas spesial, tahu, tempe, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan dan bagian ayam paha atau dada jika tidak maka kami kirim random."
+            "description": "Ayam, nasi, kremes lengkuas spesial, tahu, tempe, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan dan bagian ayam paha atau dada jika tidak maka kami kirim random.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -92,7 +98,9 @@
             "name": "Nasi tempong spesial komplit",
             "price": 35000,
             "imgurl": "https://img-global.cpcdn.com/recipes/1b5068c79aca5ce3/1200x630cq70/photo.jpg",
-            "description": "Nasi, ayam, tahu, tempe, sayuran rebus, ikan asin, sambal tempong. Untuk bagian ayam paha atau dada mohon tinggalkan notif."
+            "description": "Nasi, ayam, tahu, tempe, sayuran rebus, ikan asin, sambal tempong. Untuk bagian ayam paha atau dada mohon tinggalkan notif.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -103,7 +111,9 @@
             "name": "Nasi Ayam Lengkuas Dada",
             "price": 29500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/23a12de2-e5cf-440d-b6cc-59501200d21e_Go-Biz_20230929_231859.jpeg",
-            "description": "Nasi, ayam, kremes lengkuas, lalapan, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
+            "description": "Nasi, ayam, kremes lengkuas, lalapan, sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -114,7 +124,9 @@
             "name": "Nasi Ayam Goreng Lengkuas Paha",
             "price": 29500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ad7597d8-db11-4baf-abac-3cb02a7090c0_Go-Biz_20211112_125200.jpeg",
-            "description": "Nasi + ayam lengkuas spesial + sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan."
+            "description": "Nasi + ayam lengkuas spesial + sambal tempong. Mohon tinggalkan pesan untuk tingkat kepedesan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -125,7 +137,9 @@
             "name": "Nasi Bebek Goreng lengkuas spesial lengkap",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ad7597d8-db11-4baf-abac-3cb02a7090c0_Go-Biz_20211112_125200.jpeg",
-            "description": "Bebek, tahu, tempe, nasi, sambal, lalapan."
+            "description": "Bebek, tahu, tempe, nasi, sambal, lalapan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -136,7 +150,9 @@
             "name": "Lele Lengkuas Dan Nasi",
             "price": 27000,
             "imgurl": "https://i1.wp.com/resepkoki.id/wp-content/uploads/2017/09/Resep-Pecak-lele.jpg?fit=1920%2C1920&ssl=1",
-            "description": "Lele 1 pcs + nasi + sambal tempong + lalapan."
+            "description": "Lele 1 pcs + nasi + sambal tempong + lalapan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -147,7 +163,9 @@
             "name": "Tahu lengkuas + Nasi",
             "price": 22000,
             "imgurl": "https://asset-a.grid.id/crop/0x0:0x0/360x240/photo/sasefoto/original/38917_tahu-kuning-goreng-lengkuas.jpg",
-            "description": "Tahu + nasi + sambal + lalapan."
+            "description": "Tahu + nasi + sambal + lalapan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -158,7 +176,9 @@
             "name": "Terong goreng dan nasi",
             "price": 18000,
             "imgurl": "https://img-global.cpcdn.com/recipes/0e03a7339e2e2a48/680x482cq70/terong-goreng-sambal-lalapan-foto-resep-utama.jpg",
-            "description": "Lalapan terong goreng, nasi, sambal."
+            "description": "Lalapan terong goreng, nasi, sambal.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -169,7 +189,9 @@
             "name": "Ikan bakar mujair + nasi",
             "price": 43000,
             "imgurl": "https://media-cdn.tripadvisor.com/media/photo-s/14/5f/1e/2e/mujair-bakar-grilled.jpg",
-            "description": "Ikan bakar, nasi, sambal, lalapan."
+            "description": "Ikan bakar, nasi, sambal, lalapan.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -180,7 +202,9 @@
             "name": "Es teh",
             "price": 7000,
             "imgurl": "https://asset.kompas.com/crops/toOljW__-UqEVhGAJe8UyPdZWnU=/92x67:892x600/750x500/data/photo/2023/08/23/64e59deb79bfb.jpg",
-            "description": "Es teh manis atau tawar, silahkan tinggalkan pesan jika tidak kami kirim manis."
+            "description": "Es teh manis atau tawar, silahkan tinggalkan pesan jika tidak kami kirim manis.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -191,7 +215,9 @@
             "name": "Teh hangat",
             "price": 7000,
             "imgurl": "https://mymilk.com/uploads/mana_yang_lebih_baik_teh_hangat_atau_esteh.jpg",
-            "description": "Teh hangat manis atau tawar, mohon tinggalkan pesan untuk manis atau tawar jika tidak kami kirim manis."
+            "description": "Teh hangat manis atau tawar, mohon tinggalkan pesan untuk manis atau tawar jika tidak kami kirim manis.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -202,7 +228,9 @@
             "name": "Es jeruk",
             "price": 8000,
             "imgurl": "https://api.mahaputra.id/storage/upload/images/products/img_6349526c6acf71665749612.png",
-            "description": "Es jeruk manis."
+            "description": "Es jeruk manis.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -213,7 +241,9 @@
             "name": "Jeruk hangat",
             "price": 8000,
             "imgurl": "https://img-global.cpcdn.com/recipes/2a8028fc0e0830d1/680x482cq70/jeruk-peras-hangat-foto-resep-utama.jpg",
-            "description": "Jeruk hangat manis."
+            "description": "Jeruk hangat manis.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -224,7 +254,9 @@
             "name": "Air Mineral 600Ml",
             "price": 7000,
             "imgurl": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-14465631/aqua_aqua_air_mineral_kemasan_botol_600_ml-_1_karton-_24_pcs_full01_eg9ng5lp.jpg",
-            "description": "Air mineral 600ml."
+            "description": "Air mineral 600ml.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -235,7 +267,11 @@
             "url": "https://gofood.co.id/en/bali/restaurant/nena-cafe-kebab-shawarma-ubud",
             "price_range": "$$$",
             "rating": 4.5,
-            "category": [4, 5, 6]
+            "category": [
+                4,
+                5,
+                6
+            ]
         }
     },
     {
@@ -246,7 +282,9 @@
             "name": "Doner Kebab",
             "price": 85000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8562ede7-451c-4730-a1a9-63e36e70358d_Go-Biz_20221129_183249.jpeg?auto=format",
-            "description": "Large. Little spicy! 8 hours marinated chicken thigh fillet, grilled, mixed with French fries, homemade Lecho sauce, jalapeno, tomato, and lettuce, wrapped in crispy lavash flatbread. Comes with garlic white and Lecho sauce on the side."
+            "description": "Large. Little spicy! 8 hours marinated chicken thigh fillet, grilled, mixed with French fries, homemade Lecho sauce, jalapeno, tomato, and lettuce, wrapped in crispy lavash flatbread. Comes with garlic white and Lecho sauce on the side.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -257,7 +295,9 @@
             "name": "Royal Shawarma + Homemade Drink",
             "price": 95000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ac26dca5-16b3-4470-a936-b047ab335675_Go-Biz_20220903_183815.jpeg?auto=format",
-            "description": "Extra large. Grilled chicken mixed with fresh veggies, pickles, mozzarella, onion, herbs, and spices, wrapped in freshly baked signature crispy flatbread. Comes with white and red sauces, plus a free homemade drink."
+            "description": "Extra large. Grilled chicken mixed with fresh veggies, pickles, mozzarella, onion, herbs, and spices, wrapped in freshly baked signature crispy flatbread. Comes with white and red sauces, plus a free homemade drink.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -268,7 +308,9 @@
             "name": "Shawerma Number 1",
             "price": 85000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5b15c4cf-a458-4813-b486-1a872dde1f39_Go-Biz_20220903_173625.jpeg?auto=format",
-            "description": "Large. Chicken fillet marinated in a blend of spices, grilled, and mixed with fresh vegetables, Korean-style spicy carrots, herbs, and spices, wrapped in freshly baked crispy lavash flatbread. Comes with special white and secret red sauce."
+            "description": "Large. Chicken fillet marinated in a blend of spices, grilled, and mixed with fresh vegetables, Korean-style spicy carrots, herbs, and spices, wrapped in freshly baked crispy lavash flatbread. Comes with special white and secret red sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -279,7 +321,9 @@
             "name": "Beef Burrito Bombitto (Big)",
             "price": 114000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/6277adc4-557b-4f1c-a999-a0f89441b7a1_Go-Biz_20241001_101620.jpeg?auto=format",
-            "description": "A flavor explosion with rich beef prep, melted cheddar cheese, and authentic lavash wrap. More than just a burrito, it’s a taste sensation that leaves a lasting impression."
+            "description": "A flavor explosion with rich beef prep, melted cheddar cheese, and authentic lavash wrap. More than just a burrito, it\u2019s a taste sensation that leaves a lasting impression.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -290,7 +334,9 @@
             "name": "Mors Passion Fruit (Small)",
             "price": 24000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/513f81ab-8301-4cf9-a992-827d712f91dd_Go-Biz_20241001_104841.jpeg?auto=format",
-            "description": "250ml Homemade sweet and sour tasty drink from fresh passion fruit."
+            "description": "250ml Homemade sweet and sour tasty drink from fresh passion fruit.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -301,7 +347,9 @@
             "name": "French Fries",
             "price": 30000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/362f85e2-4d7b-47da-820e-2d55a2ea76e2_Go-Biz_20221001_154837.jpeg?auto=format",
-            "description": "French fries served with tomato ketchup. Customize it with your favorite garlic white sauce or red Ajika sauce."
+            "description": "French fries served with tomato ketchup. Customize it with your favorite garlic white sauce or red Ajika sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -312,7 +360,9 @@
             "name": "Cutlet Kebab",
             "price": 75000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/75cfd36f-b51d-4ddd-8afd-6753609ed860_Go-Biz_20240329_134614.jpeg?auto=format",
-            "description": "Lavash wrap filled with juicy chicken cutlets, cheddar, tangy gherkins, enhanced with homemade red Ajika sauce and smooth white garlic sauce."
+            "description": "Lavash wrap filled with juicy chicken cutlets, cheddar, tangy gherkins, enhanced with homemade red Ajika sauce and smooth white garlic sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -323,7 +373,9 @@
             "name": "Falafel Rich",
             "price": 72000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/2d4569e4-eba9-4f5a-861c-255a3dac0729_Go-Biz_20240115_161304.jpeg?auto=format",
-            "description": "Delicate falafels, spicy Korean carrots, crisp lettuce, and a zesty kinza sauce come together in a culinary masterpiece."
+            "description": "Delicate falafels, spicy Korean carrots, crisp lettuce, and a zesty kinza sauce come together in a culinary masterpiece.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -334,7 +386,9 @@
             "name": "Cheesy Shawarma",
             "price": 95000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3fddc956-d12e-44c2-b062-4e1a4cded35e_Go-Biz_20240115_175319.jpeg?auto=format",
-            "description": "Melted cheddar and mozzarella with tender shawarma-style chicken, crisp pickles, juicy tomatoes, all snug in a cheese-laden lavash."
+            "description": "Melted cheddar and mozzarella with tender shawarma-style chicken, crisp pickles, juicy tomatoes, all snug in a cheese-laden lavash.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -345,7 +399,9 @@
             "name": "Cheesy Shawarma (Small)",
             "price": 72000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7be3bb74-c967-4a35-bf14-d2f9fdccd26b_Go-Biz_20240115_175815.jpeg?auto=format",
-            "description": "Smaller portion of the Cheesy Shawarma with the same delightful flavors."
+            "description": "Smaller portion of the Cheesy Shawarma with the same delightful flavors.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -356,7 +412,9 @@
             "name": "King Kebab (Shawarma)",
             "price": 85000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/88d9a7a5-d34d-4205-a346-1e3b0e84a4c7_Go-Biz_20221206_204658.jpeg?auto=format",
-            "description": "Large chicken marinated in a special blend of spices, mixed with tomatoes, cucumbers, vitamin salad, and marinated onion, wrapped in crispy lavash flatbread."
+            "description": "Large chicken marinated in a special blend of spices, mixed with tomatoes, cucumbers, vitamin salad, and marinated onion, wrapped in crispy lavash flatbread.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -366,8 +424,10 @@
             "store": 2,
             "name": "Queen Kebab (Shawarma)",
             "price": 70000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/0908120b-daa9-4906-91c4-e59f7a204990_Go-Biz_20240516_145308.jpeg?auto=format",
-            "description": "Medium size, same ingredients as the King Kebab, just smaller."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/0908120b-daa9-4906-91c4-e59f7a204990_Go-Biz_20240516_145308.jpeg?auto=format",
+            "description": "Medium size, same ingredients as the King Kebab, just smaller.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -378,7 +438,9 @@
             "name": "Mexico Kebab: Black Edition",
             "price": 90000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b98c2f55-f734-4807-99b2-ff086dc5c6a2_Go-Biz_20220903_174146.jpeg?auto=format",
-            "description": "Large. Little spicy! Grilled chicken fillet mixed with fresh vegetables, red onion, black beans, jalapeno, and special spicy sauce, wrapped in black lavash flatbread."
+            "description": "Large. Little spicy! Grilled chicken fillet mixed with fresh vegetables, red onion, black beans, jalapeno, and special spicy sauce, wrapped in black lavash flatbread.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -389,7 +451,9 @@
             "name": "Vegetarian Falafel Kebab",
             "price": 78000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3f6b4b1c-33d8-4543-8f9c-c403a6b95a4c_Go-Biz_20220903_173229.jpeg?auto=format",
-            "description": "Large. 5 pcs of freshly cooked falafel with hummus, lettuce, tomatoes, spices, special white garlic sauce wrapped in homemade crispy lavash flatbread."
+            "description": "Large. 5 pcs of freshly cooked falafel with hummus, lettuce, tomatoes, spices, special white garlic sauce wrapped in homemade crispy lavash flatbread.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -400,7 +464,9 @@
             "name": "Nena Shashlyk",
             "price": 113000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8c9d45de-4e43-49a5-b02d-9d897a61db59_Go-Biz_20240516_145945.jpeg?auto=format",
-            "description": "Premium cuts of marinated chicken thigh, grilled over charcoal. Served with fresh homemade lavash and fresh veggies. Comes with garlic white and red Ajika sauces."
+            "description": "Premium cuts of marinated chicken thigh, grilled over charcoal. Served with fresh homemade lavash and fresh veggies. Comes with garlic white and red Ajika sauces.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -411,7 +477,9 @@
             "name": "Profiteroles",
             "price": 50000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c46dde61-c1fd-4475-a58f-4401a84e6eb7_Go-Biz_20240729_154548.jpeg?auto=format",
-            "description": "Three savory, sweet cakes filled with creamy milk cream."
+            "description": "Three savory, sweet cakes filled with creamy milk cream.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -422,7 +490,9 @@
             "name": "Mors Strawberry",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e8e88e46-5fbe-4e91-aaef-d29d69c6e68d_Go-Biz_20231116_160253.jpeg?auto=format",
-            "description": "500ml Homemade sweet drink with fresh strawberries."
+            "description": "500ml Homemade sweet drink with fresh strawberries.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -433,7 +503,9 @@
             "name": "Sprite",
             "price": 24000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ac29102b-52fc-44c0-8b2b-8cbd56285d2f_Go-Biz_20220201_111811.jpeg?auto=format",
-            "description": "Soft drink, 330ml."
+            "description": "Soft drink, 330ml.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -444,7 +516,11 @@
             "url": "https://gofood.co.id/en/bali/restaurant/pancake-paradise-crepes-juice-ubud",
             "price_range": "$$$",
             "rating": 4.6,
-            "category": [4, 5, 7]
+            "category": [
+                4,
+                5,
+                7
+            ]
         }
     },
     {
@@ -455,7 +531,9 @@
             "name": "Coca-Cola",
             "price": 25000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/fadae9b5-36e2-49c1-bcc3-3e6763857889_Go-Biz_20210917_163519.jpeg?auto=format",
-            "description": ""
+            "description": "",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -466,7 +544,9 @@
             "name": "Crepes with Banana and Nutella",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/98e088ff-22e3-423b-8d5d-9a07261509fc_Go-Biz_20240729_215636.jpeg?auto=format",
-            "description": "Nutella and banana crepes, a delightful sweet treat."
+            "description": "Nutella and banana crepes, a delightful sweet treat.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -477,7 +557,9 @@
             "name": "Crepes with Egg and Bacon",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/533b00ef-9435-425d-81e2-cea927818e6e_Go-Biz_20240729_215654.jpeg?auto=format",
-            "description": "Savory crepe filled with egg and crispy bacon."
+            "description": "Savory crepe filled with egg and crispy bacon.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -487,8 +569,10 @@
             "store": 3,
             "name": "Crepes with Ham and Cheese",
             "price": 69000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/495dd87b-28d6-4fa3-bee0-cf3f2dbe2d12_Go-Biz_20240729_215758.jpeg?auto=format",
-            "description": "Classic crepe filled with ham and melted cheese."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/495dd87b-28d6-4fa3-bee0-cf3f2dbe2d12_Go-Biz_20240729_215758.jpeg?auto=format",
+            "description": "Classic crepe filled with ham and melted cheese.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -499,7 +583,9 @@
             "name": "Crepes with Butter",
             "price": 43000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/644a2cae-6756-4f95-a59e-6d648562f03a_Go-Biz_20240729_215725.jpeg?auto=format",
-            "description": "Simple and satisfying crepe with butter."
+            "description": "Simple and satisfying crepe with butter.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -510,7 +596,9 @@
             "name": "Crepes with Cinnamon and Apples",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0c4336a-4e8b-45f3-9200-a2c0b2fc5ab9_Go-Biz_20240729_215820.jpeg?auto=format",
-            "description": "Sweet crepes with cinnamon and tender apples."
+            "description": "Sweet crepes with cinnamon and tender apples.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -520,8 +608,10 @@
             "store": 3,
             "name": "Crepes with Chicken and Creamy Mushroom Mozzarella",
             "price": 69000,
-            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16ef0f15-0091-4697-8ba6-1e34c17c0e95_Go-Biz_20240729_215925.jpeg?auto=format", 
-            "description": "Savory crepe with chicken, creamy mushrooms, and mozzarella."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16ef0f15-0091-4697-8ba6-1e34c17c0e95_Go-Biz_20240729_215925.jpeg?auto=format",
+            "description": "Savory crepe with chicken, creamy mushrooms, and mozzarella.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -532,7 +622,9 @@
             "name": "Crepes with Strawberries and Nutella",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1010c648-08b6-462c-89d6-6adcc4a5d3a4_Go-Biz_20240729_215953.jpeg?auto=format",
-            "description": "Crepe filled with fresh strawberries and Nutella."
+            "description": "Crepe filled with fresh strawberries and Nutella.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -543,7 +635,9 @@
             "name": "Crepes with Potatoes and Mushrooms",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/97bca891-1623-423f-bea9-599f1345f130_Go-Biz_20240729_220014.jpeg?auto=format",
-            "description": "A hearty crepe with potatoes and mushrooms."
+            "description": "A hearty crepe with potatoes and mushrooms.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -554,7 +648,9 @@
             "name": "Crepes with Mango and Nutella",
             "price": 69000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16da9ff3-f9a8-46d1-b410-b8a496acdbc9_Go-Biz_20240729_220035.jpeg?auto=format",
-            "description": "Unique crepe with fresh mango and Nutella."
+            "description": "Unique crepe with fresh mango and Nutella.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -565,7 +661,9 @@
             "name": "Salmon with Cream Cheese",
             "price": 103000,
             "imgurl": "https://img.taste.com.au/Yuk_CCD8/w720-h480-cfill-q80/taste/2016/11/herbed-cream-cheese-with-hot-smoked-salmon-and-avocado-110529-1.jpeg",
-            "description": "Crepe filled with delicious salmon and tender cream cheese."
+            "description": "Crepe filled with delicious salmon and tender cream cheese.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -576,7 +674,9 @@
             "name": "Banana Milkshake",
             "price": 59000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/60cc7973-ffc4-464e-9647-bf27ee7b7ca1_Go-Biz_20231110_002236.jpeg?auto=format",
-            "description": "Milkshake made with milk, ice cream, banana, whipped cream, and mint leaf."
+            "description": "Milkshake made with milk, ice cream, banana, whipped cream, and mint leaf.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -586,8 +686,10 @@
             "store": 3,
             "name": "Ice Tea 450ml",
             "price": 34000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b48cb19e-d131-4793-92bf-943be6f142b5_Go-Biz_20240424_170349.jpeg?auto=format",
-            "description": "Classic black tea served with ice and sugar."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b48cb19e-d131-4793-92bf-943be6f142b5_Go-Biz_20240424_170349.jpeg?auto=format",
+            "description": "Classic black tea served with ice and sugar.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -597,8 +699,10 @@
             "store": 3,
             "name": "Ice Milk Tea 350ml",
             "price": 39000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e57ecc11-f5ca-43ab-975a-04676753b005_Go-Biz_20240424_170506.jpeg?auto=format",
-            "description": "Refreshing milk tea with ice and sugar."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e57ecc11-f5ca-43ab-975a-04676753b005_Go-Biz_20240424_170506.jpeg?auto=format",
+            "description": "Refreshing milk tea with ice and sugar.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -609,7 +713,9 @@
             "name": "Ice Mocaccino 350ml",
             "price": 39000,
             "imgurl": "https://www.thegraciouswife.com/wp-content/uploads/2016/07/Iced-Mochaccino-Recipe-4.jpg",
-            "description": "Mocaccino coffee served with sugar and ice."
+            "description": "Mocaccino coffee served with sugar and ice.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -620,10 +726,11 @@
             "name": "Vegetable Salad",
             "price": 58000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7eaf9ab3-ef1f-4670-8b63-297c8d38ae2c_Go-Biz_20240519_142111.jpeg?auto=format",
-            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil."
+            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil.",
+            "review_count": null,
+            "average_rating": null
         }
     },
-
     {
         "model": "main.store",
         "pk": 4,
@@ -632,7 +739,11 @@
             "url": "https://gofood.co.id/en/bali/restaurant/wanted-mangal-grill-bbq-kebab-ubud",
             "price_range": "$$",
             "rating": 4.8,
-            "category": [4, 5, 7]
+            "category": [
+                4,
+                5,
+                7
+            ]
         }
     },
     {
@@ -643,7 +754,9 @@
             "name": "Pork Shashlik (BBQ, Kebab, Grill) With Rice 100gr",
             "price": 125000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/eea7e442-8c02-4433-ae08-21a7f6ea938d_menu-item-image_1723029654414.jpg?auto=format",
-            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 225gr (+-20gr) fresh meat."
+            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 225gr (+-20gr) fresh meat.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -654,7 +767,9 @@
             "name": "Vegetable Salad",
             "price": 58000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5426da1e-dc2c-4fdc-960e-35342cb7351e_menu-item-image_1723030236078.jpg?auto=format",
-            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil."
+            "description": "A fresh mix of tomatoes, cucumbers, onion, and olive oil.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -665,7 +780,9 @@
             "name": "Chicken Thighs (Grill, BBQ, Kebab) With Rice 100gr",
             "price": 115000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/bd8af9ae-d431-4552-834f-e2d90ecbf35b_menu-item-image_1723029688685.jpg?auto=format",
-            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 250gr (+-20gr) fresh chicken."
+            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 250gr (+-20gr) fresh chicken.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -676,7 +793,9 @@
             "name": "Grilled Mahi Mahi Fish With Rice",
             "price": 129000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a86c1a14-4dbf-410c-ae73-0447dbf952e2_Go-Biz_20240125_221725.jpeg?auto=format",
-            "description": "Mahi Mahi fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice."
+            "description": "Mahi Mahi fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -687,7 +806,9 @@
             "name": "Pork Shashlik (BBQ, Kebab, Grill) - 1 Kilo BIG PORTION With 250gr Of Rice",
             "price": 429000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e0e0a12f-1b49-46be-b30f-41315ba09594_menu-item-image_1723029997556.jpg?auto=format",
-            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh meat."
+            "description": "Grilled pork neck marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh meat.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -698,7 +819,9 @@
             "name": "Chicken Thighs (Grill, BBQ, Kebab) - 1 Kilo BIG PORTION With 250gr Of Rice",
             "price": 332000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/145d7bae-dccb-400e-8d5e-0c4dc1193e88_menu-item-image_1723030026689.jpg?auto=format",
-            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh chicken."
+            "description": "Chicken thighs marinated with onion, black pepper and mineral water. 1000gr (+-20gr) fresh chicken.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -709,7 +832,9 @@
             "name": "Grilled Salmon Steak With Rice",
             "price": 289000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e7718bf5-f03a-4f80-ae47-33d2889c61d5_menu-item-image_1708510163932.jpg?auto=format",
-            "description": "Salmon steak in a sauce with garlic, coriander, parsley and salt butter, served with rice."
+            "description": "Salmon steak in a sauce with garlic, coriander, parsley and salt butter, served with rice.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -720,7 +845,9 @@
             "name": "Pork Ribs",
             "price": 119000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/85b20687-f00f-4e6f-845b-246ced1df456_menu-item-image_1723030092306.jpg?auto=format",
-            "description": "Pork ribs with sauce and baked potatoes with garlic butter."
+            "description": "Pork ribs with sauce and baked potatoes with garlic butter.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -731,7 +858,9 @@
             "name": "Grilled Dori Fish With Rice",
             "price": 99000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ed5d4d1c-d012-46bd-8eff-346ae488ad22_Go-Biz_20240125_221349.jpeg?auto=format",
-            "description": "Dory fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice."
+            "description": "Dory fish fillet marinated in a sauce of oil, lemon, garlic, rosemary and ginger, served with rice.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -742,7 +871,9 @@
             "name": "Nasi Goreng",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a97a3203-8351-4a25-9398-0d365c5f53ca_Go-Biz_20240215_165046.jpeg?auto=format",
-            "description": "Traditional Indonesian fried rice with chicken, vegetables and spices."
+            "description": "Traditional Indonesian fried rice with chicken, vegetables and spices.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -753,7 +884,9 @@
             "name": "Mixed Grill Set",
             "price": 289000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/edc1f795-15f6-4357-bf73-7f52f72e234b_menu-item-image_1708514022422.jpg?auto=format",
-            "description": "Set of pork shashlik, grilled chicken thighs, mahi mahi fish and dory fish."
+            "description": "Set of pork shashlik, grilled chicken thighs, mahi mahi fish and dory fish.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -764,7 +897,9 @@
             "name": "Australian Lamb Chops",
             "price": 549000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ca1c3d76-c571-49c7-8151-c853c065b3fb_menu-item-image_1708682053962.jpg?auto=format",
-            "description": "Tender Australian lamb chops in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes."
+            "description": "Tender Australian lamb chops in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -775,7 +910,9 @@
             "name": "1 Australian Lamb Chop",
             "price": 249000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/eeaa53a8-da38-4ca4-a74a-31c90a5a6181_menu-item-image_1708682357746.jpg?auto=format",
-            "description": "1 tender Australian lamb chop in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes."
+            "description": "1 tender Australian lamb chop in lavash (pita bread) with onion and herbs. The dish served with grilled tomatoes.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -785,8 +922,10 @@
             "store": 4,
             "name": "Chicken Shawarma Doner Kebab",
             "price": 95000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/18538a9e-62ac-4fe9-bf31-a93afa98d2d4_menu-item-image_1723030063838.jpg?auto=format",
-            "description": "150g of marinated chicken served in lavash with sauce, pickles, tomato, cabbage, and marinated carrot."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/18538a9e-62ac-4fe9-bf31-a93afa98d2d4_menu-item-image_1723030063838.jpg?auto=format",
+            "description": "150g of marinated chicken served in lavash with sauce, pickles, tomato, cabbage, and marinated carrot.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -797,7 +936,9 @@
             "name": "Chicken Strips",
             "price": 67000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/6879efd9-349b-4a8e-a5a9-9a45aafd1885_Go-Biz_20240506_195701.jpeg?auto=format",
-            "description": "Juicy pieces of breaded chicken served on pita bread with sauce and pickled onions."
+            "description": "Juicy pieces of breaded chicken served on pita bread with sauce and pickled onions.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -808,7 +949,9 @@
             "name": "Prawns In Garlic Butter",
             "price": 149000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/82544f4c-93c3-42f8-9846-d5ffaab9e934_menu-item-image_1723030172733.jpg?auto=format",
-            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs (150-180 g)."
+            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs (150-180 g).",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -819,7 +962,9 @@
             "name": "Prawns In Garlic Butter Big Portion 1 Kilo",
             "price": 990000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a887e4df-e358-4827-aa57-b148d9596c0e_menu-item-image_1723030208135.jpg?auto=format",
-            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs."
+            "description": "Large ocean prawns grilled in a sauce of butter, garlic and herbs.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -830,7 +975,9 @@
             "name": "Grilled Pork Shawarma Doner Kebab",
             "price": 99000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a7241dcd-0332-4a0d-89ca-4d06fd1dca7a_Go-Biz_20240522_170124.jpeg?auto=format",
-            "description": "Lavash, Sauce, Marinated grilled pork, Pickles, Tomato, Cabbage, Marinated Carrot."
+            "description": "Lavash, Sauce, Marinated grilled pork, Pickles, Tomato, Cabbage, Marinated Carrot.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -841,7 +988,9 @@
             "name": "Dori Fish Shawarma Doner Kebab",
             "price": 95000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ee65959e-cfee-4e65-b95c-be07fc38b44e_Go-Biz_20240522_170421.jpeg?auto=format",
-            "description": "Lavash, Sauce, Grilled Dori fish, Pickles, Tomato, Cabbage, Marinated Carrot."
+            "description": "Lavash, Sauce, Grilled Dori fish, Pickles, Tomato, Cabbage, Marinated Carrot.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -852,7 +1001,9 @@
             "name": "Beef Burger",
             "price": 75000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/f2fd2074-cb67-4d25-9574-c290256b6631_Go-Biz_20240724_160621.jpeg?auto=format",
-            "description": "Tender beef cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber."
+            "description": "Tender beef cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -863,7 +1014,9 @@
             "name": "Chicken Burger",
             "price": 75000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7f275b29-29c2-4773-8b8a-8fcd438dab3a_Go-Biz_20240724_160706.jpeg?auto=format",
-            "description": "Tender chicken cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber."
+            "description": "Tender chicken cutlet, Fragrant burger bun, Cheese, Salad, Cucumbers, Tomatoes, Red Onion, Sauce with pickled cucumber.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -874,7 +1027,9 @@
             "name": "Oprice_range Fresh Juice Cold Pressed",
             "price": 59000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/73c4cf2f-0435-40d7-a788-956f19d11189_Go-Biz_20231219_192954.jpeg?auto=format",
-            "description": "Oprice_range fresh cold-pressed juice (480ml)."
+            "description": "Oprice_range fresh cold-pressed juice (480ml).",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -885,7 +1040,9 @@
             "name": "Cola 200Ml",
             "price": 24000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a116c88f-04fc-4b89-9584-bffec5e17a52_Go-Biz_20240131_161830.jpeg?auto=format",
-            "description": "Refreshing cola beverage."
+            "description": "Refreshing cola beverage.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -896,7 +1053,9 @@
             "name": "Sprite 200 Ml",
             "price": 24000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1df60319-167d-4845-93e4-b49099b15da9_Go-Biz_20240131_161852.jpeg?auto=format",
-            "description": "Refreshing lemon-lime soda."
+            "description": "Refreshing lemon-lime soda.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -907,7 +1066,9 @@
             "name": "Water Aqua 600Ml",
             "price": 19000,
             "imgurl": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//90/MTA-11741436/aqua_aqua-air-mineral-btl-600-ml_full01.jpg",
-            "description": "Still water."
+            "description": "Still water.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -918,7 +1079,9 @@
             "name": "Ice Tea 450ml",
             "price": 29000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/006bfedf-1757-4016-abfd-f6951d0a5a74_Go-Biz_20240417_151854.jpeg?auto=format",
-            "description": "Black tea served with ice and sugar."
+            "description": "Black tea served with ice and sugar.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -929,7 +1092,9 @@
             "name": "Ice Milk Tea 350ml",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/4100831f-d280-4f05-9e79-bb8ae28140fb_Go-Biz_20240417_152214.jpeg?auto=format",
-            "description": "Black tea with milk, ice, and sugar."
+            "description": "Black tea with milk, ice, and sugar.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -940,7 +1105,9 @@
             "name": "Ice Mocaccino 350ml",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/f28aca2b-66f5-4759-8fe2-f2b51770a275_Go-Biz_20240417_152524.jpeg?auto=format",
-            "description": "Mochaccino coffee served with sugar and ice."
+            "description": "Mochaccino coffee served with sugar and ice.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -951,7 +1118,9 @@
             "name": "Grilled Corn",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/cf38f38b-e8e2-4d9a-bf5f-a5200a5b22f9_menu-item-image_1723030398112.jpg?auto=format",
-            "description": "Grilled corn with butter, garlic, and herbs."
+            "description": "Grilled corn with butter, garlic, and herbs.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -961,8 +1130,10 @@
             "store": 4,
             "name": "Grilled Tomatoes",
             "price": 45000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a516d8dd-e831-45a6-b945-8f7e79ef436c_Go-Biz_20240217_171306.jpeg?auto=format",
-            "description": "Tender grilled tomatoes with salt and pepper."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a516d8dd-e831-45a6-b945-8f7e79ef436c_Go-Biz_20240217_171306.jpeg?auto=format",
+            "description": "Tender grilled tomatoes with salt and pepper.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -973,7 +1144,9 @@
             "name": "Steamed Rice",
             "price": 21000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ad5a41b2-cd4e-49d7-9041-af65606357d7_Go-Biz_20240207_161510.jpeg?auto=format",
-            "description": "Boiled Balinese rice (200gr +-10gr)."
+            "description": "Boiled Balinese rice (200gr +-10gr).",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -984,7 +1157,9 @@
             "name": "Mashed Potatoes",
             "price": 45000,
             "imgurl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Sous_vide_mashed_potatoes.jpg",
-            "description": "Tender mashed potatoes with greens, prepared with milk."
+            "description": "Tender mashed potatoes with greens, prepared with milk.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -995,7 +1170,11 @@
             "url": "https://gofood.co.id/en/bali/restaurant/ubud-shanti-warung",
             "price_range": "$$",
             "rating": 4.3,
-            "category": [9, 1, 2] 
+            "category": [
+                9,
+                1,
+                2
+            ]
         }
     },
     {
@@ -1006,7 +1185,9 @@
             "name": "Ayam Bakar",
             "price": 40000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8806e64e-ecbb-48bb-b0c2-98c3761eee23_Go-Biz_20220407_194319.jpeg?auto=format",
-            "description": "Grilled chicken leg served with sambal matah and tomato sambal."
+            "description": "Grilled chicken leg served with sambal matah and tomato sambal.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1017,7 +1198,9 @@
             "name": "Nasi Campur Ayam",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8432306c-ebcc-4f1c-9386-612f254f71b1_Go-Biz_20220413_092054.jpeg?auto=format",
-            "description": "Rice with mix vegetables, fried chicken, fried corn, eggplant balado, sweet tempe, tofu and boiled egg, sambal matah, tomato sambal, pickles, and chicken satay."
+            "description": "Rice with mix vegetables, fried chicken, fried corn, eggplant balado, sweet tempe, tofu and boiled egg, sambal matah, tomato sambal, pickles, and chicken satay.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1028,7 +1211,9 @@
             "name": "Nasi Goreng Ayam",
             "price": 38000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/03eaaaf7-1698-4403-b79a-a2f7457acec9_Go-Biz_20220407_193941.jpeg?auto=format",
-            "description": "Fried rice with mixed vegetables, chicken satay, peanut sauce, chips, pickles, and fried egg."
+            "description": "Fried rice with mixed vegetables, chicken satay, peanut sauce, chips, pickles, and fried egg.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1038,8 +1223,10 @@
             "store": 5,
             "name": "Mie Goreng Ayam",
             "price": 38000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7f48e6d0-199d-4ffe-b05d-518ded1f5e00_Go-Biz_20220413_092438.jpeg?auto=format",
-            "description": "Fried noodles with mixed vegetables, chicken satay, peanut sauce, pickles, chips, and fried egg."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7f48e6d0-199d-4ffe-b05d-518ded1f5e00_Go-Biz_20220413_092438.jpeg?auto=format",
+            "description": "Fried noodles with mixed vegetables, chicken satay, peanut sauce, pickles, chips, and fried egg.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1049,8 +1236,10 @@
             "store": 5,
             "name": "Mie Goreng Vegetarian",
             "price": 35000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/05e35dd5-d6da-410e-bc74-4ecfd4aa5913_Go-Biz_20220413_092456.jpeg?auto=format",
-            "description": "Fried noodles with mixed vegetables, tempe, and peanut sauce."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/05e35dd5-d6da-410e-bc74-4ecfd4aa5913_Go-Biz_20220413_092456.jpeg?auto=format",
+            "description": "Fried noodles with mixed vegetables, tempe, and peanut sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1061,7 +1250,9 @@
             "name": "Gado-Gado",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ffa6b98a-dec5-4546-831a-76b97a666874_Go-Biz_20220407_193859.jpeg?auto=format",
-            "description": "Mix vegetables, tempe, tofu, and boiled egg served with peanut sauce."
+            "description": "Mix vegetables, tempe, tofu, and boiled egg served with peanut sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1072,7 +1263,9 @@
             "name": "Vegetarian Curry",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/96ae9a9f-94a0-4a58-a515-f948200164bf_Go-Biz_20220805_232101.jpeg?auto=format",
-            "description": "Potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion."
+            "description": "Potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1083,7 +1276,9 @@
             "name": "Chicken Curry",
             "price": 38000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3ea1a612-4a3f-4b2f-8433-55c1ea726a98_Go-Biz_20220805_232007.jpeg?auto=format",
-            "description": "Chicken, potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion."
+            "description": "Chicken, potato, carrot, bean, tempe, and tofu served with curry sauce and crispy onion.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1094,7 +1289,9 @@
             "name": "Sate Ayam",
             "price": 40000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7fb7022c-0222-4636-aa95-60a3bb22f042_Go-Biz_20220407_194355.jpeg?auto=format",
-            "description": "Rice with chicken satay served with tomato sambal."
+            "description": "Rice with chicken satay served with tomato sambal.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1105,7 +1302,9 @@
             "name": "Bihun Goreng",
             "price": 38000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8c296115-af6d-40a6-9d22-52f2a72085f1_Go-Biz_20220413_092306.jpeg?auto=format",
-            "description": "Glass noodle with mixed vegetables, chicken satay, fried egg, tomato sambal, pickles, and onion chips."
+            "description": "Glass noodle with mixed vegetables, chicken satay, fried egg, tomato sambal, pickles, and onion chips.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1115,8 +1314,10 @@
             "store": 5,
             "name": "Nasi Campur Vegetarian",
             "price": 45000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1af72c32-3af3-43ea-a072-8ceab7d6d253_Go-Biz_20220413_092530.jpeg?auto=format",
-            "description": "Brown rice with mixed vegetables, tempe satay, sweet tempe, fried corn, eggplant balado, tofu, and boiled egg."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1af72c32-3af3-43ea-a072-8ceab7d6d253_Go-Biz_20220413_092530.jpeg?auto=format",
+            "description": "Brown rice with mixed vegetables, tempe satay, sweet tempe, fried corn, eggplant balado, tofu, and boiled egg.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1127,7 +1328,9 @@
             "name": "Nasi Goreng Vegetarian",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7949ad82-5591-44a9-8794-828fc50b0b1b_Go-Biz_20220805_231807.jpeg?auto=format",
-            "description": "Fried rice with mixed vegetables, tempe satay, and peanut sauce."
+            "description": "Fried rice with mixed vegetables, tempe satay, and peanut sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1138,7 +1341,9 @@
             "name": "Sweet Corn Soup Egg Drop",
             "price": 35000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8dd81806-0b92-4120-8856-92b144bd5a98_Go-Biz_20220805_232233.jpeg?auto=format",
-            "description": "Sweet corn soup with mixed vegetables and egg on top."
+            "description": "Sweet corn soup with mixed vegetables and egg on top.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1149,7 +1354,9 @@
             "name": "Cap Cay",
             "price": 40000,
             "imgurl": "https://asset.kompas.com/crops/2sjLUUCqOhsi36M0pxYbbqz7vtM=/100x67:900x600/750x500/data/photo/2021/01/01/5fee5925f248d.jpg",
-            "description": "Mix vegetables, cauliflower, broccoli, and mushroom with thick and fresh gravy."
+            "description": "Mix vegetables, cauliflower, broccoli, and mushroom with thick and fresh gravy.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1160,7 +1367,9 @@
             "name": "Capcay Ayam",
             "price": 45000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/4970ba58-da7d-4970-a506-a9f5e3aec6ce_Go-Biz_20220805_232315.jpeg?auto=format",
-            "description": "Chicken with egg and mixed vegetable sauté soup."
+            "description": "Chicken with egg and mixed vegetable saut\u00e9 soup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1171,7 +1380,9 @@
             "name": "Chicken Sweet Sour",
             "price": 45000,
             "imgurl": "https://www.kitchensanctuary.com/wp-content/uploads/2019/09/Sweet-and-sour-chicken-square-FS-0833-480x270.jpg",
-            "description": "Crispy chicken with mixed vegetables and sweet sour sauce."
+            "description": "Crispy chicken with mixed vegetables and sweet sour sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1182,7 +1393,9 @@
             "name": "Spring Roll",
             "price": 25000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/fb08b199-5e21-4ef8-ba17-665a3443d24c_Go-Biz_20220413_092721.jpeg?auto=format",
-            "description": "Mix vegetable wrapped (2 pcs)."
+            "description": "Mix vegetable wrapped (2 pcs).",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1192,8 +1405,10 @@
             "store": 5,
             "name": "Kentang Goreng",
             "price": 25000,
-            "imgurl" : "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/d912e9b1-38b3-4357-93ad-6f3a71f9fd12_Go-Biz_20220413_092738.jpeg?auto=format",
-            "description": "French fries with tomato or spicy sauce."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/d912e9b1-38b3-4357-93ad-6f3a71f9fd12_Go-Biz_20220413_092738.jpeg?auto=format",
+            "description": "French fries with tomato or spicy sauce.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1204,7 +1419,9 @@
             "name": "Dadar Gulung",
             "price": 25000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/3c57eaf0-fab4-4f8c-b45c-fc578eb61a4e_Go-Biz_20220413_092823.jpeg?auto=format",
-            "description": "Green organic pancake with coconut brown sugar filling."
+            "description": "Green organic pancake with coconut brown sugar filling.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1215,7 +1432,9 @@
             "name": "Bakwan Jagung",
             "price": 25000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/420fdfaa-43f9-46b7-9f0b-9b0c162093b9_Go-Biz_20220505_191703.jpeg?auto=format",
-            "description": "Deep fried sweet corn."
+            "description": "Deep fried sweet corn.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1226,7 +1445,9 @@
             "name": "[21+] Large Beer",
             "price": 55000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b9707e4c-90ab-4d8f-9565-9cf137c7cb34_Go-Biz_20220805_235130.jpeg?auto=format",
-            "description": "[Alcoholic beverage, only for customers 21+]"
+            "description": "[Alcoholic beverage, only for customers 21+]",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1237,7 +1458,9 @@
             "name": "[21+] Small Beer",
             "price": 40000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c3b879c3-7bb7-4eb2-a364-5d24674c1341_Go-Biz_20220805_235148.jpeg?auto=format",
-            "description": "[Alcoholic beverage, only for customers 21+]"
+            "description": "[Alcoholic beverage, only for customers 21+]",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1248,7 +1471,9 @@
             "name": "Sprite Can 250ml",
             "price": 15000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7cdf6dd7-eea2-469a-ba35-b92ea6247b2b_Go-Biz_20220805_235225.jpeg?auto=format",
-            "description": "Refreshing lemon-lime soda."
+            "description": "Refreshing lemon-lime soda.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1259,7 +1484,9 @@
             "name": "Coca Cola Can 250ml",
             "price": 15000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/bad15793-53fe-400d-a9d1-fbd89d6f040e_Go-Biz_20220805_235247.jpeg?auto=format",
-            "description": "Refreshing cola beverage."
+            "description": "Refreshing cola beverage.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1270,7 +1497,9 @@
             "name": "Coca Cola Zero Sugar 250ml",
             "price": 15000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e8893817-f9eb-4375-bf8c-bfeb94f7ad45_Go-Biz_20220805_235407.jpeg?auto=format",
-            "description": "Sugar-free cola beverage."
+            "description": "Sugar-free cola beverage.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1281,7 +1510,9 @@
             "name": "Schweppes Tonic Water 250ml",
             "price": 15000,
             "imgurl": "https://down-id.img.susercontent.com/file/sg-11134201-22120-mzrci9xanqlv5e",
-            "description": "Refreshing tonic water."
+            "description": "Refreshing tonic water.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1292,7 +1523,9 @@
             "name": "Teh Pucuk",
             "price": 10000,
             "imgurl": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-12816437/teh-pucuk_teh-pucuk-jasmine-1-36l_full01.jpg",
-            "description": "Refreshing Indonesian tea."
+            "description": "Refreshing Indonesian tea.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1302,8 +1535,10 @@
             "store": 5,
             "name": "Jus Buah Naga",
             "price": 25000,
-            "imgurl":"https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e78a1235-cb55-4195-9151-b9921fdbfdb0_Go-Biz_20200701_084545.jpeg",
-            "description": "Dragonfruit blended with simple syrup."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/e78a1235-cb55-4195-9151-b9921fdbfdb0_Go-Biz_20200701_084545.jpeg",
+            "description": "Dragonfruit blended with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1314,7 +1549,9 @@
             "name": "Jus Nanas",
             "price": 25000,
             "imgurl": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1677418869/attached_image/17-manfaat-jus-nanas-bagi-kesehatan.jpg",
-            "description": "Pineapple blended with simple syrup."
+            "description": "Pineapple blended with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1325,7 +1562,9 @@
             "name": "Jus Mangga",
             "price": 30000,
             "imgurl": "https://cdn1-production-images-kly.akamaized.net/k214lctkLJ2reGUWqKNUtsd_MQA=/0x366:4990x3178/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2952663/original/065258500_1572335694-2019-10-29.jpg",
-            "description": "Mango blended with simple syrup."
+            "description": "Mango blended with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1336,7 +1575,9 @@
             "name": "Jus Semangka",
             "price": 25000,
             "imgurl": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/11/27073622/Ini-3-Cara-Membuat-Jus-Semangka-Ala-Rumahan-yang-Enak-dan-Segar.jpg",
-            "description": "Watermelon blended with simple syrup."
+            "description": "Watermelon blended with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1347,7 +1588,9 @@
             "name": "Jus Jeruk",
             "price": 25000,
             "imgurl": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/11/21085338/ini-cara-mudah-membuat-jus-jeruk-segar-dan-kaya-nutrisi-halodoc.jpg",
-            "description": "Oprice_range juice with simple syrup."
+            "description": "Oprice_range juice with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1358,7 +1601,9 @@
             "name": "Mix Juice",
             "price": 25000,
             "imgurl": "https://images.tokopedia.net/img/cache/700/VqbcmM/2021/4/26/c4e14b32-7681-4309-8cbb-28a49bc21713.jpg",
-            "description": "Pineapple, watermelon, papaya, dragonfruit blended with simple syrup."
+            "description": "Pineapple, watermelon, papaya, dragonfruit blended with simple syrup.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1369,7 +1614,9 @@
             "name": "Polaris Soda Water",
             "price": 15000,
             "imgurl": "https://images.tokopedia.net/img/cache/700/hDjmkQ/2021/4/25/1c861d41-3a73-4319-a6cc-3f664d2f1575.jpg",
-            "description": "Refreshing soda water."
+            "description": "Refreshing soda water.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1379,8 +1626,10 @@
             "store": 5,
             "name": "[21+] Bintang Radler Lemon",
             "price": 40000,
-            "imgurl":"https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//108/MTA-44895806/bintang_radler_bintang_radler_lemon_kaleng_320ml_full01_tgcoetkn.jpg",
-            "description": "[Alcoholic beverage, only for customers 21+]"
+            "imgurl": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//108/MTA-44895806/bintang_radler_bintang_radler_lemon_kaleng_320ml_full01_tgcoetkn.jpg",
+            "description": "[Alcoholic beverage, only for customers 21+]",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1391,19 +1640,22 @@
             "name": "Oprice_range Water UC1000",
             "price": 15000,
             "imgurl": "https://images.tokopedia.net/img/cache/700/VqbcmM/2023/11/19/a7201b73-0697-46d8-8f25-cc8526c956f2.jpg",
-            "description": "Refreshing oprice_range-flavored water."
+            "description": "Refreshing oprice_range-flavored water.",
+            "review_count": null,
+            "average_rating": null
         }
     },
-
     {
-        "model": "main.store", 
+        "model": "main.store",
         "pk": 6,
         "fields": {
             "name": "Bella Tacos, Ubud",
             "url": "https://gofood.co.id/en/bali/restaurant/bella-tacos-ubud",
             "price_range": "$$",
             "rating": 4.8,
-            "category": [5] 
+            "category": [
+                5
+            ]
         }
     },
     {
@@ -1414,7 +1666,9 @@
             "name": "Chips And Dips",
             "price": 39450,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c9d26deb-c986-49ee-ae15-fb4f0dd2773f_Go-Biz_20240317_224728.jpeg?auto=format",
-            "description": "Corn Tortillas Chips with Guacamole, Salsa Roja, Pico De Gallo Salsa."
+            "description": "Corn Tortillas Chips with Guacamole, Salsa Roja, Pico De Gallo Salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1425,7 +1679,9 @@
             "name": "Coke",
             "price": 22500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ad362a5f-b960-41ec-afab-d05254364618_Go-Biz_20230805_115039.jpeg?auto=format",
-            "description": "Refreshing cola beverage."
+            "description": "Refreshing cola beverage.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1436,7 +1692,9 @@
             "name": "Quesadillas Chicken",
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/42e101a5-8ef9-4642-b0be-9b03d69113c9_Go-Biz_20240317_224525.jpeg?auto=format",
             "price": 76500,
-            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa."
+            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1447,7 +1705,9 @@
             "name": "Soft Tacos Chicken",
             "price": 76500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/25273dcc-7918-48e0-95f9-b9ced61798d4_Go-Biz_20230525_104354.jpeg?auto=format",
-            "description": "Soft flour tortillas with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Soft flour tortillas with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1458,7 +1718,9 @@
             "name": "Zero Coke",
             "price": 22500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5f9b32cb-2ca6-4a26-ab1d-9063e9dfdc50_Go-Biz_20230805_115221.jpeg?auto=format",
-            "description": "Sugar-free cola beverage."
+            "description": "Sugar-free cola beverage.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1469,7 +1731,9 @@
             "name": "Soft Tacos Jackfruit",
             "price": 81250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/d0d2398b-6ceb-4218-9810-1c0b8fcb7c96_Go-Biz_20230525_104229.jpeg?auto=format",
-            "description": "Soft flour tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Soft flour tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1480,7 +1744,9 @@
             "name": "Soft Tacos Beef",
             "price": 93750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/007a9b49-7948-4851-8b15-6fa9e620ec05_Go-Biz_20230525_104536.jpeg?auto=format",
-            "description": "Soft flour tortillas with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Soft flour tortillas with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1491,7 +1757,9 @@
             "name": "Crispy Tacos Beef",
             "price": 93750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/91c1f9cd-a4c7-427a-9124-6c1d04b99bef_Go-Biz_20230525_104903.jpeg?auto=format",
-            "description": "Crispy corn tacos with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Crispy corn tacos with grilled marinated beef, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1502,7 +1770,9 @@
             "name": "Crispy Tacos Chicken",
             "price": 85000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/dece4862-0b9d-4567-be0e-be698360ca64_Go-Biz_20230525_104948.jpeg?auto=format",
-            "description": "Crispy corn tacos with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Crispy corn tacos with grilled marinated chicken, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1513,7 +1783,9 @@
             "name": "Crispy Tacos Jackfruit",
             "price": 81250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/6a997544-9549-4abd-9825-19fc97f408ad_Go-Biz_20230525_105050.jpeg?auto=format",
-            "description": "Crispy corn tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans."
+            "description": "Crispy corn tortillas with shredded jackfruit, cheddar cheese, guacamole, pico de gallo salsa, and black beans.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1524,7 +1796,9 @@
             "name": "Quesadillas Chicken",
             "price": 76500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/42e101a5-8ef9-4642-b0be-9b03d69113c9_Go-Biz_20240317_224525.jpeg?auto=format",
-            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa."
+            "description": "Soft flour tortillas with melted cheese, grilled marinated chicken, guacamole, pico de gallo salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1535,7 +1809,9 @@
             "name": "Quesadillas Jackfruit",
             "price": 81250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/17231cdf-a787-46df-bde3-45fda5692a7e_Go-Biz_20240317_224537.jpeg?auto=format",
-            "description": "Soft flour tortillas with melted cheese, shredded jackfruit, guacamole, pico de gallo salsa."
+            "description": "Soft flour tortillas with melted cheese, shredded jackfruit, guacamole, pico de gallo salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1546,7 +1822,9 @@
             "name": "Quesadillas Cheese",
             "price": 75000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/43950a0c-bf8b-45e5-9107-e7d58c0a8af8_Go-Biz_20240317_224552.jpeg?auto=format",
-            "description": "Soft flour tortillas with melted cheese, guacamole, pico de gallo salsa."
+            "description": "Soft flour tortillas with melted cheese, guacamole, pico de gallo salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1557,7 +1835,9 @@
             "name": "Quesadillas Beef",
             "price": 93750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/0e2260c6-3e53-480c-90bd-8a89232ff200_Go-Biz_20240317_224507.jpeg?auto=format",
-            "description": "Soft flour tortillas with melted cheese, grilled marinated beef, guacamole, pico de gallo salsa."
+            "description": "Soft flour tortillas with melted cheese, grilled marinated beef, guacamole, pico de gallo salsa.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1568,7 +1848,9 @@
             "name": "Burrito Beef",
             "price": 98750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5273e1e0-e89e-4c50-afe1-111d996c1e76_Go-Biz_20240317_224611.jpeg?auto=format",
-            "description": "Soft flour tortillas with marinated grilled beef, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+            "description": "Soft flour tortillas with marinated grilled beef, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1579,7 +1861,9 @@
             "name": "Burrito Chicken",
             "price": 90000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5cb75237-083d-4232-ac7d-5a493eb5ebf4_Go-Biz_20240317_224622.jpeg?auto=format",
-            "description": "Soft flour tortillas with marinated grilled chicken, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+            "description": "Soft flour tortillas with marinated grilled chicken, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1590,7 +1874,9 @@
             "name": "Burrito Jackfruit",
             "price": 86250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/caa7eaa4-07bf-4ff7-8ffc-d3a14fca1523_Go-Biz_20240317_224635.jpeg?auto=format",
-            "description": "Soft flour tortillas with marinated grilled jackfruit, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream."
+            "description": "Soft flour tortillas with marinated grilled jackfruit, cilantro lime rice, guacamole, cheddar cheese, pico de gallo salsa, black beans, and sour cream.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1601,7 +1887,9 @@
             "name": "Wet Burrito Beef",
             "price": 111250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5273e1e0-e89e-4c50-afe1-111d996c1e76_Go-Biz_20240317_224611.jpeg?auto=format",
-            "description": "The beef burrito with enchiladas sauce and melted cheese."
+            "description": "The beef burrito with enchiladas sauce and melted cheese.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1611,8 +1899,10 @@
             "store": 6,
             "name": "Wet Burrito Chicken",
             "price": 102500,
-            "imgurl":"https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1bb0006d-bc76-4561-ab68-27ba8abe3b79_Go-Biz_20240317_224651.jpeg?auto=format",
-            "description": "The chicken burrito with enchiladas sauce and melted cheese."
+            "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1bb0006d-bc76-4561-ab68-27ba8abe3b79_Go-Biz_20240317_224651.jpeg?auto=format",
+            "description": "The chicken burrito with enchiladas sauce and melted cheese.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1623,7 +1913,9 @@
             "name": "Wet Burrito Jackfruit",
             "price": 98750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5273e1e0-e89e-4c50-afe1-111d996c1e76_Go-Biz_20240317_224611.jpeg?auto=format",
-            "description": "The jackfruit burrito with enchiladas sauce and melted cheese."
+            "description": "The jackfruit burrito with enchiladas sauce and melted cheese.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1634,8 +1926,10 @@
             "name": "Nachos Chicken",
             "price": 85000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/c0fa6530-6815-4caa-a293-28ef80c064fd_Go-Biz_20240317_224712.jpeg?auto=format",
-            "description": "Melted cheese on corn tortillas chips with grilled marinated chicken, guacamole, pico de gallo salsa, and jalapenos."
-        } 
+            "description": "Melted cheese on corn tortillas chips with grilled marinated chicken, guacamole, pico de gallo salsa, and jalapenos.",
+            "review_count": null,
+            "average_rating": null
+        }
     },
     {
         "model": "main.product",
@@ -1645,7 +1939,9 @@
             "name": "Nachos Jackfruit",
             "price": 81250,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a847dd55-23ea-4a86-8c7f-aaee44979841_Go-Biz_20240317_224820.jpeg?auto=format",
-            "description": "Melted cheese on corn tortillas chips with shredded jackfruit, guacamole, pico de gallo salsa, and jalapenos."
+            "description": "Melted cheese on corn tortillas chips with shredded jackfruit, guacamole, pico de gallo salsa, and jalapenos.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1656,7 +1952,9 @@
             "name": "Nachos Beef",
             "price": 93750,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/42900108-b865-477c-933e-26f4a39aaea0_Go-Biz_20240317_224745.jpeg?auto=format",
-            "description": "Melted cheese on corn tortillas chips with grilled marinated beef, guacamole, pico de gallo salsa, and jalapenos."
+            "description": "Melted cheese on corn tortillas chips with grilled marinated beef, guacamole, pico de gallo salsa, and jalapenos.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1667,7 +1965,9 @@
             "name": "Mineral Water",
             "price": 12500,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/be3bfeff-9f17-4350-9852-2a986790c79f_Go-Biz_20230805_115242.jpeg?auto=format",
-            "description": "Refreshing mineral water."
+            "description": "Refreshing mineral water.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1678,7 +1978,9 @@
             "name": "Sprite",
             "price": 25000,
             "imgurl": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/64a9f50e-866b-4d4e-91bb-7c322a359520_Go-Biz_20230805_115458.jpeg?auto=format",
-            "description": "Refreshing lemon-lime soda."
+            "description": "Refreshing lemon-lime soda.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1689,7 +1991,9 @@
             "name": "Beef Birria Tacos",
             "imgurl": "https://uncomplicatedchef.com/wp-content/uploads/2021/12/DSC_5959-683x1024.jpg",
             "price": 111250,
-            "description": "Flour tortillas, shredded beef birria, melted cheese, onion, cilantro, birria consome, and guacamole."
+            "description": "Flour tortillas, shredded beef birria, melted cheese, onion, cilantro, birria consome, and guacamole.",
+            "review_count": null,
+            "average_rating": null
         }
     },
     {
@@ -1697,7 +2001,7 @@
         "pk": 1,
         "fields": {
             "username": "pemilik1",
-            "password": "hashed_password1",  
+            "password": "hashed_password1",
             "email": "pemilik1@example.com"
         }
     },
@@ -1750,55 +2054,66 @@
         "model": "myauth.ajeguser",
         "pk": 1,
         "fields": {
-            "ajeg_user": 1,  
+            "ajeg_user": 1,
             "user_type": "merchant",
-            "store": [1]
+            "store": [
+                1
+            ]
         }
     },
     {
         "model": "myauth.ajeguser",
         "pk": 2,
         "fields": {
-            "ajeg_user": 2,  
+            "ajeg_user": 2,
             "user_type": "merchant",
-            "store": [2]
+            "store": [
+                2
+            ]
         }
     },
     {
         "model": "myauth.ajeguser",
         "pk": 3,
         "fields": {
-            "ajeg_user": 3,  
+            "ajeg_user": 3,
             "user_type": "merchant",
-            "store": [3]
+            "store": [
+                3
+            ]
         }
     },
     {
         "model": "myauth.ajeguser",
         "pk": 4,
         "fields": {
-            "ajeg_user": 4, 
+            "ajeg_user": 4,
             "user_type": "merchant",
-            "store": [4]
-
+            "store": [
+                4
+            ]
         }
     },
-    { 
+    {
         "model": "myauth.ajeguser",
         "pk": 5,
         "fields": {
-            "ajeg_user": 5,  
+            "ajeg_user": 5,
             "user_type": "merchant",
-            "store": [5]
+            "store": [
+                5
+            ]
         }
-    }, 
+    },
     {
         "model": "myauth.ajeguser",
         "pk": 6,
         "fields": {
-            "ajeg_user": 6,  
+            "ajeg_user": 6,
             "user_type": "merchant",
-            "store": [6]
+            "store": [
+                6
+            ]
         }
     }
 ]

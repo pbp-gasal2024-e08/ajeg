@@ -32,6 +32,7 @@ class Command(BaseCommand):
             call_command('makemigrations')
             call_command('migrate')
             call_command('loaddata', 'data.json')
+            self.stdout.write(self.style.SUCCESS('Fixture Loaded.'))
             User = get_user_model()
             User.objects.create_superuser('admin', 'admin@example.com', 'blank')
             self.stdout.write(self.style.SUCCESS('Superuser created: admin (password is "blank").'))
@@ -66,12 +67,10 @@ class Command(BaseCommand):
             favorite_store_list = FavoriteStoreList.objects.create(user=first_user)
             for store_id in store_ids:  
                 favorite_store = FavoriteStore(favorite_list=favorite_store_list, store_id=store_id)
-                favorite_store.save()
 
             favorite_product_list = FavoriteProductList.objects.create(user=first_user)
             for product_id in product_ids:  
                 favorite_store = FavoriteProduct(favorite_list=favorite_product_list, product_id=product_id)
-                favorite_store.save()
 
             wishlist = Wishlist.objects.create(user=first_user)
             for product_id in product_ids[:2]:  # Assuming you want the first two products in the wishlist
@@ -80,7 +79,4 @@ class Command(BaseCommand):
                     product_id=product_id,
                     amount=random.randint(1, 10)  # Set to any number, change as needed
                 )
-            #wishlist_item.save()
-            #wishlist.save()
-            #favorite_product_list.save()
-            #favorite_store_list.save()
+

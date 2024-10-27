@@ -41,6 +41,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                       </svg>
                       <a href="#" class="ms-1 text-sm font-medium text-gray-700 hover:text-orange-600   md:ms-2">{{store.name}}</a><span>{% include 'favorite_store.html' with id=store.id csrf_token=csrf_token %}</span>
+                      <a href="{% url 'checkout:store_page' store.pk|slugify %}" class="ms-1 text-sm font-medium text-gray-700 hover:text-orange-600 md:ms-2">{{store.name}}</a>
                     </div>
                   </li>
                 <!-- <li aria-current="page">
@@ -174,7 +175,7 @@
         >
           <div class="h-56 w-full">
             <a href="#">
-              <img class="mx-auto h-full" src="" alt="" />
+              <img class="mx-auto h-full w-full object-cover" src="{{product.imgurl}}" alt="" />
               <img class="mx-auto hidden h-full" src="" alt="" />
             </a>
           </div>
