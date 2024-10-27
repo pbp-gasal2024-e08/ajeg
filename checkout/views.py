@@ -49,19 +49,16 @@ def show_product_page(request, pk):
 @csrf_exempt
 @login_required
 def show_cart(request):
-    carts = Cart.objects.filter(user = request.user.ajeg_user, payment = False)
-    context = {
-        'carts': carts
-    }
-    return render(request, 'cart_copy.html', context)
+    carts = Cart.objects.filter(user=request.user.ajeg_user, payment=False)
+    context = {"carts": carts}
+    return render(request, "cart_copy.html", context)
+
 
 @login_required
 def show_history(request):
-    carts = Cart.objects.filter(user = request.user.ajeg_user, payment = True)
-    context = {
-        'carts': carts
-    }
-    return render(request, 'history.html', context)
+    carts = Cart.objects.filter(user=request.user.ajeg_user, payment=True)
+    context = {"carts": carts}
+    return render(request, "history.html", context)
 
 
 @login_required
@@ -107,7 +104,7 @@ def show_order_summary(request):
 
 @login_required
 def show_order_confirmation(request):
-    carts = Cart.objects.filter(user = request.user.ajeg_user, payment=False)
+    carts = Cart.objects.filter(user=request.user.ajeg_user, payment=False)
 
     for cart in carts:
         cart.payment = True
@@ -116,10 +113,8 @@ def show_order_confirmation(request):
 
         print(carts)
 
-    context = {
-        "carts": carts,
-        "date": datetime.datetime.now(),
-        "user": request.user
+    context = {"carts": carts, "date": datetime.datetime.now(), "user": request.user}
+    return render(request, "order_confirmation.html", context)
 
 
 @csrf_exempt
@@ -166,18 +161,22 @@ def store_page(request, pk):
     store = Store.objects.get(pk=pk)
     products = Product.objects.filter(store=store)
 
-    context= {
-        'store': store,
-        'products': products,
-        'user': request.user,
-        }
-    return render(request, 'store_page.html', context)
+    user = None
+    if request.user.is_authenticated:
+        user = request.user.ajeg_user
+
+    context = {
+        "store": store,
+        "products": products,
+        "user": user,
+    }
+    return render(request, "store_page.html", context)
 
 
 @csrf_exempt
 def delete_cart(request):
     data = json.loads(request.body)
-    product_id = data['product_id']
+    product_id = data["product_id"]
     # product_id = request.GET.get('product_id')
     cart = Cart.objects.get(product_id=product_id, user=request.user.ajeg_user)
     print(cart)
@@ -187,4 +186,4 @@ def delete_cart(request):
         print(e)
     # return render(request, 'checkout:show_cart')
     # print("cart", cart.product_id)
-    return JsonResponse({'message': 'Cart item deleted'}, safe=False)
+    return JsonResponse({"message": "Cart item deleted"}, safe=False)
