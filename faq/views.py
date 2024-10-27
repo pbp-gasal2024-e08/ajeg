@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils.html import strip_tags
 from django.views.decorators.http import require_POST
 from faq.forms import QuestionForm
-from faq.models import Question, Answer
+from faq.models import Question
 from main.models import Product
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -45,4 +45,13 @@ def add_question_ajax(request):
         question=question,
     )
     new_question.save()
+    print("YO NIGGA")
+    print(f"ID={new_question.id}")
     return HttpResponse(b"CREATED", status=201)
+
+@csrf_exempt
+@require_POST
+def add_answer_ajax(request, id):
+    question = Question.objects.get(pk=id)
+    answer = request.POST.get("answer")
+    question.answer = answer
