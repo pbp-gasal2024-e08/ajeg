@@ -41,7 +41,7 @@ def edit_announcement(request, id):
 
   if form.is_valid() and request.method == 'POST':
     form.save()
-    return HttpResponseRedirect(reverse('main:show_main'))
+    return HttpResponseRedirect(reverse('checkout:store_page', args=[announcement.store.id]))
 
   context = {
     'form': form
@@ -56,4 +56,4 @@ def delete_announcement(request, id):
     return HttpResponse(b"UNAUTHORIZED", status=403)
 
   announcement.delete()
-  return HttpResponseRedirect(reverse('main:show_main'))
+  return HttpResponseRedirect(reverse('checkout:store_page', args=[announcement.store.id]))
