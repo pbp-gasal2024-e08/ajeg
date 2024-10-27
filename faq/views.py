@@ -17,18 +17,6 @@ def view_faq(request):
 
 def show_json(request):
     data = Question.objects.all()
-    # questions = Question.objects.all()
-    # data = []
-    # for question in questions:
-    #     cur_data = {
-    #         "id": question.pk,
-    #         "title": question.title,
-    #         "question": question.question,
-    #         "answered": question.answered,
-    #     }
-    #     if cur_data["answered"]:
-    #         cur_data["answer"] = "negga"
-    #     data.append(cur_data)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 @csrf_exempt
@@ -45,8 +33,6 @@ def add_question_ajax(request):
         question=question,
     )
     new_question.save()
-    print("YO NIGGA")
-    print(f"ID={new_question.id}")
     return HttpResponse(b"CREATED", status=201)
 
 @csrf_exempt
@@ -55,3 +41,5 @@ def add_answer_ajax(request, id):
     question = Question.objects.get(pk=id)
     answer = request.POST.get("answer")
     question.answer = answer
+    question.save()
+    return HttpResponse(b"CREATED", status=201)

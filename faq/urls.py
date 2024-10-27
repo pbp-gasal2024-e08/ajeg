@@ -7,5 +7,5 @@ urlpatterns = [
     path('view-faq/', view_faq, name='view_faq'),
     path('json/', show_json, name='show_json'),
     path('create-question-ajax', add_question_ajax, name='add_question_ajax'),
-    path('create_answer-ajax/<uuid:id>', add_answer_ajax, name='add_answer_ajax'),
+    path('view-faq/create-answer-ajax/<uuid:id>', add_answer_ajax, name='add_answer_ajax'),
 ]

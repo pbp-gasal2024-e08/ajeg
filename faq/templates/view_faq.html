@@ -73,14 +73,13 @@
 
     function showAnswerField(id) 
     {
-        alert("masuk "+id)
         document.querySelector(`#answer-btn-${id}`).classList.add("hidden");
         document.querySelector(`#answer-field-${id}`).classList.remove("hidden");
     }
 
     async function addAnswer(id) 
     {
-        fetch(`create_answer-ajax/${id}`, 
+        fetch(`create-answer-ajax/${id}`, 
         {
             method: "POST",
             body: new FormData(document.querySelector(`#answer-form-${id}`)),
@@ -94,7 +93,6 @@
 
     async function refreshQuestions()
     {
-        // alert("crot tolol");
         document.getElementById("question_cards").innerHTML = "";
         document.getElementById("question_cards").className = "";
         const questions = await getQuestions();
@@ -117,8 +115,6 @@
                 const question = DOMPurify.sanitize(item.fields.question);
                 const id = item.pk;
                 const answer = DOMPurify.sanitize(item.fields.answer);
-                // alert(id)
-                // alert("answernya nich "+answer)
                 htmlString += `
                 <div class="relative break-inside-avoid">
                     <div class="relative top-5 bg-indigo-100 shadow-md rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-indigo-300 transform transition-transform duration-300">
@@ -139,14 +135,13 @@
                     htmlString += `
                     <div>
                         <p class="font-bold text-sm md:text-base">Answer:</p>
-                        <p class="text-sm md:text-base">Nigggggaaaaaaa</p>
+                        <p class="text-sm md:text-base">${answer}</p>
                         <p class="text-xs md:text-sm text-slate-500 mt-4">Answered by Mr. Ambatukam</p>
                     </div>`;
                 } else 
                 {
                     if (true)
                     {
-                        // alert("masuk kok "+id)
                         htmlString += `
                         <button id="answer-btn-${id}" onclick="showAnswerField('${id}')" class="px-4 py-1 bg-[#005b9c] hover:bg-[#003f7e] text-white text-sm">
                             Answer
