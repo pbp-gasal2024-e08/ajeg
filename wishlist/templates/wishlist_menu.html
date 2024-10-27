@@ -1,0 +1,135 @@
+{% load static %}
+{% load wishlist_filters %}
+
+<div class="flex gap-12 justify-center">
+    <section class="w-full bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
+        <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+            <!-- Heading & Filters -->
+            <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
+                <div>
+                    <nav class="flex" aria-label="Breadcrumb">
+                        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                        <li class="inline-flex items-center">
+                            <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-orange-600 dark:text-gray-400 dark:hover:text-white">
+                                <svg class="me-2.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>                                                                   
+                            Wishlist
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            
+            {% if wishlist %}
+                <ul class="list-disc pl-5">
+                    {% for wishlist_item in wishlist %}
+                    <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                        <div class="pt-6">
+                        <div class="mb-4 flex items-center justify-between gap-4">
+                            <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white" data-product-id="{{wishlist_item.product.id}}"> {{wishlist_item.product.name}} ({{wishlist_item.amount}})</a>
+                            <div class="flex items-center justify-end gap-1">
+                                <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <span class="sr-only"> Quick look </span>
+                                    <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                                    <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                </button>
+                                <div id="tooltip-quick-look" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                                    Quick look
+                                    <div class="tooltip-arrow" data-popper-arrow=""></div>
+                                </div>
+                                {% include 'favorite_button.html' with id=wishlist_item.product.id csrf_token=csrf_token %}
+                            </div>
+                        </div>   
+                        <div class="mt-4 flex items-center justify-between gap-4">
+                            {% multiply wishlist_item.amount wishlist_item.product.price as total%}
+                            <p class="item-container text-2xl font-bold leading-tight text-gray-900 dark:text-white">Rp {{wishlist_item.product.price|thousands}} × <span data-product-id="{{wishlist_item.product.id}}">{{wishlist_item.amount}}</span> <span class="item-total text-gray-700 dark:text-gray-400">({{total|thousands}})</span></p>
+                            <div>
+                                <button class="decrement-btn rounded text-2xl font-bold leading-tight text-gray-900 dark:text-white bg-gray-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4  focus:ring-orange-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-product-id="{{ wishlist_item.product.id }}">−</button>
+                                <button class="increment-btn rounded text-2xl font-bold leading-tight text-gray-900 dark:text-white bg-gray-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4  focus:ring-orange-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" data-product-id="{{ wishlist_item.product.id }}">+</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <br>
+                    <div class="mb-4 flex items-center gap-4">
+                        <p class="total-display text-2xl font-bold leading-tight text-gray-900 dark:text-white">Total: Rp {{total}}</p>
+                        <button
+                            type="button"
+                            class="inline-flex items-center rounded-lg bg-orange-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 :ring-orange-800"
+                        >
+                            <svg
+                            class=""
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
+                            />
+                            </svg>
+                        </button>
+                    </div>
+                </ul>
+            {% else %}
+                <h1 class="mt-3 text-xl font-semibold text-gray-600 sm:text-2xl"> (You have no wishlisted products.)</h1>
+            {% endif %}
+            </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/favorite.js' %}"></script>
+    <script>
+        $('.increment-btn').on('click', function() {
+            const productId = $(this).data('product-id');
+            updateWishlist(productId, 1);
+        });
+
+        $('.decrement-btn').on('click', function() {
+            const productId = $(this).data('product-id');
+            updateWishlist(productId, -1);
+        });
+
+        var total_display =  $(`p.total-display`);
+        var total_tracker = parseInt('{{total}}',10);
+
+        function updateWishlist(productId, change) {
+            const amountElement = $(`a[data-product-id='${productId}']`);
+            const otherAmountElement = $(`span[data-product-id='${productId}']`);
+            const totalElement = otherAmountElement.parent().find('.item-total');
+            let currentAmount = parseInt(amountElement.text().match(/\((\d+)\)/)[1]);;
+            
+            const newAmount = currentAmount + change;
+            $.ajax({
+                type: 'POST',
+                url: '{% url "wishlist:edit_wishlist_item" %}', 
+                data: {
+                    'product_id': productId,
+                    'amount': newAmount,
+                    'total': total_tracker,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                } // Include CSRF token
+            }).done(function(response) {
+                if (response.deleted) {
+                    amountElement.parent().parent().parent().remove();
+                } else {
+                    amountElement.text(amountElement.text().replace(/\(\d+\)/, `(${response.amount})`)); 
+                    otherAmountElement.text(`${response.amount}`)
+                    totalElement.text(`(${response.item_total})`);
+                    total_display.text(`Rp ${response.total_formated}`)
+                    total_tracker = response.total;
+                }
+            });
+        }
+    </script>
+</div>

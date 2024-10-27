@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    {% include 'favorite_menu.html' with favorite_stores=favorite_stores favorite_products=favorite_products%}
+    {% include 'footer.html' %}
+{% endblock %}
+
