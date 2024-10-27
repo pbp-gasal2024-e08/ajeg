@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "faq",
     "main",
     "review",
-    "voucher",
+    "vouchers",
     "wishlist",
     "favorites",
     "utilities",
