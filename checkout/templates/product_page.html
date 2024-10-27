@@ -9,7 +9,7 @@
     <title>{{ product.name }}</title>
 </head>
 <body>
-    {% block content %}
+    <!-- {% block content %} -->
     {% include 'navbar.html' %}
     <div class="bg-white">
         <div class="pt-6">
@@ -71,28 +71,15 @@
               <div class="mt-6">
                 <h3 class="sr-only">Reviews</h3>
                 <div class="flex items-center">
-                  <div class="flex items-center">
-                    <!-- Active: "text-gray-900", Default: "text-gray-200" -->
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                  <p class="sr-only">4 out of 5 stars</p>
-                  <a href="#" class="ml-3 text-sm font-medium text-orange-600 hover:text-orange-500">117 reviews</a>
+                  <div id="stars-container" class="flex items-center"></div>
+                  <p id="average-rating" data-average-rating="{{average_rating|floatformat:2}}" class="sr-only w-fit h-fit">{{average_rating|floatformat:2}} out of 5 stars</p>
+                  <a onclick="document.getElementById('reviews-modal').showModal()" class="ml-3 text-sm font-medium text-orange-600 hover:text-orange-500 cursor-pointer">{{no_reviews}} reviews</a>
                 </div>
               </div>
+
+              <dialog id="reviews-modal" class="w-2/3 h-2/3" closed>
+                {% include 'reviews_panel.html' %}
+              </dialog>
       
               <form class="mt-10" method="POST">
                 {% csrf_token %}
@@ -139,6 +126,31 @@
           </div>
         </div>
       </div>
-    {% endblock content %}
+      <script>
+        function renderStars() {
+          let ratingStr = document.getElementById("average-rating").getAttribute("data-average-rating");
+          let rating = parseInt(ratingStr, 10);
+
+          const starsContainer = document.getElementById("stars-container");
+          for (i = 0; i < rating; i++) {
+            starsContainer.innerHTML += `
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+              </svg>
+            `
+          }
+
+          for (i = rating; i < 5; i++) {
+            starsContainer.innerHTML += `
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+              </svg>
+            `
+          }
+        }
+
+        renderStars();
+      </script>
+    <!-- {% endblock content %} -->
 </body>
 </html>
