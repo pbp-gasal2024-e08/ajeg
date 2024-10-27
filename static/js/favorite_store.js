@@ -40,6 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch(error => console.error('Error fetching favorite IDs:', error));
 });
 
-// For the button --> {% include 'favorite_store.html' with id={store.id} csrf_token=csrf_token %}
+// For the button --> {% include 'favorite_store.html' with id=store.id csrf_token=csrf_token %}
 // For referencing this <script src="{% static 'js/favorite_store.js' %}"></script>
 // Requires <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
