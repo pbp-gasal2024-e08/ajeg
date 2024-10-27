@@ -20,9 +20,25 @@
 <!-- jQuery Script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-        // Fetch vouchers and display them on page load
+    // Fungsi untuk menambahkan voucher ke keranjang
+    function addVoucherToCart(code) {
+        $.ajax({
+            url: `/vouchers/add-to-cart/${code}/`,
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            success: function(response) {
+                console.log("Voucher added to cart:", response.message);
+            },
+            error: function(xhr) {
+                console.log("Error adding voucher to cart:", xhr.responseText);
+            }
+        });
+    }
 
+    $(document).ready(function() {
+        // Fetch vouchers and display them on page loa
         function fetchVouchers() {
             $.ajax({
                 url: "{% url 'vouchers:voucher_list_json' %}",  // Endpoint untuk mengambil voucher
@@ -59,9 +75,12 @@
             });
         }
         fetchVouchers();
+        
         // Event listener untuk tombol Claim Voucher
         $("#vouchersContainer").on("click", ".claim-btn", function() {
-            const code = $(this).data("code");
+            // const code = $(this).data("code");
+            const button = $(this); // Simpan referensi tombol
+            const code = button.data("code");
             
             $.ajax({
                 url: `/vouchers/claim-voucher/${code}/`,
@@ -75,14 +94,19 @@
                     // 'expiry_date': voucher.expiry_date // You don't need to send expiry_date
                 },
                 success: function(response) {
+                    console.log(response); // Tambahkan ini
                     if (response.status === "success") {
                         alert(response.message);
-                        $(this).text("Claimed").removeClass("bg-orange-600").addClass("bg-gray-200 text-gray-400 cursor-not-allowed").prop("disabled", true);
+                        // $(this).text("Claimed").removeClass("bg-orange-600").addClass("bg-gray-200 text-gray-400 cursor-not-allowed").prop("disabled", true);
+                        button.text("Claimed").removeClass("bg-orange-600").addClass("bg-gray-200 text-gray-400 cursor-not-allowed").prop("disabled", true);
+                        // Tambahan untuk add voucher ke cart
+                        addVoucherToCart(code); // Fungsi untuk menambahkan voucher ke cart
                     } else {
                         alert(response.message);
                     }
                 },
-                error: function() {
+                error: function(xhr, status, error) {
+                    console.log("Error response:", xhr.responseText); // Tambahkan ini
                     alert("An error occurred. Please try again.");
                 }
             });

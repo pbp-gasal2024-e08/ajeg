@@ -8,4 +8,4 @@ class Voucher(models.Model):
     is_flash_sale = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.code} - {self.discount}% oFF"
+        return f"{self.code} - {self.discount}% OFF"

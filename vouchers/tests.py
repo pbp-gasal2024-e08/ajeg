@@ -10,7 +10,7 @@ class VoucherModelTest(TestCase):
             discount_percentage=20,
             start_date=timezone.now(),
             end_date=timezone.now() + timezone.timedelta(days=30),
-            description='Diskon 20% untuk barang terpilih.'
+            description='Discount 20%'
         )
 
     def test_voucher_str(self):
