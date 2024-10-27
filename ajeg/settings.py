@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-#zia5lc^9$@z%4--=xj$1im(l7zz_pe7%%538a%m!^*q6(v6xk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "thorbert-anson-ajeg.pbp.cs.ui.ac.id"]
 
 
 # Application definition
@@ -124,14 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 if DEBUG:
     STATICFILES_DIRS = [
-        BASE_DIR / 'static' # merujuk ke /static root project pada mode development
+        BASE_DIR / "static"  # merujuk ke /static root project pada mode development
     ]
 else:
-    STATIC_ROOT = BASE_DIR / 'static' # merujuk ke /static root project pada mode production
-
+    STATIC_ROOT = (
+        BASE_DIR / "static"
+    )  # merujuk ke /static root project pada mode production
 
 
 # Default primary key field type
@@ -139,4 +140,4 @@ else:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_URL = 'myauth:login'
+LOGIN_URL = "myauth:login"
