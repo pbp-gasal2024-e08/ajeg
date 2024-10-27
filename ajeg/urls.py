@@ -19,13 +19,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myauth.urls')),
-    path('', include('main.urls')),
-    path('', include('checkout.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("myauth.urls")),
+    path("", include("main.urls")),
+    path("", include("faq.urls")),
+    path("", include("checkout.urls")),
     path("review/", include("review.urls")),
-    path("", include('favorites.urls')),
-    path("", include('wishlist.urls')),
-    path('announcement/', include('announcement.urls')),
-    path('vouchers/', include('vouchers.urls')),
+    path("", include("favorites.urls")),
+    path("", include("wishlist.urls")),
+    path("announcement/", include("announcement.urls")),
+    path("vouchers/", include("vouchers.urls")),
 ]
