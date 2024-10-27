@@ -103,8 +103,13 @@ def store_page(request, pk):
     products = Product.objects.filter(store=store)
     print(products)
 
+    user = None
+    if request.user.is_authenticated:
+        user = request.user.ajeg_user
+
     context= {
         'store': store,
-        'products': products
+        'products': products,
+        'user': user,
         }
     return render(request, 'store_page.html', context)
