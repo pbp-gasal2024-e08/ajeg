@@ -15,6 +15,7 @@ urlpatterns = [
         "by_store/<int:store_id>", fetch_reviews_by_store, name="fetch_reviews_by_store"
     ),
     path("add_review/<int:product_id>", add_review, name="add_review"),
+    path("edit/<uuid:id>", edit_review_by_id, name="edit_review_by_id"),
     path("add_comment/<uuid:id>", add_comment, name="add_comment"),
     # URL to check if user is authenticated
     path("check", check, name="check"),
