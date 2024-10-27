@@ -47,3 +47,8 @@ def view_favorites(request):
         'favorite_stores': favorite_stores, 
         'favorite_products' : favorite_products
     })
+
+def get_favorite_item_ids(request):
+    favorites, created = FavoriteProductList.objects.get_or_create(user=request.user)
+    ids = list(favorites.items.values_list('product', flat=True).distinct())
+    return JsonResponse({"ids" : ids})
