@@ -101,7 +101,7 @@ def add_review(request: HttpRequest, product_id: int):
 
     # Calculate new average rating of product
     product.average_rating = (
-        product.average_rating * (product.review_count - 1) + star_rating
+        product.average_rating * (product.review_count - 1) + int(star_rating)
     ) / product.review_count
 
     product.save()
