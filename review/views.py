@@ -87,13 +87,24 @@ def add_review(request: HttpRequest, product_id: int):
 
     # TODO: Check if user has bought this product
 
+    star_rating = request.POST.get("star_rating")
+
     review = UserReview.objects.create_review(
         creator=creator,
         product=product,
         synopsis=request.POST.get("synopsis"),
-        star_rating=request.POST.get("star_rating"),
+        star_rating=star_rating,
         base_comment=request.POST.get("base_comment"),
     )
+
+    product.review_count += 1
+
+    # Calculate new average rating of product
+    product.average_rating = (
+        product.average_rating * (product.review_count - 1) + star_rating
+    ) / product.review_count
+
+    product.save()
 
     return HttpResponse(serialize("json", [review]), status=201)
 
@@ -102,7 +113,19 @@ def add_review(request: HttpRequest, product_id: int):
 def edit_review_by_id(request: HttpRequest, id: uuid.UUID):
     review = get_object_or_404(UserReview, id=id)
 
-    review.star_rating = request.POST.get("star_rating")
+    new_star_rating = request.POST.get("star_rating")
+
+    product = review.product
+
+    # Recalculate new average rating for product
+    total_prod = product.average_rating * product.review_count
+    product.average_rating = (
+        total_prod - review.star_rating + new_star_rating
+    ) / product.review_count
+
+    product.save()
+
+    review.star_rating = new_star_rating
     review.synopsis = request.POST.get("synopsis")
     review.base_comment.content = request.POST.get("base_comment")
 
@@ -123,6 +146,16 @@ def delete_review_by_id(request: HttpRequest):
 
     if review.creator != request.user.ajeg_user:
         return HttpResponse("You are not the creator of this review!", status=403)
+
+    product = review.product
+
+    # Recalculate new average product rating
+    product.review_count -= 1
+    product.average_rating = (
+        product.average_rating * (product.review_count + 1) - review.star_rating
+    ) / product.review_count
+
+    product.save()
 
     review.delete()
 
