@@ -47,7 +47,12 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
 
     reviews_json = []
     for review in reviews:
-        reviews_json.append(review.serialize())
+        review_json = review.serialize()
+        if review.creator == request.user.ajeg_user:
+            review_json["editable"] = True
+        else:
+            review_json["editable"] = False
+        reviews_json.append(review_json)
 
     return JsonResponse(reviews_json, safe=False, status=200)
 
@@ -98,6 +103,7 @@ def add_review(request: HttpRequest, product_id: int):
     return HttpResponse(serialize("json", [review]), status=201)
 
 
+@login_required(login_url="/login")
 @require_POST
 def add_comment(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
     """

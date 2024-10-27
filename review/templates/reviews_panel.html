@@ -45,17 +45,28 @@
         }
         container.innerHTML += `
                     <article class="border-b border-black p-10">
-                        <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-between mb-4">
                             <div class="font-medium">
                                 <p>${review.creator}</p>
                             </div>
+                            ${
+                              review.editable == true
+                                ? `<a class='editable_review' id='edit-${review.id}'>Edit</a>`
+                                : ""
+                            }
                         </div>
                         <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
                             ${starsHTML}
-                            <h3 class="ms-2 text-sm font-semibold text-gray-900 ">${review.synopsis}</h3>
+                            <h3 class="ms-2 text-sm font-semibold text-gray-900 ">${
+                              review.synopsis
+                            }</h3>
                         </div>
-                        <footer class="mb-5 text-sm text-gray-500 "><p>Reviewed on <time datetime="${review.created_at}">${review.created_at}</time></p></footer>
-                        <p class="mb-2 text-gray-500 ">${review.base_comment.content}</p>
+                        <footer class="mb-5 text-sm text-gray-500 "><p>Reviewed on <time datetime="${
+                          review.created_at
+                        }">${review.created_at}</time></p></footer>
+                        <p class="mb-2 text-gray-500 ">${
+                          review.base_comment.content
+                        }</p>
                     </article>
                     `;
       });
