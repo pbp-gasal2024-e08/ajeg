@@ -17,8 +17,9 @@ class Store(models.Model):
 class Product(models.Model):
     store = models.ForeignKey(Store, related_name='products', on_delete=models.CASCADE, default='')
     name = models.CharField(max_length=255, default='produk')
-    price = models.DecimalField(max_digits=10, decimal_places=2, default='0.00')
+    price = models.IntegerField()
     description = models.TextField(default='Deskripsi Kosong')
+    imgurl = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.name

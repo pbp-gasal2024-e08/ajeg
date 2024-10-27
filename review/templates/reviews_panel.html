@@ -1,0 +1,147 @@
+{% extends 'base.html' %}{% load static %}{% block content %}
+<div class="flex flex-col p-10">
+  <div class="flex flex-row justify-between">
+    <h1 class="text-2xl">Reviews for {{product.name}}</h1>
+    <button id="add-review">Add Review</button>
+    {% include 'review_modal.html' %}
+  </div>
+  <div
+    id="reviews-container"
+    class="flex flex-col w-full h-full overflow-y-scroll"
+  ></div>
+  {% include 'review_delete_modal.html' %}
+</div>
+
+<script>
+  // Page initialization
+  const container = document.getElementById("reviews-container");
+
+  // Functions to view reviews
+
+  async function fetchReviewsByProduct(productId) {
+    const endpoint = `/review/by-product/${productId}`;
+    let data = await fetch(endpoint);
+    let dataJson = await data.json();
+
+    return dataJson;
+  }
+
+  const refreshReviews = () => {
+    let productId = window.location.href.split("/").pop();
+    let reviews = fetchReviewsByProduct(productId)
+      .then((reviews) => {
+        container.innerHTML = "";
+        reviews.forEach((review) => {
+          let starRating = review.star_rating;
+          let starsHTML = "";
+
+          for (i = 0; i < 5; i++) {
+            if (starRating > 0) {
+              starsHTML += `
+                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>`;
+            } else {
+              starsHTML += `
+                <svg class="w-4 h-4 text-gray-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>`;
+            }
+            starRating--;
+          }
+          container.innerHTML += `
+            <article data-review-id="${
+              review.id
+            }" class="border-b border-black p-10">
+              <div class="flex items-center justify-between mb-4">
+                <div class="font-medium">
+                  <p class="font-bold">${review.creator}</p>
+                  </div>
+                  <div class="flex flex-row w-fit gap-x-5">
+                  ${
+                    review.editable == true
+                      ? `<p class='editable-review cursor-pointer' id='edit-${review.id}'>Edit</p>
+                         <p class='delete-button cursor-pointer' id='delete-${review.id}'>Delete</p>`
+                      : ""
+                  }
+                  </div>
+                </div>
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    ${starsHTML}
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 ">${
+                      review.synopsis
+                    }</h3>
+                </div>
+                <footer class="mb-5 text-sm text-gray-500 "><p>Reviewed on <time datetime="${
+                  review.created_at
+                }">${review.created_at}</time></p></footer>
+                  <p class="mb-2 text-gray-500 ">${
+                    review.base_comment.content
+                  }</p>
+            </article>
+                  `;
+        });
+      })
+      .then(() => {
+        var editableReviews = document.querySelectorAll(".editable-review");
+
+        editableReviews.forEach((editableReview) => {
+          editableReview.addEventListener("click", () => {
+            reviewCreationForm.reset();
+
+            // Get reviewId from element ID attribute
+            let reviewId = editableReview.getAttribute("id").substring(5);
+
+            // Fetch current review contents
+            fetch(`/review/${reviewId}`)
+              .then((res) => res.json())
+              .then((data) => {
+                // Set the form fields to be the current review contents
+                reviewCreationForm
+                  .querySelector("[name='synopsis']")
+                  .setAttribute("value", data.synopsis);
+                reviewCreationForm
+                  .querySelector(`[for='star-${data.star_rating}'`)
+                  .click();
+                reviewCreationForm.querySelector(
+                  "[name='base_comment']"
+                ).value = data.base_comment.content;
+
+                // Remove any existing event listener
+                const newForm = reviewCreationForm.cloneNode(true);
+                reviewCreationForm.parentNode.replaceChild(
+                  newForm,
+                  reviewCreationForm
+                );
+                reviewCreationForm = newForm;
+                initializeStarRating(data.star_rating);
+
+                // Resend the form to the edit_product endpoint
+                reviewCreationForm.addEventListener("submit", (e) => {
+                  e.preventDefault();
+
+                  let response = editReview(reviewId).then((response) => {
+                    addReviewModal.close();
+                    refreshReviews();
+                  });
+                });
+              })
+              // Using then here so that the text can change first before opening modal
+              .then(() => addReviewModal.showModal());
+          });
+        });
+      });
+  };
+
+  // Scripts to handle review editing
+  async function editReview(reviewId) {
+    const endpoint = `/review/edit-review/${reviewId}`;
+    let data = await fetch(endpoint, {
+      method: "POST",
+      body: new FormData(reviewCreationForm),
+    });
+  }
+
+  refreshReviews();
+</script>
+{% endblock content %}
