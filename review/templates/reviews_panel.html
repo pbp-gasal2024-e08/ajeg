@@ -1,8 +1,9 @@
 {% extends 'base.html' %}{% load static %}{% block content %}
-<div class="flex flex-col p-10">
+<div id="base" class="flex flex-col p-10">
   <div class="flex flex-row justify-between">
     <h1 class="text-2xl">Reviews for {{product.name}}</h1>
     <button id="add-review">Add Review</button>
+    <button onclick="document.getElementById('base').parentElement.close()">Close</button>
     {% include 'review_modal.html' %}
   </div>
   <div
@@ -27,7 +28,7 @@
   }
 
   const refreshReviews = () => {
-    let productId = window.location.href.split("/").pop();
+    let productId = window.location.href.split("/").slice(-2, -1)[0];
     let reviews = fetchReviewsByProduct(productId)
       .then((reviews) => {
         container.innerHTML = "";
