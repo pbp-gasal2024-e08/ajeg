@@ -1,5 +1,6 @@
 from django import forms
 from .models import Cart
+from myauth.models import AjegUser
 
 class AddToCartForm(forms.ModelForm):  # Use ModelForm instead of Forms
     quantity = forms.IntegerField(min_value=1, max_value=100)
@@ -13,3 +14,5 @@ class AddToCartForm(forms.ModelForm):  # Use ModelForm instead of Forms
 
     def clean_password(self):
         return
+
+
