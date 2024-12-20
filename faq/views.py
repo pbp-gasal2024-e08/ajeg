@@ -10,14 +10,19 @@ from django.contrib.auth.decorators import login_required
 from django.core import serializers
 import json
 
-@login_required(login_url='/login')
+
+@login_required(login_url="/login")
 def view_faq(request):
     context = {}
     return render(request, "view_faq.html", context)
 
+
 def show_json(request):
     data = Question.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+    return HttpResponse(
+        serializers.serialize("json", data), content_type="application/json"
+    )
+
 
 @csrf_exempt
 @require_POST
@@ -34,6 +39,7 @@ def add_question_ajax(request):
     )
     new_question.save()
     return HttpResponse(b"CREATED", status=201)
+
 
 @csrf_exempt
 @require_POST

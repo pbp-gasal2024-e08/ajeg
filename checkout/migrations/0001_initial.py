@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -26,12 +25,20 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("quantity", models.PositiveIntegerField(blank=True, default=1)),
+                (
+                    "quantity",
+                    models.PositiveIntegerField(blank=True, default=1),
+                ),
                 (
                     "total_price",
-                    models.PositiveIntegerField(blank=True, default=1, null=True),
+                    models.PositiveIntegerField(
+                        blank=True, default=1, null=True
+                    ),
                 ),
-                ("payment", models.BooleanField(blank=True, default=False, null=True)),
+                (
+                    "payment",
+                    models.BooleanField(blank=True, default=False, null=True),
+                ),
                 ("date", models.DateTimeField(blank=True, null=True)),
                 (
                     "product",

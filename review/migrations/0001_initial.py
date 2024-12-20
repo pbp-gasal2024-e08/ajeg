@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -61,11 +60,15 @@ class Migration(migrations.Migration):
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("last_updated", models.DateTimeField(auto_now=True)),
                 ("star_rating", models.PositiveSmallIntegerField()),
-                ("synopsis", models.CharField(blank=True, max_length=50, null=True)),
+                (
+                    "synopsis",
+                    models.CharField(blank=True, max_length=50, null=True),
+                ),
                 (
                     "base_comment",
                     models.OneToOneField(
-                        on_delete=django.db.models.deletion.CASCADE, to="review.comment"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="review.comment",
                     ),
                 ),
                 (
@@ -79,7 +82,8 @@ class Migration(migrations.Migration):
                 (
                     "product",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="main.product"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="main.product",
                     ),
                 ),
             ],

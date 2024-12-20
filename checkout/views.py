@@ -113,7 +113,11 @@ def show_order_confirmation(request):
 
         print(carts)
 
-    context = {"carts": carts, "date": datetime.datetime.now(), "user": request.user}
+    context = {
+        "carts": carts,
+        "date": datetime.datetime.now(),
+        "user": request.user,
+    }
     return render(request, "order_confirmation.html", context)
 
 
@@ -130,7 +134,8 @@ def get_product_json(request):
     product_id = request.GET.get("product_id")
     product = Product.objects.get(pk=product_id)
     return HttpResponse(
-        serializers.serialize("json", [product]), content_type="application/json"
+        serializers.serialize("json", [product]),
+        content_type="application/json",
     )
 
 

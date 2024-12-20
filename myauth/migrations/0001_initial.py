@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -30,7 +29,10 @@ class Migration(migrations.Migration):
                 (
                     "user_type",
                     models.CharField(
-                        choices=[("traveller", "Traveller"), ("merchant", "Merchant")],
+                        choices=[
+                            ("traveller", "Traveller"),
+                            ("merchant", "Merchant"),
+                        ],
                         max_length=10,
                     ),
                 ),

@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -31,7 +30,8 @@ class Migration(migrations.Migration):
                 (
                     "store",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="main.store"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="main.store",
                     ),
                 ),
             ],

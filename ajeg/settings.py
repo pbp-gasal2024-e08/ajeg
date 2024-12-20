@@ -19,13 +19,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-#zia5lc^9$@z%4--=xj$1im(l7zz_pe7%%538a%m!^*q6(v6xk"
+SECRET_KEY = (
+    "django-insecure-#zia5lc^9$@z%4--=xj$1im(l7zz_pe7%%538a%m!^*q6(v6xk"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "thorbert-anson-ajeg.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "thorbert-anson-ajeg.pbp.cs.ui.ac.id",
+    "10.0.2.2"
+]
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SAMESITE = "None"
 
 # Application definition
 
@@ -46,6 +59,8 @@ INSTALLED_APPS = [
     "wishlist",
     "favorites",
     "utilities",
+    "corsheaders",
+    "mobile-auth",
 ]
 
 MIDDLEWARE = [
@@ -57,6 +72,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "ajeg.urls"
@@ -128,7 +144,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 if DEBUG:
     STATICFILES_DIRS = [
-        BASE_DIR / "static"  # merujuk ke /static root project pada mode development
+        BASE_DIR
+        / "static"  # merujuk ke /static root project pada mode development
     ]
 else:
     STATIC_ROOT = (

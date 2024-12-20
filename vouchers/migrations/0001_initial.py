@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = []
@@ -23,7 +22,10 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("code", models.CharField(max_length=50, unique=True)),
-                ("discount", models.DecimalField(decimal_places=2, max_digits=5)),
+                (
+                    "discount",
+                    models.DecimalField(decimal_places=2, max_digits=5),
+                ),
                 ("expiry_date", models.DateTimeField()),
                 ("is_claimed", models.BooleanField(default=False)),
                 ("is_flash_sale", models.BooleanField(default=False)),

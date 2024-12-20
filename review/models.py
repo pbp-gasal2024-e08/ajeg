@@ -19,7 +19,9 @@ class UserReviewManager(models.Manager):
         star_rating: int,
         base_comment: str,
     ):
-        base_comment = Comment.objects.create(content=base_comment, target=None)
+        base_comment = Comment.objects.create(
+            content=base_comment, target=None
+        )
         review = self.create(
             creator=creator,
             product=product,
@@ -65,7 +67,9 @@ class UserReview(models.Model):
     # Make sure a star rating is given for each review
     star_rating = models.PositiveSmallIntegerField(null=False, blank=False)
     synopsis = models.CharField(max_length=50, null=True, blank=True)
-    base_comment = models.OneToOneField(Comment, on_delete=models.CASCADE, null=False)
+    base_comment = models.OneToOneField(
+        Comment, on_delete=models.CASCADE, null=False
+    )
 
     # TODO: Add image upload field
     def serialize(self):
