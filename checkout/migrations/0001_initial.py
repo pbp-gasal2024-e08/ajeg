@@ -31,9 +31,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "total_price",
-                    models.PositiveIntegerField(
-                        blank=True, default=1, null=True
-                    ),
+                    models.PositiveIntegerField(blank=True, default=1, null=True),
                 ),
                 (
                     "payment",

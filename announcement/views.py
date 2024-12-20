@@ -23,9 +23,7 @@ def create_announcement_ajax(request):
     if store not in user.merchant_store:
         return HttpResponse(b"UNAUTHORIZED", status=403)
 
-    announcement = Announcement(
-        title=title, description=description, store_id=store_id
-    )
+    announcement = Announcement(title=title, description=description, store_id=store_id)
     announcement.save()
 
     return HttpResponse(b"CREATED", status=201)

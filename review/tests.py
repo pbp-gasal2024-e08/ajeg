@@ -10,9 +10,7 @@ class ReviewTest(TestCase):
     def setUp(self):
         a = User.objects.create(username="Alice", password="12345678")
         b = User.objects.create(username="Bob", password="87654321")
-        self.alice = AjegUser.objects.create(
-            ajeg_user=a, user_type="traveller"
-        )
+        self.alice = AjegUser.objects.create(ajeg_user=a, user_type="traveller")
         self.bob = AjegUser.objects.create(ajeg_user=b, user_type="traveller")
         self.store = Store.objects.create(
             name="ajeg_store",

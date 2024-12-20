@@ -22,9 +22,7 @@ urlpatterns = [
     path("checkout/", show_checkout, name="show_checkout"),
     path("cart/", show_cart, name="show_cart"),
     path("order-summary/", show_order_summary, name="show_order_summary"),
-    path(
-        "product-page/<int:pk>/", show_product_page, name="show_product_page"
-    ),
+    path("product-page/<int:pk>/", show_product_page, name="show_product_page"),
     path(
         "order-confirmation/",
         show_order_confirmation,

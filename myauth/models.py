@@ -33,6 +33,4 @@ class StoreUserRelation(models.Model):
     user = models.ForeignKey(
         AjegUser, on_delete=models.CASCADE, related_name="userstore"
     )
-    store = models.ForeignKey(
-        Store, on_delete=models.CASCADE, related_name="userstore"
-    )
+    store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name="userstore")
