@@ -26,9 +26,7 @@ def add_to_wishlist(request, product_id):
 
 def delete_from_wishlist(request, product_id):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
-    wishlistitem = WishlistItem.objects.filter(
-        wishlist=wishlist, product_id=product_id
-    )
+    wishlistitem = WishlistItem.objects.filter(wishlist=wishlist, product_id=product_id)
 
     if wishlistitem:
         wishlistitem.delete()
@@ -49,14 +47,14 @@ def edit_wishlist(request):
         if new_amount > 0:
             total = int(
                 float(request.POST.get("total"))
-            ) + wishlist_item.product.price * (
-                new_amount - wishlist_item.amount
-            )
+            ) + wishlist_item.product.price * (new_amount - wishlist_item.amount)
             total_formated = f"{int(total):,}".replace(",", ".")
             wishlist_item.amount = new_amount
             wishlist_item.save()
-            new_total = f"{int(wishlist_item.amount * wishlist_item.product.price):,}".replace(
-                ",", "."
+            new_total = (
+                f"{int(wishlist_item.amount * wishlist_item.product.price):,}".replace(
+                    ",", "."
+                )
             )
             return JsonResponse(
                 {
@@ -81,9 +79,7 @@ def view_wishlist(request):
     favorite_ids = favoriteproductlist.items.values_list(
         "product", flat=True
     ).distinct()
-    total_price = int(
-        sum(item.product.price * item.amount for item in wishlist)
-    )
+    total_price = int(sum(item.product.price * item.amount for item in wishlist))
     return render(
         request,
         "wishlist.html",

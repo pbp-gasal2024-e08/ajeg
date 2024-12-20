@@ -32,9 +32,7 @@ def login_user(request):
             response.set_cookie("last_login", str(datetime.datetime.now()))
             return response
         else:
-            messages.info(
-                request, "Invalid username or password. Please try again."
-            )
+            messages.info(request, "Invalid username or password. Please try again.")
             return render(request, "login.html")
     if request.user.is_authenticated:
         return redirect("main:show_main")

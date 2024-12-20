@@ -35,9 +35,7 @@ def claim_voucher(request, code):
                 }
             )
         except Voucher.DoesNotExist:
-            return JsonResponse(
-                {"message": "Voucher not found.", "status": "error"}
-            )
+            return JsonResponse({"message": "Voucher not found.", "status": "error"})
         except Exception as e:  # Tangkap semua kesalahan lain
             print(f"Unexpected error: {str(e)}")  # Log kesalahan
             return JsonResponse(
@@ -47,9 +45,7 @@ def claim_voucher(request, code):
                 }
             )
     else:
-        return JsonResponse(
-            {"message": "Invalid request method.", "status": "error"}
-        )
+        return JsonResponse({"message": "Invalid request method.", "status": "error"})
 
 
 def add_to_cart(request, code):
@@ -88,9 +84,7 @@ def add_to_cart(request, code):
                 }
             )
     else:
-        return JsonResponse(
-            {"message": "Invalid request method.", "status": "error"}
-        )
+        return JsonResponse({"message": "Invalid request method.", "status": "error"})
 
 
 def voucher_list_json(request):

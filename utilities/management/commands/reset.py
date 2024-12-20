@@ -40,13 +40,9 @@ class Command(BaseCommand):
             call_command("loaddata", "data.json")
             self.stdout.write(self.style.SUCCESS("Fixture Loaded."))
             User = get_user_model()
-            User.objects.create_superuser(
-                "admin", "admin@example.com", "blank"
-            )
+            User.objects.create_superuser("admin", "admin@example.com", "blank")
             self.stdout.write(
-                self.style.SUCCESS(
-                    'Superuser created: admin (password is "blank").'
-                )
+                self.style.SUCCESS('Superuser created: admin (password is "blank").')
             )
             users = [
                 {
@@ -89,17 +85,13 @@ class Command(BaseCommand):
             store_ids = [1, 2]
             product_ids = [1, 2]
 
-            favorite_store_list = FavoriteStoreList.objects.create(
-                user=first_user
-            )
+            favorite_store_list = FavoriteStoreList.objects.create(user=first_user)
             for store_id in store_ids:
                 favorite_store = FavoriteStore(
                     favorite_list=favorite_store_list, store_id=store_id
                 )
 
-            favorite_product_list = FavoriteProductList.objects.create(
-                user=first_user
-            )
+            favorite_product_list = FavoriteProductList.objects.create(user=first_user)
             for product_id in product_ids:
                 favorite_store = FavoriteProduct(
                     favorite_list=favorite_product_list, product_id=product_id
@@ -112,7 +104,5 @@ class Command(BaseCommand):
                 wishlist_item = WishlistItem.objects.create(
                     wishlist=wishlist,
                     product_id=product_id,
-                    amount=random.randint(
-                        1, 10
-                    ),  # Set to any number, change as needed
+                    amount=random.randint(1, 10),  # Set to any number, change as needed
                 )

@@ -21,9 +21,7 @@ def render_reviews_panel(request, product_id: int):
     if request.user.is_authenticated:
         user = AjegUser.objects.get(ajeg_user=request.user)
 
-    return render(
-        request, "reviews_panel.html", {"product": product, "user": user}
-    )
+    return render(request, "reviews_panel.html", {"product": product, "user": user})
 
 
 def fetch_review_by_id(request: HttpRequest, id: uuid.UUID) -> HttpResponse:
@@ -141,24 +139,19 @@ def edit_review_by_id(request: HttpRequest, id: uuid.UUID):
 @csrf_exempt
 def delete_review_by_id(request: HttpRequest):
     try:
-        review = UserReview.objects.get(
-            id=request.body.decode(encoding="utf-8")
-        )
+        review = UserReview.objects.get(id=request.body.decode(encoding="utf-8"))
     except UserReview.DoesNotExist:
         return HttpResponse("Review does not exist!", status=204)
 
     if review.creator != request.user.ajeg_user:
-        return HttpResponse(
-            "You are not the creator of this review!", status=403
-        )
+        return HttpResponse("You are not the creator of this review!", status=403)
 
     product = review.product
 
     # Recalculate new average product rating
     product.review_count -= 1
     product.average_rating = (
-        product.average_rating * (product.review_count + 1)
-        - review.star_rating
+        product.average_rating * (product.review_count + 1) - review.star_rating
     ) / product.review_count
 
     product.save()

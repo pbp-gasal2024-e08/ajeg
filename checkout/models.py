@@ -7,9 +7,7 @@ from main.models import Product
 
 # Create your models here.
 class Cart(models.Model):
-    user = models.ForeignKey(
-        AjegUser, on_delete=models.CASCADE, blank=True, null=True
-    )
+    user = models.ForeignKey(AjegUser, on_delete=models.CASCADE, blank=True, null=True)
     product = models.OneToOneField(
         Product, on_delete=models.CASCADE, blank=True, null=True
     )
