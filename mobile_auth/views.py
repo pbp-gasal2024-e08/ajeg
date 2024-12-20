@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 
+from myauth.models import AjegUser
+
 @csrf_exempt
 def login(request):
     username = request.POST["username"]
@@ -45,6 +47,7 @@ def register(request):
         username = data["username"]
         password1 = data["password1"]
         password2 = data["password2"]
+        user_type = data["user_type"]
 
         # Check if the passwords match
         if password1 != password2:
@@ -62,6 +65,7 @@ def register(request):
         user = User.objects.create_user(username=username, password=password1)
         user.save()
 
+        ajeg_user = AjegUser.objects.create(ajeg_user=user, user_type=user_type)
         return JsonResponse(
             {
                 "username": user.username,
@@ -70,6 +74,7 @@ def register(request):
             },
             status=200,
         )
+    
 
     else:
         return JsonResponse(
