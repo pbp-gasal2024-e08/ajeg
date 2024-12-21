@@ -29,4 +29,5 @@ urlpatterns = [
     path("", include("wishlist.urls")),
     path("announcement/", include("announcement.urls")),
     path("vouchers/", include("vouchers.urls")),
+    path("", include("mobile_auth.urls"))
 ]

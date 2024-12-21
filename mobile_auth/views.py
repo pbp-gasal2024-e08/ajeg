@@ -44,10 +44,14 @@ def login(request):
 def register(request):
     if request.method == "POST":
         data = json.loads(request.body)
+        user_type = data["user_type"]
         username = data["username"]
         password1 = data["password1"]
         password2 = data["password2"]
-        user_type = data["user_type"]
+
+        #TODO: Check if user_type is correct
+
+        
 
         # Check if the passwords match
         if password1 != password2:
