@@ -53,11 +53,11 @@ INSTALLED_APPS = [
     "faq",
     "main",
     "review",
+    'corsheaders',
     "vouchers",
     "wishlist",
     "favorites",
     "utilities",
-    "corsheaders",
     "mobile_auth",
 ]
 
