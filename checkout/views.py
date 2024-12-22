@@ -128,7 +128,6 @@ def get_cart_json(request):
         serializers.serialize("json", cart), content_type="application/json"
     )
 
-
 @csrf_exempt
 def get_product_json(request):
     product_id = request.GET.get("product_id")
@@ -137,7 +136,6 @@ def get_product_json(request):
         serializers.serialize("json", [product]),
         content_type="application/json",
     )
-
 
 @csrf_exempt
 def update_cart_quantity(request):
@@ -160,7 +158,6 @@ def update_cart_quantity(request):
         safe=False,
     )
 
-
 @csrf_exempt
 def store_page(request, pk):
     store = Store.objects.get(pk=pk)
@@ -176,7 +173,6 @@ def store_page(request, pk):
         "user": user,
     }
     return render(request, "store_page.html", context)
-
 
 @csrf_exempt
 def delete_cart(request):

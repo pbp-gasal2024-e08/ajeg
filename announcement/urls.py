@@ -7,7 +7,8 @@ from .views import (
     get_announcements_by_store,
     create_announcement_flutter,
     edit_announcement_flutter,
-    delete_announcement_flutter
+    delete_announcement_flutter,
+    get_all_announcements
 )
 
 app_name = "announcement"
@@ -25,4 +26,5 @@ urlpatterns = [
     path('create-flutter/', create_announcement_flutter, name='create_announcement_flutter'),
     path("edit-flutter/<uuid:id>", edit_announcement_flutter, name="edit_announcement_flutter"),
     path("delete-flutter/<uuid:id>", delete_announcement_flutter, name="delete_announcement_flutter"),
+    path("", get_all_announcements, name="get_all_announcements")
 ]

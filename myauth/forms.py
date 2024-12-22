@@ -25,7 +25,6 @@ class CreateUserForm(UserCreationForm):
         )
         return user
 
-
 class CreateStoreForm(forms.ModelForm):
     class Meta:
         model = Store
