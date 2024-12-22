@@ -29,7 +29,7 @@ urlpatterns = [
     ),
     path("delete-cart/", delete_cart, name="delete_cart"),
     path("get-cart/", get_cart_json, name="get_cart_json"),
-    path("get-product/<int:pk>", get_product_json, name="get_product_json"),
+    path("get-product/", get_product_json, name="get_product_json"),
     path(
         "update-cart-quantity/",
         update_cart_quantity,

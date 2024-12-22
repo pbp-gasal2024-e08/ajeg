@@ -1,5 +1,6 @@
 import datetime
 from math import floor
+from pickle import FALSE
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse
@@ -50,7 +51,6 @@ def show_product_page(request, pk):
 def show_cart(request):
     carts = Cart.objects.filter(user=request.user.ajeg_user, payment=False)
     context = {"carts": carts}
-    print(context)
     return render(request, "cart_copy.html", context)
 
 
@@ -59,6 +59,7 @@ def show_history(request):
     carts = Cart.objects.filter(user=request.user.ajeg_user, payment=True)
     context = {"carts": carts}
     return render(request, "history.html", context)
+
 
 @login_required
 def show_checkout(request):
@@ -79,6 +80,7 @@ def show_checkout(request):
         "user": request.user,
     }
     return render(request, "checkout.html", context)
+
 
 @login_required
 def show_order_summary(request):
@@ -122,17 +124,9 @@ def show_order_confirmation(request):
 @csrf_exempt
 def get_cart_json(request):
     cart = Cart.objects.filter(user=request.user.ajeg_user)
-
-    print(cart)
-
-    if len(cart) == 0:
-        return HttpResponse(
-        b"ERROR", status=400
-    )
     return HttpResponse(
         serializers.serialize("json", cart), content_type="application/json"
     )
-
 
 @csrf_exempt
 def get_product_json(request):
@@ -142,7 +136,6 @@ def get_product_json(request):
         serializers.serialize("json", [product]),
         content_type="application/json",
     )
-
 
 @csrf_exempt
 def update_cart_quantity(request):
@@ -165,7 +158,6 @@ def update_cart_quantity(request):
         safe=False,
     )
 
-
 @csrf_exempt
 def store_page(request, pk):
     store = Store.objects.get(pk=pk)
@@ -182,7 +174,6 @@ def store_page(request, pk):
     }
     return render(request, "store_page.html", context)
 
-
 @csrf_exempt
 def delete_cart(request):
     data = json.loads(request.body)
@@ -197,27 +188,3 @@ def delete_cart(request):
     # return render(request, 'checkout:show_cart')
     # print("cart", cart.product_id)
     return JsonResponse({"message": "Cart item deleted"}, safe=False)
-
-def add_to_cart_mobile(request, pk):
-    product = Product.objects.get(pk=pk)
-    store = Store.objects.get(pk=product.store_id)
-    user = AjegUser.objects.get(ajeg_user=request.user)
-    quantity = request.POST["quantity"]
-
-    if Cart.objects.filter(user=user, product=product).exists():
-            cart = Cart.objects.get(user=user, product=product)
-            cart.quantity += quantity
-            cart.total_price += product.price * quantity
-            cart.save()
-            return JsonResponse(
-                {
-                    "message": "quantity has been updated"
-                }, status=200
-            )
-    else:
-        cart = Cart.objects.create(
-            user=user,
-            product=product,
-            quantity=quantity,
-            total_price=product.price * quantity,
-        )
