@@ -8,14 +8,17 @@ from .views import (
     create_announcement_flutter,
     edit_announcement_flutter,
     delete_announcement_flutter,
-    get_all_announcements
+    get_announcements_flutter
 )
 
 app_name = "announcement"
 
 urlpatterns = [
+    path("get-flutter/", get_announcements_flutter, name="get_announcements_flutter"),
+    path('create-flutter/', create_announcement_flutter, name='create_announcement_flutter'),
+    path("edit-flutter/<uuid:id>", edit_announcement_flutter, name="edit_announcement_flutter"),
+    path("delete-flutter/<uuid:id>", delete_announcement_flutter, name="delete_announcement_flutter"),
     path("create", create_announcement_ajax, name="create_announcement_ajax"),
-    path("<str:id>", get_announcement_by_id, name="get_announcement_by_id"),
     path(
         "store/<int:store_id>",
         get_announcements_by_store,
@@ -23,8 +26,5 @@ urlpatterns = [
     ),
     path("edit/<uuid:id>", edit_announcement, name="edit_announcement"),
     path("delete/<uuid:id>", delete_announcement, name="delete_announcement"),
-    path('create-flutter/', create_announcement_flutter, name='create_announcement_flutter'),
-    path("edit-flutter/<uuid:id>", edit_announcement_flutter, name="edit_announcement_flutter"),
-    path("delete-flutter/<uuid:id>", delete_announcement_flutter, name="delete_announcement_flutter"),
-    path("", get_all_announcements, name="get_all_announcements")
+    # path("<str:id>", get_announcement_by_id, name="get_announcement_by_id"),
 ]
