@@ -73,18 +73,20 @@ def delete_announcement(request, id):
 @csrf_exempt
 def create_announcement_flutter(request):
     if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
 
-        data = json.loads(request.body)
+            new_announcement = Announcement.objects.create(
+                title=data["title"],
+                description=data["description"],
+                store_id=int(data["store"]),
+            )
 
-        new_announcement = Announcement.objects.create(
-            title=data["title"],
-            description=data["description"],
-            store_id=int(data["store"]),
-        )
+            new_announcement.save()
 
-        new_announcement.save()
-
-        return JsonResponse({"status": "success"}, status=200)
+            return JsonResponse({"status": "success"}, status=200)
+        except:
+            return JsonResponse({"status": "error"}, status=400)
     else:
         return JsonResponse({"status": "error"}, status=401)
 
@@ -112,8 +114,20 @@ def delete_announcement_flutter(request, id):
     announcement.delete()
     return JsonResponse({"status": "success"}, status=200)
 
-def get_all_announcements(request):
-    data = Announcement.objects.all()
-    return HttpResponse(
-        serializers.serialize("json", data), content_type="application/json"
-    )
+def get_announcements_flutter(request):
+    announcements = Announcement.objects.all()
+    user = request.user.ajeg_user
+
+    data = []
+    for announcement in announcements:
+        announcement_obj = {
+            "pk": announcement.pk,
+            "title": announcement.title,
+            "description": announcement.description,
+            "store": announcement.store.id,
+            "storeName": announcement.store.name,
+            "isOwner": announcement.store in user.merchant_store,
+        }
+        data.append(announcement_obj)
+
+    return JsonResponse(data, status=200, safe=False)
