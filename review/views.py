@@ -43,7 +43,7 @@ def fetch_reviews_by_product(request: HttpRequest, product_id: int):
             review_json["editable"] = False
         reviews_json.append(review_json)
 
-    return JsonResponse(reviews_json, safe=False, status=200)
+    return JsonResponse({"data": reviews_json}, status=200)
 
 
 # Check this implementation in the future

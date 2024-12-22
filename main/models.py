@@ -25,8 +25,8 @@ class Product(models.Model):
     price = models.IntegerField()
     description = models.TextField(default="Deskripsi Kosong")
     imgurl = models.URLField(null=True, blank=True)
-    review_count = models.IntegerField(null=True, default=0)
-    average_rating = models.PositiveSmallIntegerField(null=True, default=0)
+    review_count = models.IntegerField(null=False, default=0)
+    average_rating = models.PositiveSmallIntegerField(null=False, default=0)
 
     def __str__(self):
         return self.name
