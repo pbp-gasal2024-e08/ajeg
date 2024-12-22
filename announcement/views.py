@@ -131,3 +131,8 @@ def get_announcements_flutter(request):
         data.append(announcement_obj)
 
     return JsonResponse(data, status=200, safe=False)
+
+def is_merchant_flutter(request):
+    user = request.user.ajeg_user
+    stores = user.merchant_store
+    return JsonResponse({"isMerchant": len(stores) > 0}, status=200)
