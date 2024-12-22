@@ -1,5 +1,4 @@
 from django.urls import path
-from requests import delete
 from .views import (
     show_cart,
     show_checkout,
