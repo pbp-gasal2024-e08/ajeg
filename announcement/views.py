@@ -111,3 +111,9 @@ def delete_announcement_flutter(request, id):
     announcement = Announcement.objects.get(pk=id)
     announcement.delete()
     return JsonResponse({"status": "success"}, status=200)
+
+def get_all_announcements(request):
+    data = Announcement.objects.all()
+    return HttpResponse(
+        serializers.serialize("json", data), content_type="application/json"
+    )
