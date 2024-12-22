@@ -1,0 +1,222 @@
+[
+    {
+        "model": "vouchers.voucher",
+        "pk": 1,
+        "fields": {
+            "code": "AJEG75",
+            "discount": "75.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 2,
+        "fields": {
+            "code": "AJEG50",
+            "discount": "50.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 3,
+        "fields": {
+            "code": "AJEG100",
+            "discount": "100.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": true
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 4,
+        "fields": {
+            "code": "AJEG30",
+            "discount": "30.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 5,
+        "fields": {
+            "code": "AJEG15",
+            "discount": "15.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": true
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 6,
+        "fields": {
+            "code": "AJEG20",
+            "discount": "20.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 7,
+        "fields": {
+            "code": "AJEG90",
+            "discount": "90.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 8,
+        "fields": {
+            "code": "AJEG70",
+            "discount": "70.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 9,
+        "fields": {
+            "code": "AJEG60",
+            "discount": "60.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 10,
+        "fields": {
+            "code": "AJEG40",
+            "discount": "40.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 11,
+        "fields": {
+            "code": "AJEG25",
+            "discount": "25.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 12,
+        "fields": {
+            "code": "AJEG80",
+            "discount": "80.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 13,
+        "fields": {
+            "code": "AJEG95",
+            "discount": "90.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 14,
+        "fields": {
+            "code": "AJEGG75",
+            "discount": "75.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 15,
+        "fields": {
+            "code": "AJEG100DONG",
+            "discount": "100.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": true
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 16,
+        "fields": {
+            "code": "AJEGG90",
+            "discount": "90.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": true
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 17,
+        "fields": {
+            "code": "AJEG10",
+            "discount": "10.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 18,
+        "fields": {
+            "code": "AJEG35",
+            "discount": "35.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 19,
+        "fields": {
+            "code": "AJEGG10",
+            "discount": "10.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    },
+    {
+        "model": "vouchers.voucher",
+        "pk": 20,
+        "fields": {
+            "code": "AJEGG15",
+            "discount": "15.00",
+            "expiry_date": "2025-02-21T23:59:00Z",
+            "is_claimed": false,
+            "is_flash_sale": false
+        }
+    }
+]

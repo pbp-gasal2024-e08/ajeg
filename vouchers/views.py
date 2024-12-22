@@ -4,8 +4,8 @@ from django.utils import timezone
 from .models import Voucher
 from .forms import VoucherForm
 from django.core import serializers
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_POST
+# from django.contrib.auth.decorators import login_required
+# from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 import json
 
@@ -16,9 +16,9 @@ def voucher_list(request):
     vouchers = Voucher.objects.all()
     return render(request, "voucher_list.html", {"vouchers": vouchers})
 
-@login_required(login_url="/login")
+# @login_required(login_url="/login")
 @csrf_exempt
-@require_POST
+# @require_POST
 def claim_voucher(request, code):
     if request.method == "POST":  # Pastikan ini adalah permintaan POST
         print(f"Claiming voucher with code: {code}")
@@ -52,8 +52,8 @@ def claim_voucher(request, code):
     else:
         return JsonResponse({"message": "Invalid request method.", "status": "error"})
 
-@login_required(login_url="/login")
-@require_POST
+# @login_required(login_url="/login")
+# @require_POST
 def add_to_cart(request, code):
     if request.method == "POST":
         try:
