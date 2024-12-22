@@ -8,13 +8,15 @@ from .views import (
     create_announcement_flutter,
     edit_announcement_flutter,
     delete_announcement_flutter,
-    get_announcements_flutter
+    get_announcements_flutter,
+    is_merchant_flutter
 )
 
 app_name = "announcement"
 
 urlpatterns = [
     path("get-flutter/", get_announcements_flutter, name="get_announcements_flutter"),
+    path("is-merchant-flutter/", is_merchant_flutter, name="is_merchant_flutter"),
     path('create-flutter/', create_announcement_flutter, name='create_announcement_flutter'),
     path("edit-flutter/<uuid:id>", edit_announcement_flutter, name="edit_announcement_flutter"),
     path("delete-flutter/<uuid:id>", delete_announcement_flutter, name="delete_announcement_flutter"),
